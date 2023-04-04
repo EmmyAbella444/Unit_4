@@ -2,7 +2,7 @@
 ![Screen Shot 2023-04-04 at 22 41 19](https://user-images.githubusercontent.com/111819437/229811582-8aeffdac-af8f-45c9-9c83-f9ce0ab9d3d0.png)
 
 ## CODE
-``.py
+```.py
 # Define a class called Flight
 class Flight:
     # Constructor to initialize the object with flight details
@@ -24,6 +24,6 @@ flight2 = Flight(flight_number="AA321", flight_origin="Japan", destination="Braz
 # Print the duration of each flight
 print(flight1.get_duration())
 print(flight2.get_duration())
-``
+```
 ## EVIDENCE
 ![Screen Shot 2023-04-04 at 23 14 35](https://user-images.githubusercontent.com/111819437/229820972-06c1bbde-8f62-455f-a99f-3f81532ef13a.png)
