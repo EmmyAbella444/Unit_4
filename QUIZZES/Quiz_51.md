@@ -35,6 +35,7 @@ print(wheel.get_km_per_rotation())
 
 ```
 ## EVIDENCE
-![Screen Shot 2023-04-04 at 23 36 38](https://user-images.githubusercontent.com/111819437/229827256-359781a7-d509-45c9-9145-e71b482d4150.png)
+![Screen Shot 2023-04-04 at 23 37 09](https://user-images.githubusercontent.com/111819437/229827410-bd60582b-b5b5-4e36-ba39-a51479611187.png)
+
 
 
