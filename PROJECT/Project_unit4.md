@@ -46,10 +46,10 @@
 
 
 ## Record of Tasks
-| Task No 	| Planned Action                                                                                                                 	| Planned Outcome                                                                                                       	| Time estimate 	| Target completion date 	| Criterion 	|
-|---------	|--------------------------------------------------------------------------------------------------------------------------------	|-----------------------------------------------------------------------------------------------------------------------	|---------------	|------------------------	|-----------	|
-| 1       	| meeting with client                                                                                                            	| Start collecting the context of the problem                                                                           	| 6min          	| 7 february             	| A         	|
-
+| Task No 	| Planned Action          	| Planned Outcome                           	| Time estimate 	| Target completion date 	| Criterion 	|
+|---------	|-------------------------	|-------------------------------------------	|---------------	|------------------------	|-----------	|
+| 1       	| Brainstorm of ideas     	| Have the first ideas for the project      	| 30 minutes    	| April 4                	| A         	|
+| 2       	| Start the documentation 	| Have the first draft of the documentation 	| 20 minutes    	| April 4                	| B         	|
 ## Existing tools
 
 | Software/Development tools    	| Coding Structure Tools        	| Libraries         	|
