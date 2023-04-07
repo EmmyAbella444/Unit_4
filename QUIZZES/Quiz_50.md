@@ -5,7 +5,7 @@
 ```.py
 # Define a class called Flight
 class Flight:
-    # Constructor to initialize the object with flight details
+    
     def __init__(self, flight_number:str,flight_origin:str,destination:str,departure_time:str,duration:list):
         self.flight_number = flight_number
         self.flight_origin = flight_origin
@@ -17,7 +17,7 @@ class Flight:
     def get_duration(self):
         return f"{self.duration[0]} hours {self.duration[1]} minutes and {self.duration[2]} seconds"
 
-# Create two instances of the Flight class with different details
+# Create two objects of the Flight class 
 flight1 = Flight(flight_number="AA123", flight_origin="New york", destination="Los Angeles", departure_time="10:00 am",duration=[1,20,30])
 flight2 = Flight(flight_number="AA321", flight_origin="Japan", destination="Brazil", departure_time="2:25 pm",duration=[4,50,40])
 
