@@ -1,6 +1,7 @@
 
 
 # Unit 4: The CasHub - Create, Join and Showcase Your Clubs and Activities!
+![CasHub](https://user-images.githubusercontent.com/111819437/230706984-63f93d70-8df8-4a51-92c4-29c683cc5993.png)
 
 
 # Criteria A: Planning
