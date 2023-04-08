@@ -8,6 +8,8 @@ Mental Health Advocacy: Encourage students to become advocates for mental health
 chat with anonymous people
 College-themed clubs and groups: Create clubs and groups focused on different college majors or interests, to help students explore their passions and connect with others who share similar interests and are apllying to the same collges/majorss
 clubs for cas portifolio
+TalkTrendy - a social network that encourages users to share their unique perspectives on the latest news and trends.
+BookBuddies - a social network for bookworms to connect, share their favorite reads, and discover new books to add to their list.
 
 ### Important
 At least 35 record of tasks
