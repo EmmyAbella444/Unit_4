@@ -18,14 +18,14 @@ To address the challenges faced by the grade 11 IB students at ISAK with their C
 This innovative approach to managing extracurricular activities not only helps students develop better portfolios but also provides an opportunity for clubs to showcase their activities and accomplishments, and also for the clubs and activities faculty leader to make sure that students-lead clubs are holding sessions.
 Overall, the creation of Cashub offers an effective solution to the problem of incomplete portfolios for IB students at ISAK. By providing students with a central platform to manage their extracurricular activities and proper documentation of their activities, Cashub helps students showcase their skills and accomplishments while also providing a space for clubs to share their successes with others.
 
-### Design Statement
+## Design Statement
 
 
-### RATIONALE
+### Rationale
 
 
 
-## Success Criteria
+### Success Criteria
 1. 
 2.
 3.
@@ -70,14 +70,13 @@ Overall, the creation of Cashub offers an effective solution to the problem of i
 
 | Software/Development tools    	| Coding Structure Tools        	| Libraries         	|
 |-------------------------------	|-------------------------------	|-------------------	|
-| PyCharm professional 2022.3.2 	| 	|                   	|
 | Python                        	| SQL requests                  	| sqlite3           	|
 | SQlite                        	| Database                      	| passlib           	|
-| KivyMD                        	| Encryption                    	|                   	|
-| Github Copilot                	| For loops                     	| database_handler  	|
-| Html                                	| If-else statements            	| encrypto_password 	|
+| KivyMD                        	| Encryption                    	| database_handler                   	|
+| Github Copilot                	| For loops                     	| encrypto_password  	|
+| Html                                	| If-else statements            	| 	|
 | CSS                              	| ORM (Object Relation Mapping) 	|                   	|
-|                               	| Index                         	|                   	|
+| PyCharm professional 2022.3.2                               	| Index                         	|                   	|
 
 ## Development
 
