@@ -3,6 +3,8 @@
 # Unit 4: The CasHub - Create, Join and Showcase Your Clubs and Activities!
 ![CasHub](https://user-images.githubusercontent.com/111819437/230706984-63f93d70-8df8-4a51-92c4-29c683cc5993.png)
 
+Fig1.Logo for the website made in Canva
+
 
 # Criteria A: Planning
 
@@ -26,11 +28,11 @@ Overall, the creation of Cashub offers an effective solution to the problem, by 
 
 
 ### Success Criteria
-1. 
-2.
-3.
-4.
-5.
+1.The website should allow students to create profiles with personal information.
+2.Each club should have a main page that displays all the posts made by its members.
+3.The website should ensure that all activities are properly documented and tagged, which is essential for completing the CAS portfolio.
+4.The website should have appropriate privacy and security measures to protect the personal information of the users and prevent unauthorized access to the data.
+5.The website should have a search function to allow users to quickly and easily see all their posts.
 
 # Criteria B: Design
 ## System Diagram
