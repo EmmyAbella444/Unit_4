@@ -41,6 +41,7 @@ Overall, the creation of Cashub offers an effective solution to the problem of i
 ## UML Diagram
 
 ## ER Diagram
+![Blank diagram](https://user-images.githubusercontent.com/111819437/230709804-d31baa27-dfa0-4540-9292-de6e401da516.png)
 
 
 ## Flow Diagrans
