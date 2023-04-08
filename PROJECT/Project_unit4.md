@@ -1,14 +1,22 @@
 
 
-# Unit 4: A unique Social network
+# Unit 4: The CasHub - Create, Join and Showcase Your Clubs and Activities!
 
 
 # Criteria A: Planning
 
 
 ## Problem definition
+The International Baccalaureate (IB) program is a rigorous academic curriculum that emphasizes holistic learning, including the development of creativity, action, and service (CAS) skills. As part of this program, students are required to create a CAS portfolio that documents their participation in extracurricular activities outside of the classroom.
+However, the grade 11 IB students at ISAK  have been facing challenges with their CAS portfolio. Many of them do not have proper documentation of their activities and lack photographs and descriptions of the clubs sessions they participated in. This has resulted in more than half of the students having incomplete portfolios.
+The CAS portfolio is an important part of the IB program and is used to assess a student's engagement in creative, active, and service-oriented activities. It is designed to help students reflect on their experiences and develop key skills such as collaboration, leadership, and communication.
+Without proper documentation, students may find it difficult to demonstrate their involvement in these activities and may receive a lower grade on their CAS portfolio. This can have a negative impact on their overall IB score and future university applications.
 
 ## Proposed Solution
+To address the challenges faced by the grade 11 IB students at ISAK with their CAS portfolio, I proposed a solution in the form of a new website. This website, called Cashub, provides a platform for students to create profiles, add personal information, and join clubs that align with their interests and passions.With Cashub, each club has a main page controlled by the club leader, who is responsible for posting updates after each session with descriptions and photos, and can tag each member of the club to ensure that all members will have that activity in their profiles. This approach ensures that students have proper documentation of their extracurricular activities, which is essential for completing their CAS portfolio.
+This innovative approach to managing extracurricular activities not only helps students develop better portfolios but also provides an opportunity for clubs to showcase their activities and accomplishments, and also for the clubs and activities faculty leader to make sure that students-lead clubs are holding sessions.
+Overall, the creation of Cashub offers an effective solution to the problem of incomplete portfolios for IB students at ISAK. By providing students with a central platform to manage their extracurricular activities and proper documentation of their activities, Cashub helps students showcase their skills and accomplishments while also providing a space for clubs to share their successes with others.
+
 ### Design Statement
 
 
