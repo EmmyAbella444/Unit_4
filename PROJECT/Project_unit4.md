@@ -65,7 +65,8 @@ Overall, the creation of Cashub offers an effective solution to the problem of i
 | 5       	| Write the problem difinition	| To have a clear ideia for the proposed solution	| 30 minutes    	| April 8                	| A         	|
 | 6       	| Write the design statement - Proposed solution	|To have a better idea on how the application is going to look like	| 30 minutes    	| April 8                	| A         	|
 | 7       	| Define the success criterias	| to have a clear idea about the features in the application	| 30 minutes    	| April 8    	| A         	|
-| 8       	| Design the wireframe| Have a clear view of how the website is going to look like	| 2 hours   	| April 8                	| B         	|
+| 8       	| Make the ER diagram	| Have an idea of the the data entities, attributes, and relationships between them	| 30 minutes    	| April 8                	| B         	|
+| 9       	| Design the wireframe| Have a clear view of how the website is going to look like	| 2 hours   	| April 8                	| B         	|
 
 ## Existing tools
 
