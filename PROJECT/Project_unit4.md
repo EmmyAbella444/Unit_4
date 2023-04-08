@@ -28,11 +28,15 @@ Overall, the creation of Cashub offers an effective solution to the problem, by 
 
 
 ### Success Criteria
-1.The website should allow students to create profiles with personal information.
-2.Each club should have a main page that displays all the posts made by its members.
-3.The website should ensure that all activities are properly documented and tagged, which is essential for completing the CAS portfolio.
-4.The website should have appropriate privacy and security measures to protect the personal information of the users and prevent unauthorized access to the data.
-5.The website should have a search function to allow users to quickly and easily see all their posts.
+
+1. The website should allow students to create profiles with personal information. 
+2. Each club should have a main page that displays all the posts made by its members. 
+3. The website should ensure that all activities are properly documented and tagged, which is essential for completing the CAS portfolio. 
+4. The website should have appropriate privacy and security measures to protect the personal information of the users and prevent unauthorized access to the data.
+5. The website should have a search function to allow users to quickly and easily see all their posts. 
+6. The website should have an option to dele days.
+7. The website should have an option that allow users to search for every clubs page and students profile.
+
 
 # Criteria B: Design
 ## System Diagram
