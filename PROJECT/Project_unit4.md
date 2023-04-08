@@ -52,8 +52,10 @@
 | 2       	| Start the documentation 	| Have the first draft of the documentation 	| 20 minutes    	| April 4                	| B         	|
 | 3       	| Make a folder in code pen	| Have ideas for the wireframe of the project	| 30 minutes    	| April 7                	| A         	|
 | 4       	| Select final idea	|Choose the best idea for the project | 30 minutes    	| April 8                	| A         	|
-| 3       	| Define the success criterias	| 	| 30 minutes    	| April 7                	| A         	|
-
+| 5       	| Write the problem difinition	| To have a clear ideia for the proposed solution	| 30 minutes    	| April 8                	| A         	|
+| 6       	| Write the design statement - Proposed solution	|To have a better idea on how the application is going to look like	| 30 minutes    	| April 8                	| A         	|
+| 7       	| Define the success criterias	| to have a clear idea about the features in the application	| 30 minutes    	| April 8    	| A         	|
+| 8       	| Design the wireframe| Have a clear view of how the website is going to look like	| 2 hours   	| April 8                	| B         	|
 
 ## Existing tools
 
