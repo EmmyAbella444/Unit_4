@@ -34,7 +34,7 @@ Overall, the creation of Cashub offers an effective solution to the problem, by 
 3. The website should ensure that all activities are properly documented and tagged, which is essential for completing the CAS portfolio. 
 4. The website should have appropriate privacy and security measures to protect the personal information of the users and prevent unauthorized access to the data.
 5. The website should have a search function to allow users to quickly and easily see all their posts. 
-6. The website should have an option to dele days.
+6. The website should have an option to delete posts.
 7. The website should have an option that allow users to search for every clubs page and students profile.
 
 
