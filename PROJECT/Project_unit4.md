@@ -1,7 +1,8 @@
 
 
 # Unit 4: The CasHub - Create, Join and Showcase Your Clubs and Activities!
-![CasHub](https://user-images.githubusercontent.com/111819437/230706984-63f93d70-8df8-4a51-92c4-29c683cc5993.png)
+![CasHub (2)](https://user-images.githubusercontent.com/111819437/230899973-d353750e-ac64-4d2c-80a1-a1263a509b46.png)
+
 
 Fig1.Logo for the website made in Canva[^1]
 
