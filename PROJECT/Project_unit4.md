@@ -3,7 +3,7 @@
 # Unit 4: The CasHub - Create, Join and Showcase Your Clubs and Activities!
 ![CasHub](https://user-images.githubusercontent.com/111819437/230706984-63f93d70-8df8-4a51-92c4-29c683cc5993.png)
 
-Fig1.Logo for the website made in Canva
+Fig1.Logo for the website made in Canva[^1]
 
 
 # Criteria A: Planning
@@ -96,3 +96,4 @@ Overall, the creation of Cashub offers an effective solution to the problem, by 
 
 
 ### Citations
+[^1]: link
