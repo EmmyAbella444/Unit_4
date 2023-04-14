@@ -49,7 +49,7 @@ Overall, the creation of Cashub offers an effective solution to the problem, by 
 
 ## ER Diagram
 ![Blank diagram (1)](https://user-images.githubusercontent.com/111819437/230711419-fc18121d-b757-4c97-bfad-ab51a785fec1.png)
-
+Fig.5 Shows the ER Diagram for the database used in the social network
 
 
 ## Flow Diagrans
@@ -75,6 +75,15 @@ Overall, the creation of Cashub offers an effective solution to the problem, by 
 | 7       	| Define the success criterias	| to have a clear idea about the features in the application	| 30 minutes    	| April 8    	| A         	|
 | 8       	| Make the ER diagram	| Have an idea of the the data entities, attributes, and relationships between them	| 30 minutes    	| April 8                	| B         	|
 | 9       	| Design the wireframe| Have a clear view of how the website is going to look like	| 2 hours   	| April 8                	| B         	|
+| 10       	| Design the system diagram	|To have a clear idea of the hardware and software requirements for the proposed solution | 1 hour    	| April 9                	| B         	|
+| 11       	| Create logo| have a logo that shows what the program is about| 1 hour  	| April 10                	| C         	|
+| 12       	| Create the databases and tables following the ER diagram| to store the data for the program	| 30 minutes    	| April 10                	| C         	|
+| 13       	| Create desigh for signup and register page	| Make designs on canva to make the social network more appelealing| 30 minutes    	| April 7                	| C         	|
+| 14       	| Create different routes for sign up, register and mainpage| Have the pages of the social network	| 2 hours   	| April 8                	| C         	|
+| 15       	| Code the registration page| Make the user able to register their personal data| 2 hours  	| April 11                	| C         	|
+| 16       	| Code the login page| Make the user able to login in the social network| 2 hours  	| April 11                	| C         	|
+| 17       	| Code the Main page| Make the user able to see all posts and post a new entrie in the social network| 2 hours  	| April 12                	| C         	|
+
 
 ## Existing tools
 
@@ -97,4 +106,4 @@ Overall, the creation of Cashub offers an effective solution to the problem, by 
 
 
 ### Citations
-[^1]: link
+[^1]:  https://www.canva.com/
