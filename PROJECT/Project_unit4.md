@@ -82,7 +82,8 @@ Fig.5 Shows the ER Diagram for the database used in the social network
 | 14       	| Create different routes for sign up, register and mainpage| Have the pages of the social network	| 2 hours   	| April 8                	| C         	|
 | 15       	| Code the registration page| Make the user able to register their personal data| 2 hours  	| April 11                	| C         	|
 | 16       	| Code the login page| Make the user able to login in the social network| 2 hours  	| April 11                	| C         	|
-| 17       	| Code the Main page| Make the user able to see all posts and post a new entrie in the social network| 2 hours  	| April 12                	| C         	|
+| 17       	| Code the Main page| Make the user able to see all posts| 2 hours  	| April 12                	| C         	|
+| 18       	| Code the new post feature| Make the user to post a new entrie in the social network| 2 hours  	| April 12                	| C         	
 
 
 ## Existing tools
