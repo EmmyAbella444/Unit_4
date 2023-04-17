@@ -46,6 +46,8 @@ To store the data, I will be using the SQLite database engine. This database eng
 
 # Criteria B: Design
 ## System Diagram
+![Habit Tracker (2)](https://user-images.githubusercontent.com/111819437/232434049-991cecb2-b176-498c-8fed-634777d20211.png)
+Fig.4 Shows the System Diagram for the project, The application uses PyCharm with an app.py python file, templates in HTML and static files in CSS. As well as the Flask Library, and My_Library libraries to create the program. The arrows in the diagram indicate the data that is stored in the Social_net.db database, which utilizes the SQLite database engine.
 
 
 ## Wireframe
@@ -58,6 +60,7 @@ Fig.5 Shows the ER Diagram for the database used in the social network
 
 
 ## Flow Diagrans
+
 
 
 
