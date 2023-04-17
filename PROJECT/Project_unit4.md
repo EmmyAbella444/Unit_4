@@ -25,7 +25,13 @@ Overall, the creation of Cashub offers an effective solution to the problem, by 
 
 
 ### Rationale
+To create a comprehensive and effective solution, the primary programming language for the back end will be Python, with the Flask library. Python is a versatile language that can be used for web development, scientific computing, data analysis, and artificial intelligence, making it an excellent choice for this project. Python has a supportive community and comprehensive documentation, making it easy to learn and use, which will help in building a reliable solution.
 
+Flask is a lightweight framework that is ideal for building web applications. It is easy to use, flexible, and can be customized to meet specific requirements. Flask provides essential features such as request handling, routing, and template rendering, making it an excellent choice for developing the back end of this solution.
+
+For the front end, the user interface will be created using HTML and CSS. HTML is the standard markup language used for creating web pages, and CSS is used for styling and formatting the pages. The interface will be designed to be user-friendly and intuitive, with a modern and visually appealing layout.
+
+To store the data, I will be using the SQLite database engine. This database engine is optimized for efficiently managing and storing large amounts of data, which makes it a reliable choice for applications that need to handle and scale with growing amounts of data. The SQLite database engine enables the storage of structured data that can be easily queried and analyzed, while also providing data integrity and transaction management features to ensure data accuracy and consistency. This will enable me to create a robust and reliable solution that can handle a significant amount of data while maintaining data accuracy and consistency.
 
 
 ### Success Criteria
@@ -33,10 +39,9 @@ Overall, the creation of Cashub offers an effective solution to the problem, by 
 1. The website should allow students to create profiles with personal information. 
 2. Each club should have a main page that displays all the posts made by its members. 
 3. The website should ensure that all activities are properly documented and tagged, which is essential for completing the CAS portfolio. 
-4. The website should have appropriate privacy and security measures to protect the personal information of the users and prevent unauthorized access to the data.
-5. The website should have a search function to allow users to quickly and easily see all their posts. 
-6. The website should have an option to delete posts.
-7. The website should have an option that allow users to search for every clubs page and students profile.
+4. The website should have a search function to allow users to quickly and easily see all their posts. 
+5. The website should have an option to delete posts.
+6. The website should have an option that allow users to search for every clubs page and students profile.
 
 
 # Criteria B: Design
