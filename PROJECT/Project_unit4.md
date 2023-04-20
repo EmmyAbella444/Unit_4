@@ -92,7 +92,9 @@ Fig.5 Shows the ER Diagram for the database used in the social network
 | 16       	| Code the login page| Make the user able to login in the social network| 2 hours  	| April 11                	| C         	|
 | 17       	| Code the Main page| Make the user able to see all posts| 2 hours  	| April 12                	| C         	|
 | 18       	| Code the add post feature| Make the user able to post a new entry in the social network| 2 hours  	| April 12                	| C       
-| 19       	| | Make the user able to post a new entry in the social network| 2 hours  	| April 12                	| C       
+| 19       	| Fix the datetime of the post featuers| Make the user able to register the date of each entry| 2 hours  	| April 20                	| C       
+| 19       	| Fix the uploade of pictures on the aadd post | Make the user able to add photos on the posts| 2 hours  	| April 20                	| C       
+
 
 
 ## Existing tools
