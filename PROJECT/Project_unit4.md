@@ -91,7 +91,8 @@ Fig.5 Shows the ER Diagram for the database used in the social network
 | 15       	| Code the registration page| Make the user able to register their personal data| 2 hours  	| April 11                	| C         	|
 | 16       	| Code the login page| Make the user able to login in the social network| 2 hours  	| April 11                	| C         	|
 | 17       	| Code the Main page| Make the user able to see all posts| 2 hours  	| April 12                	| C         	|
-| 18       	| Code the new post feature| Make the user able to post a new entry in the social network| 2 hours  	| April 12                	| C         	
+| 18       	| Code the add post feature| Make the user able to post a new entry in the social network| 2 hours  	| April 12                	| C       
+| 19       	| | Make the user able to post a new entry in the social network| 2 hours  	| April 12                	| C       
 
 
 ## Existing tools
@@ -106,13 +107,22 @@ Fig.5 Shows the ER Diagram for the database used in the social network
 | CSS                              	| ORM (Object Relation Mapping) 	|                   	|
 | PyCharm professional 2022.3.2                               	| Index                         	|                   	|
 
-## Development
+## Development C
 
 # Criteria D: Functionality
 ## A video demonstrating the proposed solution with narration
 
 
-
+# List of thechinics
+flasks routes
+cookies
+validation
+SQL queries
+Hashing password
+searching
+admin page
+statistics
+tags
 
 ### Citations
 [^1]:  https://www.canva.com/
