@@ -36,12 +36,12 @@ To store the data, I will be using the SQLite database engine. This database eng
 
 ### Success Criteria
 
-1. The website should allow students to create profiles with personal information. 
-2. Each club should have a main page that displays all the posts made by its members. 
-3. The website should ensure that all activities are properly documented and tagged, which is essential for completing the CAS portfolio. 
-4. The website should have a search function to allow users to quickly and easily see all their posts. 
-5. The website should have an option to delete posts.
-6. The website should have an option that allow users to search for every clubs page and students profile.
+1. The website should ensure that all activities are properly documented and tagged, which is essential for completing the CAS portfolio. 
+2. The website should provide clear guidelines and instructions for students on how to properly document their activities and what information to include in their posts.
+3. The website should have a search option that allows users to see other students' profiles and the posts for each club.
+4. The website should have an option to delete posts.
+5. The website should provide reminders for students to post about their activities.
+
 
 
 # Criteria B: Design
