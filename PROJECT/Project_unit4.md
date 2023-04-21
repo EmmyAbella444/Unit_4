@@ -11,9 +11,8 @@ Fig1.Logo for the website made in Canva[^1]
 
 
 ## Problem definition
-The International Baccalaureate (IB) program is a rigorous academic curriculum that emphasizes holistic learning, including the development of creativity, action, and service (CAS) skills. As part of this program, students are required to create a CAS portfolio that documents their participation in extracurricular activities outside of the classroom.
-However, the grade 11 IB students at ISAK  have been facing challenges with their CAS portfolio. Many of them do not have proper documentation of their activities and lack photographs and descriptions of the clubs sessions they participated in. This has resulted in more than half of the students having incomplete portfolios.
-The CAS portfolio is an important part of the IB program and is used to assess a student's engagement in creative, active, and service-oriented activities. It is designed to help students reflect on their experiences and develop key skills such as collaboration, leadership, and communication.
+The IB program is a academic curriculum that emphasizes holistic learning, including the development of creativity, action, and service (CAS) skills. As part of this program, students are required to create a CAS portfolio that documents their participation in extracurricular activities outside of the classroom. However, the grade 11 of IB students at ISAK  have been facing challenges with their CAS portfolio. Many of them do not have proper documentation of their activities and lack pictures, descriptions or refelcetions of the clubs sessions they participated in. They also forget to update the portifolio every week and teachers also have problems to check every student progress and this has resulted in more than half of the students having incomplete portfolios.
+The CAS portfolio is an important part of the IB program and is used to assess a student's engagement in creative, active, and service-oriented activities, it is designed to help students reflect on their experiences and develop key skills such as collaboration, leadership, and communication.However the currently portifolio lacks an option to see other students profile and interact with them.
 Without proper documentation, students may find it difficult to demonstrate their involvement in these activities and may receive a lower grade on their CAS portfolio. This can have a negative impact on their overall IB score and future university applications.
 
 ## Proposed Solution
@@ -36,11 +35,12 @@ To store the data, I will be using the SQLite database engine. This database eng
 
 ### Success Criteria
 
-1. The website should ensure that all activities are properly documented and tagged, which is essential for completing the CAS portfolio. 
-2. The website should provide clear guidelines and instructions for students on how to properly document their activities and what information to include in their posts.
-3. The website should have a search option that allows users to see other students' profiles and the posts for each club.
-4. The website should have an option to delete posts.
-5. The website should provide reminders for students to post about their activities.
+1. The website should ensure that all posts with activities are properly documented and tagged, which is essential for completing the CAS portfolio. 
+2. The website should have a search option that allows users to see other students' profiles and the posts for each club.
+3. The website should provide reminders for students to post about their activities.
+4. The website should allow students to like and comment other students posts.
+5. The website should have a page with statiscs of every student.
+6. The website should have a ranking of the top 5 students and top 5 clubs of the week.
 
 
 
