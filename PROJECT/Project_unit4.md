@@ -37,7 +37,7 @@ To store the data, I will be using the SQLite database engine. This database eng
 3. The website should provide reminders for students to post about their activities.
 4. The website should allow students to like and comment other students posts.
 5. The website should have a page with statiscs of every student.
-6. The website should have a ranking of the top 5 students and top 5 clubs of the week.
+
 
 
 
