@@ -103,7 +103,7 @@ Fig.5 Shows the ER Diagram for the database used in the social network
 | KivyMD                        	| Encryption                    	| database_handler                   	|
 | Github Copilot                	| For loops                     	| encrypto_password  	|
 | Html                                	| If-else statements            	| 	|
-| CSS                              	| ORM (Object Relation Mapping) 	|                   	|
+| CSS                              	|  	|                   	|
 | PyCharm professional 2022.3.2                               	| Index                         	|                   	|
 
 ## Development C
