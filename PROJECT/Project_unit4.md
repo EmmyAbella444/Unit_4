@@ -33,7 +33,7 @@ To store the data, I will be using the SQLite database engine. This database eng
 ### Success Criteria
 1. The website should have an user registration and log in system with encryption of password.
 2. The website should ensure that all posts with activities are properly documented and tagged. 
-3. The website should have a search option that allows users to see other student's profiles and the posts for each club.
+3. The website should have allow students to dowload the portifolio.
 4. The website should provide reminders for students to post about their activities.
 5. The website should allow students to like and comment other students posts.
 6. The website should have a page with statiscs of every student on posts per week.
