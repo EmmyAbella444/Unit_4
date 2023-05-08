@@ -78,7 +78,7 @@ Fig.5 Shows the ER Diagram for the database used in the social network. The data
 | 7       	| Planning: Write the rationale for proposed solution     	| Have clear justification on why and how the website will be developed    	| 30 minutes    	| April 8                	| A        | 
 | 8       	| Planning: Write the design statement	|Have a clear plan in mind before start to code the website | 30 minutes    	| April 8                	| A         	|
 | 9       	| Planning: Define the success criterias	| Have a clear outline of what is needed to be acheived and to have a clear idea about what are the features in the website	| 30 minutes    	| April 8    	| A         	|
-| 10       	| Planning: Meeting with client	| Present to the client the criteria A and get final approval | 30 minutes    	| April 9               
+| 10       	| Planning: Meeting with client	| Present to the client the criteria A and get final approval | 30 minutes    	| April 9  | A         	|             
 | 11       	| Design: Design the system diagram	|To have a clear idea of the hardware and software requirements for the proposed solution | 1 hour    	| April 9                	| B         	|
 | 12       	|Design: ER diagram	| Have an idea of the the data entities, attributes, and relationships between them	| 30 minutes    	| April 9                	| B         	|
 | 13       	| Design: Wireframe| Have a clear view of how the website is going to look like	| 2 hours   	| April 8                	| B         	|
