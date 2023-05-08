@@ -156,7 +156,7 @@ Fig.5 Shows the ER Diagram for the database used in the social network. The data
 | CSS              	| For loops   | Index              	            | Flask                    |
 | PyCharm professional 2022.3.2   | For loops                              	| re	                  |
 | Chrome (testing)                | Dictionaries                              	| werkzeug.utils                   	|
-|                                	|                                	|  fpdf                 	|
+|                                	|  OOP (classes)                              	|  fpdf                 	|
 |                                	|                                	|  os                 	|
 ## List of techniques used
 1.Get/Post methods
