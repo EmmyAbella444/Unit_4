@@ -34,15 +34,15 @@ SQLite[^6] was chosen as the database management system for CasHub because it of
 I will design and make a Website for a client who are students and teacher from a local school. The website will be a social network to post, monitor, interact, and download CAS activities and is constructed using the software CSS, HTML, and PYTHON. It will take 4 weeks to make and will be evaluated according to the following success criteria.
 
 ### Success Criteria
-| Succsses criterias                                                                               | Issues Tackled |
-|--------------------------------------------------------------------------------------------------|----------------|
-| 1. The website should have a user registration and login system with encryption of the password. |                |
-| 2. The website should allow students to post their activities and ensure that all posts with activities are properly documented.             |                |
-| 3. The website should allow students to download the portfolio.                                  |                |
-| 4. The website should provide reminders for students to post about their activities.             |                |
-| 5. The website should allow students to like and comment on other student's posts.               |                |
-| 6. The website should have a page with statistics of every student on posts per week.            |                |
-| 7. The website should allow users to visit each others profile.                               |                |
+| Succsses criterias                                                                               |
+|--------------------------------------------------------------------------------------------------|
+| 1. The website should have a user registration and login system with encryption of the password. | 
+| 2. The website should allow students to post their activities and ensure that all posts with activities are properly documented.             |                
+| 3. The website should allow students to download the portfolio.                                  |           
+| 4. The website should provide reminders for students to post about their activities.             |               
+| 5. The website should allow students to like and comment on other student's posts.               |                
+| 6. The website should have a page with statistics of every student on posts per week.            |                
+| 7. The website should allow users to visit each others profile.                               |                
 
 
 # Criteria B: Design
