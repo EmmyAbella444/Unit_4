@@ -86,15 +86,20 @@ Fig.5 Shows the ER Diagram for the database used in the social network. The data
 | 11       	| Create logo| have a logo that shows what the program is about| 1 hour  	| April 10                	| C         	|
 | 12       	| Create the databases and tables following the ER diagram| to store the data for the program	| 30 minutes    	| April 10                	| C         	|
 | 13       	| Create desigh for signup and register page	| Make designs on canva to make the social network more appelealing| 30 minutes    	| April 7                	| C         	|
-| 14       	| Create different routes for sign up, register and mainpage| Have the main pages of the social network	| 2 hours   	| April 8                	| C         	|
+| 14       	| Create different routes for sign up, register, mainpage, personal profile, users profile and statistics| Have the pages of the social network	| 2 hours   	| April 8                	| C         	|
 | 15       	| Code the features registration page| Make the user able to register their personal data| 2 hours  	| April 11                	| C         	|
 | 16       	| Code the features from login page| Make the user able to login in the social network| 2 hours  	| April 11                	| C         	|
 | 17       	| Code the Main page| Make the user able to see all posts| 2 hours  	| April 12                	| C         	|
 | 18       	| Code the add post feature| Make the user able to post a new entry in the social network| 2 hours  	| April 12                	| C       
 | 19       	| Fix the datetime of the post featuers| Make the user able to register the date of each post entry| 2 hours  	| April 20                	| C       
 | 20       	| Fix the design of the mainpage| Make it visualy pretty and user friendly| 2 hours  	| April 23                	| C  
-| 21       	| Code the likes and comments features| Make the user able to post a new entry in the social network| 2 hours  	| April 25 | C| 
-| 22       	| Fix the uploade of pictures on the add post | Make the user able to add photos on the posts| 2 hours  	| May 5 | C |          
+| 21       	| Code the likes and comments features| Make the user able to interact with other users posts| 2 hours  	| April 25 | C| 
+| 22       	| Code the statistics page | Make the users able to see the studens and clubs of the week and students history.| 2 hours  	| April 28                	| C         	|
+| 23       	| Code the personal profile page| Make the user able to see all their posts| 2 hours  	| April 29                	| C         	|
+| 24       	| Code the Main page| Make the user able to see all posts| 2 hours  	| April 12                	| C         	|
+| 25       	| Code the Main page| Make the user able to see all posts| 2 hours  	| April 12                	| C         	|
+| 23       	| Fix the uploade of pictures on the add post | Make the user able to add photos on the posts| 2 hours  	| May 5 | C | 
+
 
 
 
@@ -104,7 +109,7 @@ Fig.5 Shows the ER Diagram for the database used in the social network. The data
 |-------------------------------	|-------------------------------	|-------------------	|
 | Python                        	| SQL requests                  	| sqlite3           	|
 | SQlite                        	| Database                      	| passlib           	|
-| KivyMD                        	| Encryption                    	| database_handler                   	|
+|                               	| Encryption                    	| database_handler                   	|
 | Github Copilot                	| For loops                     	| encrypto_password  	|
 | Html                                	| If-else statements            	| 	|
 | CSS                              	|  	|                   	|
