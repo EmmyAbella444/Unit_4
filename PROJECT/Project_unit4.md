@@ -92,7 +92,7 @@ Fig.5 Shows the ER Diagram for the database used in the social network. The data
 | 15       	| Develop: Create the databases and tables following the ER diagram| to store the data for the program in an organized and efficient way	| 30 minutes    	| April 10                	| C         	|
 | 16       	| Develop: Backgound desigh for signup page	| Make designs on canva to make the social network more appelealing| 1 hour    	| April 10               	| C         	|
 | 17       	| Develop: Routes for sign up, register, mainpage, personal profile, users profile and statistics| Have the pages of the social network	| 30 minutes   	| April  11               	| C         	|
-| 18       	| Develop: Build the base HTML and CSS design| Make the base template for pages to make it visualy pretty and user friendly| 3 hours  	| April 20                	| C  
+| 18       	| Develop: Build the base HTML and CSS design| Make the base template for pages to make it visualy pretty and user friendly| 3 hours  	| April 12                	| C  
 | 19       	| Develop: Registration| Make the user able to register their personal data and create an account in the website| 2 hours  	| April 12                	| C         	|
 | 20       	| Develop: login page| Make the user able to login in the social network| 2 hours  	| April 13                	| C         	|
 | 21       	| Develop: Main page| Make the user able to see all posts| 2 hours  	| April 13                	| C         	|
