@@ -98,14 +98,25 @@ Fig.5 Shows the ER Diagram for the database used in the social network. The data
 | 21       	| Code the likes and comments features| Make the user able to interact with other users posts| 3 hours  	| April 23 | C| 
 | 22       	| Code the statistics page | Make the users able to see the studens and clubs of the week and students history.| 3 hours  	| April 25                	| C         	|
 | 23       	| Code the personal profile page| Make the user able to see all their posts| 2 hours  	| April 28                	| C         	|
-| 24       	| Code the delete posts fature| Make the user able delete their posts| 30 minutes  	| April 29                	| C         	|
+| 24       	| Code the delete posts fature| Make the user able to delete their posts| 30 minutes  	| April 29                	| C         	|
 | 25       	| Code the function to display message to the user | Make the user able to know when they need to post a new entry| 1 hour  	| May 1 | C | 
 | 26       	|Code the function do dowload posts | Make the users able to dowload their portifolios| 3 hours  	| May 2 | C | 
 | 27       	| Code the function to log out | Make the user able to log out the website | 30 minutes  	| May 2 | C | 
 | 28       	| Fix the uploade of pictures on the add post | Make the user able to add photos on the posts| 3 hours  	| May 5 | C |
 | 29       	| Fix the design of the profile page  | Make it visualy pretty and user friendly | 1 hour  	| May 5 | C | 
-| 30       	| Create list of exhisting tools | Make it clear the tools used to make the website | 20 minutes  	| May 5 | C | 
-| 31       	| Create list of techniques  | Make it clear the techiniches used to make the website | 20 minutes  	| May 5 | C | 
+| 30       	| Create list of exhisting tools | Make clear the tools used to make the website | 20 minutes  	| May 6 | B | 
+| 31       	| Create list of techniques  | Make clear the techiniches used to make the website | 20 minutes  	| May 6 | B | 
+| 32       	| Draw Flowdiagrams | Showcase how my code works and explain it trough flowdiagrams | 1 hour  	| May 6 | B | 
+| 33       	| Draw the UML diagram | Show the relations between all the classes in the website | 40 minutes  	| May 7 | B | 
+| 34       	| Documentation for citeria C | Explain how i met all the success criterias | 3 hours  	| May 7 | B | 
+| 35       	| Create a test plan | Make sure that the code runs without any error | 20 minutes  	| May 7 | B | 
+| 36       	| Implement good coding practices |Organize final code and add commments | 1 hour  	| May 8 | C | 
+| 37       	| Record video for criteria D | To explain and showcase the website | 20 minutes 	| May 8 | D | 
+| 38      	| Add citations | To give the credits for the resources used | 20 minutes 	| May 8 | D | 
+| 39      	| Test plan with other users | CReate a test plan with other users to receive feedaback| 40 minutes 	| May 8 | E | 
+| 40      	| Add interview with client | To clarify the problem definiiton | 20 minutes 	| May 8 | A | 
+| 41      	| Organize and review project documentation | Make sure that everything is properly codumentaded | 30 minutes 	| May 8 | C | 
+
 
 
 
