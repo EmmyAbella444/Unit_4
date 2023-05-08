@@ -10,31 +10,37 @@ Fig1.Logo for the website made in Canva[^1]
 # Criteria A: Planning
 
 ## Problem definition
-In the international baccalaureate program, students must create a CAS portfolio to show their participation in extracurricular activities. Unfortunately, the students from a local school are having difficulty with their portfolios. Many of them lack proper documentation and forget to update their portfolios every week. Because the current portfolio makes it hard for teachers to keep track of their progress since they have to open multiple links for each student, which is time-consuming. Consequently, teachers are not checking frequently, resulting in more than half of the students having incomplete portfolios. The CAS portfolio is a vital part of the IB program, used to assess a student's engagement in activities and develop skills like collaboration and communication. However, the current portfolio does not facilitate this since it does not allow students to view each other's profiles or interact with them. Additionally, the current portfolio does not have the option to download in pdf format, which is an IB requirement, making it difficult for students to demonstrate their involvement which can result in them potentially receiving a lower grade and this can negatively impact their IB score and future university applications.
+In the international baccalaureate program, students must create a CAS portfolio to show their participation in extracurricular activities. Unfortunately, the students from a local school are having difficulty with their portfolios. Many of them lack proper documentation and forget to update their portfolios every week. Because the current portfolio makes it hard for teachers to keep track of their progress since they have to open multiple links for each student, which is time-consuming. The CAS portfolio is also used to assess a student's development of skills like collaboration and communication. However, the current portfolio does not facilitate this since it does not allow students to view each other's profiles, collaborate or interact with them. Additionally, the current portfolio does not have the option to download the activities in pdf format, which is an IB requirement, making it difficult for students to demonstrate their involvement which can result in them potentially receiving a lower grade and this can negatively impact their IB score and future university applications.
 
 ## Proposed Solution
-To address the challenges faced by the students and teachers at this local school with their CAS portfolio, I first runned interviews[^2] with them and based on that I decided to create a website, called CasHub, that will work like a social network, allowing students to post their activities and to interact with each other. With the client approval I decided to use Python Flask, CSS, and HTML because it allows the creation of a dynamic and interactive website, which is essential for a social network-style platform like CasHub. The students to create profiles, add personal information, and make posts about their activities. In Cashub, there is a main page where students can see all the posts made by everyone, add new posts, and interact with them: liking and commenting. There is also a page called Statistics where students and teachers can check the student's progress and see each student's profile. Every user has also a personal profile page that displays a message after 7 days of not posting, has the option to delete postsa nd to downloawd the activities in pdf. I will use the programming languae python because  This approach ensures that students have proper documentation of their extracurricular activities, which is essential for completing their CAS portfolio. 
+To address this problem, I first ran interviews[^2] with the client and based on that I decided to create a website, called CasHub. It will work like a social network because it allows students to post their activities and interact with each other. With the client's approval, I decided to use Python Flask, CSS, and HTML because it allows the creation of a dynamic and interactive website, which is essential for a social network-style platform. In CasHub students will be able to create profiles and log in, make posts about their activities, check a statistics page to track progress, and have a personal profile page with options to delete posts and download activities as PDFs. All this information will be stored in SQLite databases because they are supported by Python Flask. 
 
 
 ### Rationale
-To create a comprehensive and effective solution, the primary programming language for the back end will be Python, with the Flask library. Python is a versatile language that can be used for web development, scientific computing, data analysis, and artificial intelligence, making it an excellent choice for this project. Python has a supportive community and comprehensive documentation, making it easy to learn and use, which will help in building a reliable solution.
 
-Flask is a lightweight framework that is ideal for building web applications. It is easy to use, flexible, and can be customized to meet specific requirements. Flask provides essential features such as request handling, routing, and template rendering, making it an excellent choice for developing the back end of this solution.
+The choice of Python Flask, HTML, CSS, and SQLite for building CasHub is based on their suitability for creating a dynamic and interactive social network-style website that meets the needs of the school's students and teachers.
 
-For the front end, the user interface will be created using HTML and CSS. HTML is the standard markup language used for creating web pages, and CSS is used for styling and formatting the pages. The interface will be designed to be user-friendly and intuitive, with a modern and visually appealing layout.
+The network-style website was chosen because it can run on browsers that all users will be able to access from any computer, differently from the application for example It also allows post and get requests that make the users able to log in, and posts their activities. 
 
-To store the data, I will be using the SQLite database engine. This database engine is optimized for efficiently managing and storing large amounts of data, which makes it a reliable choice for applications that need to handle and scale with growing amounts of data. The SQLite database engine enables the storage of structured data that can be easily queried and analyzed, while also providing data integrity and transaction management features to ensure data accuracy and consistency. This will enable me to create a robust and reliable solution that can handle a significant amount of data while maintaining data accuracy and consistency.
+Python Flask was chosen because its simplicity and flexibility make it ideal for building web applications that require frequent updates and modifications, such as a social network like CasHub.Additionally, Flask offers built-in support for SQLite, which is the database management that CasHub will use to store user data on CasHub and also it allows for easy integration with the front-end technologies that will be used:HTML and CSS.
+
+HTML and CSS were chosen becase HTML is used for structuring the content of web pages, while CSS is used for styling the content, making it visually appealing and easy to navigate creating a user-friendly and intuitive interface that is essential for the success of any social network.
+
+SQLite was chosen as the database management system for CasHub because it offers robust data consistency, ensuring that the information submitted by students is consistent, reliable, and easily accessible, which is essential for a perfect CasPortifolio.
+
 
 ## Design Statement
-I will design and make a Website for a client who are Students and Teachers from a local school. The website will be a social network to post and monitorize CAS activities and is constructed using the software CSS, HTML and PYTHON. It will take 4 weeks to make and will be evaluated according to the following success criterias.
+
+I will design and make a Website for a client who is a student from a local school. The website will be a social network to post, monitor, interact, and download CAS activities and is constructed using the software CSS, HTML, and PYTHON. It will take 4 weeks to make and will be evaluated according to the following success criteria.
 
 ### Success Criteria
-1. The website should have an user registration and log in system with encryption of password.
-2. The website should ensure that all posts with activities are properly documented and tagged. 
-3. The website should have allow students to dowload the portifolio.
+1. The website should have a user registration and login system with encryption of the password.
+2. The website should ensure that all posts with activities are properly documented. 
+3. The website should allow students to download the portfolio.
 4. The website should provide reminders for students to post about their activities.
-5. The website should allow students to like and comment other students posts.
-6. The website should have a page with statiscs of every student on posts per week.
+5. The website should allow students to like and comment on other student's posts.
+6. The website should have a page with statistics of every student on posts per week.
+
 
 
 
