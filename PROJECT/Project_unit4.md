@@ -20,18 +20,18 @@ To address this problem, I first ran interviews[^2] with the client and based on
 
 The choice of Python Flask, HTML, CSS, and SQLite for building CasHub is based on their suitability for creating a dynamic and interactive social network-style website that meets the needs of the school's students and teachers.
 
-The network-style website was chosen because it can run on browsers that all users will be able to access from any computer, differently from the application for example It also allows post and get requests that make the users able to log in, and posts their activities. 
+The network-style website[^3] was chosen because it can run on browsers that all users will be able to access from any computer, differently from the application for example. It also allows post and get requests that make the users able to log in, and posts their activities. 
 
-Python Flask was chosen because its simplicity and flexibility make it ideal for building web applications that require frequent updates and modifications, such as a social network like CasHub.Additionally, Flask offers built-in support for SQLite, which is the database management that CasHub will use to store user data on CasHub and also it allows for easy integration with the front-end technologies that will be used:HTML and CSS.
+Python Flask[^4] was chosen because its simplicity and flexibility make it ideal for building web applications that require frequent updates and modifications, such as a social network like CasHub. Additionally, Flask offers built-in support for SQLite, which is the database management that CasHub will use to store user data on CasHub and also it allows for easy integration with the front-end technologies that will be used:HTML and CSS.
 
-HTML and CSS were chosen becase HTML is used for structuring the content of web pages, while CSS is used for styling the content, making it visually appealing and easy to navigate creating a user-friendly and intuitive interface that is essential for the success of any social network.
+HTML and CSS[^5] were chosen becase HTML is used for structuring the content of web pages, while CSS is used for styling the content, making it visually appealing and easy to navigate creating a user-friendly and intuitive interface that is essential for the success of any social network.
 
-SQLite was chosen as the database management system for CasHub because it offers robust data consistency, ensuring that the information submitted by students is consistent, reliable, and easily accessible, which is essential for a perfect CasPortifolio.
+SQLite[^6] was chosen as the database management system for CasHub because it offers robust data consistency, differently from CSV.files for example, ensuring that the information submitted by students is consistent, reliable, and easily accessible, which is essential for a perfect CasPortifolio.
 
 
 ## Design Statement
 
-I will design and make a Website for a client who are students from a local school. The website will be a social network to post, monitor, interact, and download CAS activities and is constructed using the software CSS, HTML, and PYTHON. It will take 4 weeks to make and will be evaluated according to the following success criteria.
+I will design and make a Website for a client who are students and teacher from a local school. The website will be a social network to post, monitor, interact, and download CAS activities and is constructed using the software CSS, HTML, and PYTHON. It will take 4 weeks to make and will be evaluated according to the following success criteria.
 
 ### Success Criteria
 1. The website should have a user registration and login system with encryption of the password.
@@ -55,7 +55,7 @@ Fig.4 Shows the System Diagram for the project, The application uses PyCharm wit
 
 ## ER Diagram
 ![ER diagram](https://user-images.githubusercontent.com/111819437/236806597-c08f7319-9175-477a-b616-22c6f70955d0.png)
-Fig.5 Shows the ER Diagram for the database used in the social network
+Fig.5 Shows the ER Diagram for the database used in the social network. The databse named:"Social_net.db" is organized with 4 tables:
 
 
 ## Flow Diagrans
@@ -128,3 +128,7 @@ D3js
 
 ### Citations
 [^1]:  https://www.canva.com/
+[^3]: https://www.softwaretestinghelp.com/website-vs-web-application/
+[^4]: https://able.bio/hardikshah/6-reasons-why-flask-is-better-framework-for-web-application-development--cd398f73
+[^5]: https://codeclan.com/blog/top-5-reasons-you-should-learn-html-css/#:~:text=CSS%20or%20Cascading%20Style%20Sheets,that%20structure%20come%20to%20life.
+[^6]:https://www.simplilearn.com/tutorials/sql-tutorial/what-is-sqlite#:~:text=SQLite%20is%20used%20to%20develop,some%20data%20within%20an%20application.
