@@ -1,6 +1,6 @@
 
 
-# Unit 4: The CasHub - Create, Join and Showcase Your Clubs and Activities!
+# Unit 4: The CasHub - Create, Interact and Showcase Your Clubs and Activities!
 ![CasHub (2)](https://user-images.githubusercontent.com/111819437/230899973-d353750e-ac64-4d2c-80a1-a1263a509b46.png)
 
 
@@ -31,7 +31,7 @@ SQLite was chosen as the database management system for CasHub because it offers
 
 ## Design Statement
 
-I will design and make a Website for a client who is a student from a local school. The website will be a social network to post, monitor, interact, and download CAS activities and is constructed using the software CSS, HTML, and PYTHON. It will take 4 weeks to make and will be evaluated according to the following success criteria.
+I will design and make a Website for a client who are students from a local school. The website will be a social network to post, monitor, interact, and download CAS activities and is constructed using the software CSS, HTML, and PYTHON. It will take 4 weeks to make and will be evaluated according to the following success criteria.
 
 ### Success Criteria
 1. The website should have a user registration and login system with encryption of the password.
@@ -40,9 +40,7 @@ I will design and make a Website for a client who is a student from a local scho
 4. The website should provide reminders for students to post about their activities.
 5. The website should allow students to like and comment on other student's posts.
 6. The website should have a page with statistics of every student on posts per week.
-
-
-
+7. The website should allow students to visit each others profile.
 
 
 # Criteria B: Design
@@ -56,7 +54,7 @@ Fig.4 Shows the System Diagram for the project, The application uses PyCharm wit
 ## UML Diagram
 
 ## ER Diagram
-![Blank diagram (1)](https://user-images.githubusercontent.com/111819437/230711419-fc18121d-b757-4c97-bfad-ab51a785fec1.png)
+![ER diagram](https://user-images.githubusercontent.com/111819437/236806597-c08f7319-9175-477a-b616-22c6f70955d0.png)
 Fig.5 Shows the ER Diagram for the database used in the social network
 
 
