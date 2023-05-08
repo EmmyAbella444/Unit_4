@@ -47,12 +47,12 @@ I will design and make a Website for a client who are students and teacher from 
 
 # Criteria B: Design
 ## System Diagram
-![Habit Tracker (2)](https://user-images.githubusercontent.com/111819437/232434049-991cecb2-b176-498c-8fed-634777d20211.png)
+![Habit Tracker (3)](https://user-images.githubusercontent.com/111819437/236936740-f0cd75c5-697b-471b-b19a-4d071192a0e4.png)
 
 
 Fig.2 Shows the System Diagram for the project.
 
-The application uses PyCharm with an app.py python file, templates in HTML and static files in CSS. As well as the Flask Library, and My_Library libraries to create the program. The arrows in the diagram indicate the data that is stored in the Social_net.db database, which utilizes the SQLite database engine.
+The System Diagram represents the different parts of the websited and how they relate to eachother. The website user uses Python to create the my.app file that interacts with the templates in HTML, as well as the Flask Library and other external libraries and My_Library to create the Python flask server. The arrows in the diagram indicate the data that is stored in the Social_net.db database, which utilizes the SQLite database engine.
 
 
 ## Wireframe
@@ -206,17 +206,18 @@ The "users" table has columns for the user's id(primary key) , email, password ,
 |                                	|  OOP (classes)                              	|  fpdf                 	|
 |                                	|                                	|  os                 	|
 ## List of techniques used
-1.Get/Post methods
-2.Functions
-3.If statements
-4.For loops
-5.SQL queries
-6.Lists
-7.Password hashing
-8.Cookies
-9.Dictionaries
-10.flasks routes
-
+|    | List of techniques used |
+|----|-------------------------|
+| 1  | Get/Post methods        |
+| 2  | Functions               |
+| 3  | If statements           |
+| 4  | For loops               |
+| 5  | SQL queries             |
+| 6  | Lists                   |
+| 7  | Password hashing        |
+| 8  | Cookies                 |
+| 9  | Dictionaries            |
+| 10 | flasks routes           |
 
 ## Development C
 
