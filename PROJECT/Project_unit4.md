@@ -74,20 +74,26 @@ Fig.5 Shows the ER Diagram for the database used in the social network. The data
 
 
 ![Screen Shot 2023-05-09 at 5 37 48](https://user-images.githubusercontent.com/111819437/236929668-3c6be295-f795-45cf-bbf0-3db331da148f.png)
-Fig. 6 Shows the "Comments" table/¥
+
+Fig. 6 Shows the "Comments" table
+
 The "comments" table has columns for the comment's id(primary key), the content, the user_id of the user who created the comment, and the post_id of the post that the comment belongs to. Both the user_id and post_id columns are foreign keys that reference the id columns of the "users" and "posts" tables, respectively.
 
 ![Screen Shot 2023-05-09 at 5 38 30](https://user-images.githubusercontent.com/111819437/236929772-c33b941a-f79c-48ad-b6b6-c76055b75369.png)
+
 Fig. 7 Shows the "Likes" table
+
 The "likes" table has columns for the like's id(Primary key), the post_id of the post that the like belongs to, and the user_id of the user who created the like. Both the post_id and user_id columns are foreign keys that reference the id columns of the "posts" and "users" tables, respectively. 
 
 
 ![Screen Shot 2023-05-09 at 5 39 05](https://user-images.githubusercontent.com/111819437/236929887-c838ce2b-48fd-4187-8191-a898d5992be7.png)
 Fig.8 Shows the "posts" table
+
 The "posts" table has columns for the post's id(primary key), title, content, the club that the post belongs to, the datetime the post was created, the user_id of the user who created the post, the number of likes the post has, the number of comments the post has and the picture attached to the post. The user_id column in this table is a foreign key that references the id column of the "users" table.
 
 ![Screen Shot 2023-05-09 at 5 40 08](https://user-images.githubusercontent.com/111819437/236930128-2ad0a0f5-a38c-42b6-9278-30bf8f16fa01.png)
 fig.9 Shows the database for the "users" table
+
 The "users" table has columns for the user's id(primary key) , email, password , username, description, clubs , and the number of posts made by the user. The "posts" table has columns for the post's id (primary key), title , content , the club that the post belongs to, the datetime, the user_id of the user who created the post, the number of likes , the number of comments and the picture attached to the post. The user_id column in this table is a foreign key that references the id column of the "users" table.
 
 
