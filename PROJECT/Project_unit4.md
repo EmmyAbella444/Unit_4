@@ -26,7 +26,7 @@ Python Flask[^4] was chosen because its simplicity and flexibility make it ideal
 
 HTML and CSS[^5] were chosen becase HTML is used for structuring the content of web pages, while CSS is used for styling the content, making it visually appealing and easy to navigate creating a user-friendly and intuitive interface that is essential for the success of any social network.
 
-SQLite[^6] was chosen as the database management system for CasHub because it offers robust data consistency, differently from CSV.files for example, ensuring that the information submitted by students is consistent, reliable, and easily accessible, which is essential for a perfect CasPortifolio.
+SQLite[^6] was chosen as the database management system for CasHub because it offers robust and safe data consistency, differently from CSV.files[^7] for example, ensuring that the information submitted by students is consistent, reliable, and easily accessible, which is essential for a perfect CasPortifolio.
 
 
 ## Design Statement
@@ -86,13 +86,15 @@ Fig.5 Shows the ER Diagram for the database used in the social network. The data
 | 11       	| Create logo| have a logo that shows what the program is about| 1 hour  	| April 10                	| C         	|
 | 12       	| Create the databases and tables following the ER diagram| to store the data for the program	| 30 minutes    	| April 10                	| C         	|
 | 13       	| Create desigh for signup and register page	| Make designs on canva to make the social network more appelealing| 30 minutes    	| April 7                	| C         	|
-| 14       	| Create different routes for sign up, register and mainpage| Have the pages of the social network	| 2 hours   	| April 8                	| C         	|
-| 15       	| Code the registration page| Make the user able to register their personal data| 2 hours  	| April 11                	| C         	|
-| 16       	| Code the login page| Make the user able to login in the social network| 2 hours  	| April 11                	| C         	|
+| 14       	| Create different routes for sign up, register and mainpage| Have the main pages of the social network	| 2 hours   	| April 8                	| C         	|
+| 15       	| Code the features registration page| Make the user able to register their personal data| 2 hours  	| April 11                	| C         	|
+| 16       	| Code the features from login page| Make the user able to login in the social network| 2 hours  	| April 11                	| C         	|
 | 17       	| Code the Main page| Make the user able to see all posts| 2 hours  	| April 12                	| C         	|
 | 18       	| Code the add post feature| Make the user able to post a new entry in the social network| 2 hours  	| April 12                	| C       
-| 19       	| Fix the datetime of the post featuers| Make the user able to register the date of each entry| 2 hours  	| April 20                	| C       
-| 19       	| Fix the uploade of pictures on the aadd post | Make the user able to add photos on the posts| 2 hours  	| April 20                	| C       
+| 19       	| Fix the datetime of the post featuers| Make the user able to register the date of each post entry| 2 hours  	| April 20                	| C       
+| 20       	| Fix the design of the mainpage| Make it visualy pretty and user friendly| 2 hours  	| April 23                	| C  
+| 21       	| Code the likes and comments features| Make the user able to post a new entry in the social network| 2 hours  	| April 25 | C| 
+| 22       	| Fix the uploade of pictures on the add post | Make the user able to add photos on the posts| 2 hours  	| May 5 | C |          
 
 
 
@@ -132,3 +134,4 @@ D3js
 [^4]: https://able.bio/hardikshah/6-reasons-why-flask-is-better-framework-for-web-application-development--cd398f73
 [^5]: https://codeclan.com/blog/top-5-reasons-you-should-learn-html-css/#:~:text=CSS%20or%20Cascading%20Style%20Sheets,that%20structure%20come%20to%20life.
 [^6]:https://www.simplilearn.com/tutorials/sql-tutorial/what-is-sqlite#:~:text=SQLite%20is%20used%20to%20develop,some%20data%20within%20an%20application.
+[^7]:https://haveagreatdata.com/posts/why-you-dont-want-to-use-csv-files/
