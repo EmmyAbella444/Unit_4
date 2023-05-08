@@ -158,6 +158,18 @@ Fig.5 Shows the ER Diagram for the database used in the social network. The data
 | Chrome (testing)                | Dictionaries                              	| werkzeug.utils                   	|
 |                                	|                                	|  fpdf                 	|
 |                                	|                                	|  os                 	|
+## List of techniques used
+1.Get/Post methods
+2.Functions
+3.If statements
+4.For loops
+5.SQL queries
+6.Lists
+7.Password hashing
+8.Cookies
+9.Dictionaries
+10.flasks routes
+
 
 ## Development C
 
@@ -166,17 +178,8 @@ Fig.5 Shows the ER Diagram for the database used in the social network. The data
 
 # Criteria E
 
-# List of thechinics
-flasks routes
-cookies
-validation
-SQL queries
-Hashing password
-searching
-admin page
-statistics
-tags
-D3js
+
+
 
 ### Citations
 [^1]:  https://www.canva.com/
