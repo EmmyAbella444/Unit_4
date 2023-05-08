@@ -34,13 +34,15 @@ SQLite[^6] was chosen as the database management system for CasHub because it of
 I will design and make a Website for a client who are students and teacher from a local school. The website will be a social network to post, monitor, interact, and download CAS activities and is constructed using the software CSS, HTML, and PYTHON. It will take 4 weeks to make and will be evaluated according to the following success criteria.
 
 ### Success Criteria
-1. The website should have a user registration and login system with encryption of the password.
-2. The website should ensure that all posts with activities are properly documented. 
-3. The website should allow students to download the portfolio.
-4. The website should provide reminders for students to post about their activities.
-5. The website should allow students to like and comment on other student's posts.
-6. The website should have a page with statistics of every student on posts per week.
-7. The website should allow students to visit each others profile.
+| Succsses criterias                                                                               | Issues Tackled |
+|--------------------------------------------------------------------------------------------------|----------------|
+| 1. The website should have a user registration and login system with encryption of the password. |                |
+| 2. The website should ensure that all posts with activities are properly documented.             |                |
+| 3. The website should allow students to download the portfolio.                                  |                |
+| 4. The website should provide reminders for students to post about their activities.             |                |
+| 5. The website should allow students to like and comment on other student's posts.               |                |
+| 6. The website should have a page with statistics of every student on posts per week.            |                |
+| 7. The website should allow students to visit each others profile.                               |                |
 
 
 # Criteria B: Design
@@ -85,23 +87,26 @@ Fig.5 Shows the ER Diagram for the database used in the social network. The data
 | 10       	| Design the system diagram	|To have a clear idea of the hardware and software requirements for the proposed solution | 1 hour    	| April 9                	| B         	|
 | 11       	| Create logo| have a logo that shows what the program is about| 1 hour  	| April 10                	| C         	|
 | 12       	| Create the databases and tables following the ER diagram| to store the data for the program	| 30 minutes    	| April 10                	| C         	|
-| 13       	| Create desigh for signup and register page	| Make designs on canva to make the social network more appelealing| 30 minutes    	| April 7                	| C         	|
-| 14       	| Create different routes for sign up, register, mainpage, personal profile, users profile and statistics| Have the pages of the social network	| 2 hours   	| April 8                	| C         	|
-| 15       	| Code the features registration page| Make the user able to register their personal data| 2 hours  	| April 11                	| C         	|
-| 16       	| Code the features from login page| Make the user able to login in the social network| 2 hours  	| April 11                	| C         	|
+| 13       	| Create desigh for signup and register page	| Make designs on canva to make the social network more appelealing| 30 minutes    	| April 10               	| C         	|
+| 14       	| Create different routes for sign up, register, mainpage, personal profile, users profile and statistics| Have the pages of the social network	| 2 hours   	| April  11               	| C         	|
+| 15       	| Code the features registration page| Make the user able to register their personal data| 2 hours  	| April 12                	| C         	|
+| 16       	| Code the features from login page| Make the user able to login in the social network| 2 hours  	| April 13                	| C         	|
 | 17       	| Code the Main page| Make the user able to see all posts| 2 hours  	| April 12                	| C         	|
-| 18       	| Code the add post feature| Make the user able to post a new entry in the social network| 2 hours  	| April 12                	| C       
-| 19       	| Fix the datetime of the post featuers| Make the user able to register the date of each post entry| 2 hours  	| April 20                	| C       
-| 20       	| Fix the design of the mainpage| Make it visualy pretty and user friendly| 2 hours  	| April 23                	| C  
-| 21       	| Code the likes and comments features| Make the user able to interact with other users posts| 2 hours  	| April 25 | C| 
-| 22       	| Code the statistics page | Make the users able to see the studens and clubs of the week and students history.| 2 hours  	| April 28                	| C         	|
-| 23       	| Code the personal profile page| Make the user able to see all their posts| 2 hours  	| April 29                	| C         	|
-| 24       	| Code the delete posts fature| Make the user able delete their posts| 2 hours  	| April 29                	| C         	|
-| 25       	| Code the function to display message to the users | Make the user able to know when they need to post a new entry| 2 hours  	| May 5 | C | 
-| 26       	|Code the function do dowload posts | Make the users able to dowload their portifolios| 2 hours  	| May 5 | C | 
-| 27       	| Fix the uploade of pictures on the add post | Make the user able to add photos on the posts| 2 hours  	| May 5 | C | 
-| 28       	| Code the Main page| Make the user able to see all posts| 2 hours  	| April 12                	| C         	|
-| 29       	| Fix the uploade of pictures on the add post | Make the user able to add photos on the posts| 2 hours  	| May 5 | C | 
+| 18       	| Code the add post feature| Make the user able to post a new entry in the social network| 2 hours  	| April 14                	| C       
+| 19       	| Fix the datetime of the post featuers| Make the user able to register the date of each post entry| 2 hours  	| April 16                	| C       
+| 20       	| Fix the design of the mainpage| Make it visualy pretty and user friendly| 3 hours  	| April 20                	| C  
+| 21       	| Code the likes and comments features| Make the user able to interact with other users posts| 3 hours  	| April 23 | C| 
+| 22       	| Code the statistics page | Make the users able to see the studens and clubs of the week and students history.| 3 hours  	| April 25                	| C         	|
+| 23       	| Code the personal profile page| Make the user able to see all their posts| 2 hours  	| April 28                	| C         	|
+| 24       	| Code the delete posts fature| Make the user able delete their posts| 30 minutes  	| April 29                	| C         	|
+| 25       	| Code the function to display message to the user | Make the user able to know when they need to post a new entry| 1 hour  	| May 1 | C | 
+| 26       	|Code the function do dowload posts | Make the users able to dowload their portifolios| 3 hours  	| May 2 | C | 
+| 27       	| Code the function to log out | Make the user able to log out the website | 30 minutes  	| May 2 | C | 
+| 28       	| Fix the uploade of pictures on the add post | Make the user able to add photos on the posts| 3 hours  	| May 5 | C |
+| 29       	| Fix the design of the profile page  | Make it visualy pretty and user friendly | 1 hour  	| May 5 | C | 
+| 30       	| Create list of exhisting tools | Make it clear the tools used to make the website | 20 minutes  	| May 5 | C | 
+| 31       	| Create list of techniques  | Make it clear the techiniches used to make the website | 20 minutes  	| May 5 | C | 
+
 
 
 
@@ -123,6 +128,7 @@ Fig.5 Shows the ER Diagram for the database used in the social network. The data
 # Criteria D: Functionality
 ## A video demonstrating the proposed solution with narration
 
+# Criteria E
 
 # List of thechinics
 flasks routes
