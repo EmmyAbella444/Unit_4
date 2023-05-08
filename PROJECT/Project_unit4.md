@@ -119,8 +119,9 @@ Fig.5 Shows the ER Diagram for the database used in the social network. The data
 | 42 | Test: Beta testing |  Execute the test plan with the client and an user to gather feedback | 20 minutes | May 7 | C |
 | 43 | Implement: Debug|  Fix bugs in the website inf any | 20 minutes | May 7 | C,D |
 | 44 | Evaluation: Client and user interview |  Verify that the success criteria are met and collect additional feedback and implementable recommendations| 20 minutes | May 7 | C |
-| 45      	| Organize and review project documentation | Make sure that everything is properly codumentaded | 30 minutes 	| May 8 |          	| 
-| 46 | Add citations | To give the credits for the resources used | 20 minutes | May 8 |  |
+| 45      	| Development: Organize and review project documentation | Make sure that everything is properly codumentaded | 30 minutes 	| May 8 |  C        	| 
+| 46 | Development: Add citations | To give the credits for the resources used | 20 minutes | May 8 | C |
+
 
 
 
