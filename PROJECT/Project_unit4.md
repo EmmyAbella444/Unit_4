@@ -48,12 +48,30 @@ I will design and make a Website for a client who are students and teacher from 
 # Criteria B: Design
 ## System Diagram
 ![Habit Tracker (2)](https://user-images.githubusercontent.com/111819437/232434049-991cecb2-b176-498c-8fed-634777d20211.png)
-Fig.4 Shows the System Diagram for the project, The application uses PyCharm with an app.py python file, templates in HTML and static files in CSS. As well as the Flask Library, and My_Library libraries to create the program. The arrows in the diagram indicate the data that is stored in the Social_net.db database, which utilizes the SQLite database engine.
+Fig.2 Shows the System Diagram for the project.
+The application uses PyCharm with an app.py python file, templates in HTML and static files in CSS. As well as the Flask Library, and My_Library libraries to create the program. The arrows in the diagram indicate the data that is stored in the Social_net.db database, which utilizes the SQLite database engine.
 
 
 ## Wireframe
+![name](https://user-images.githubusercontent.com/111819437/236926641-5bb8fcf1-dc2a-4a7a-a55c-a8e0f7744ea0.png)
+fig.3 Shows the wirefram diagram for CasHub social network.
+This wirefram shows all the screen in the social netwrok(login, register, main page, statistics, personal profile and users profile).The arrows extending from the buttons to the screens indicate to the user which screen will be opened when they click and release the button
 
 ## UML Diagram
+![uml (3)](https://user-images.githubusercontent.com/111819437/236927524-8618af73-6f97-4098-b783-a046514fb2a4.png)
+Fig.4 This UML shows the classdatabase_worker.
+This class is used to control the database interaction. It has 4 methods and 2 private instance variables. The __init__() method initializes the connection and cursor variables using the sqlite3 module. The search() method takes a SQL query as input and returns a list of tuples as a result. The get() method also takes a SQL query as input and returns only the first result as a tuple. The run_save() method executes the given SQL query and commits the changes. Finally, the close() method closes the database connection.
+
+
+
+
+Was this response better or worse?
+Better
+Worse
+Same
+
+
+
 
 ## ER Diagram
 ![ER diagram](https://user-images.githubusercontent.com/111819437/236806597-c08f7319-9175-477a-b616-22c6f70955d0.png)
