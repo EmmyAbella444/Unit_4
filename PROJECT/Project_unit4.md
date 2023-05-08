@@ -151,12 +151,13 @@ Fig.5 Shows the ER Diagram for the database used in the social network. The data
 | Software/Development tools    	| Coding Structure Tools        	| Libraries         	|
 |-------------------------------	|-------------------------------	|-------------------	|
 | Python                        	| SQL requests                  	| sqlite3           	|
-| SQlite                        	| Database                      	| passlib           	|
-|                               	| Encryption                    	| database_handler                   	|
-| Github Copilot                	| For loops                     	| encrypto_password  	|
-| Html                                	| If-else statements            	| 	|
-| CSS                              	|  	|                   	|
-| PyCharm professional 2022.3.2                               	| Index                         	|                   	|
+| SQlite                        	| If-else statements             	| passlib           	|
+| Html                            | Encryption                    	| database_worker    |
+| CSS              	| For loops   | Index              	            | Flask                    |
+| PyCharm professional 2022.3.2   | For loops                              	| re	                  |
+| Chrome (testing)                | Dictionaries                              	| werkzeug.utils                   	|
+|                                	|                                	|  fpdf                 	|
+|                                	|                                	|  os                 	|
 
 ## Development C
 
