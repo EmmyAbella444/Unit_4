@@ -96,9 +96,12 @@ Fig.5 Shows the ER Diagram for the database used in the social network. The data
 | 21       	| Code the likes and comments features| Make the user able to interact with other users posts| 2 hours  	| April 25 | C| 
 | 22       	| Code the statistics page | Make the users able to see the studens and clubs of the week and students history.| 2 hours  	| April 28                	| C         	|
 | 23       	| Code the personal profile page| Make the user able to see all their posts| 2 hours  	| April 29                	| C         	|
-| 24       	| Code the Main page| Make the user able to see all posts| 2 hours  	| April 12                	| C         	|
-| 25       	| Code the Main page| Make the user able to see all posts| 2 hours  	| April 12                	| C         	|
-| 23       	| Fix the uploade of pictures on the add post | Make the user able to add photos on the posts| 2 hours  	| May 5 | C | 
+| 24       	| Code the delete posts fature| Make the user able delete their posts| 2 hours  	| April 29                	| C         	|
+| 25       	| Code the function to display message to the users | Make the user able to know when they need to post a new entry| 2 hours  	| May 5 | C | 
+| 26       	|Code the function do dowload posts | Make the users able to dowload their portifolios| 2 hours  	| May 5 | C | 
+| 27       	| Fix the uploade of pictures on the add post | Make the user able to add photos on the posts| 2 hours  	| May 5 | C | 
+| 28       	| Code the Main page| Make the user able to see all posts| 2 hours  	| April 12                	| C         	|
+| 29       	| Fix the uploade of pictures on the add post | Make the user able to add photos on the posts| 2 hours  	| May 5 | C | 
 
 
 
