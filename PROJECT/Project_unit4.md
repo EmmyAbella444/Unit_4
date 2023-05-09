@@ -52,24 +52,24 @@ I will design and make a Website for a client who are students and teachers at a
 ![Habit Tracker (3)](https://user-images.githubusercontent.com/111819437/236936740-f0cd75c5-697b-471b-b19a-4d071192a0e4.png)
 
 
-Fig.2 Shows the System Diagram for the project.
+Fig.2 [^1] Shows the System Diagram for the project.
 
-The System Diagram represents the different parts of the websited and how they relate to eachother. The website user uses Python to create the my.app file that interacts with the templates in HTML, as well as the Flask Library and other external libraries and My_Library to create the Python flask server. The arrows in the diagram indicate the data that is stored in the Social_net.db database, which utilizes the SQLite database engine.
+The System Diagram represents the different parts of the website and how they relate to eachother. The website uses Python to create the my.app file that interacts with the templates in HTML, as well as the Flask Library and other external libraries and My_Library to create the Python flask server. The arrows in the diagram indicate the data that is stored in the Social_net.db database, which utilizes the SQLite database engine.
 
 
 ## Wireframe
 ![name](https://user-images.githubusercontent.com/111819437/236926641-5bb8fcf1-dc2a-4a7a-a55c-a8e0f7744ea0.png)
 
-fig.3[^1] Shows the wirefram diagram for CasHub social network.
+fig.3 [^1] Shows the wirefram diagram for CasHub social network.
 
-This wirefram shows all the screen in the social netwrok(login, register, main page, statistics, personal profile and users profile).The arrows extending from the buttons to the screens indicate to the user which screen will be opened when they click and release the button
+This wirefram shows all the screens in the social netwrok(login, register, main page, statistics, personal profile and users profile).The arrows extending from the buttons to the screens indicate to the user which screen will be opened when they click and release the button.
 
 ## UML Diagram
 ![uml (3)](https://user-images.githubusercontent.com/111819437/236927524-8618af73-6f97-4098-b783-a046514fb2a4.png)
 
-Fig.4[^9]This UML shows the classdatabase_worker.
+Fig.4 [^9]This UML shows the class database_worker.
 
-This class is used to control the database interaction. It has 4 methods and 2 private instance variables. The __init__() method initializes the connection and cursor variables using the sqlite3 module. The search() method takes a SQL query as input and returns a list of tuples as a result. The get() method also takes a SQL query as input and returns only the first result as a tuple. The run_save() method executes the given SQL query and commits the changes. Finally, the close() method closes the database connection.
+This class is used to control the database interaction. It has 4 methods and 2 private instance variables. The __init__() method initializes the connection and cursor variables using the sqlite3 module. The search() method takes a SQL query as input and returns a list of tuples as a result. The get() method also takes a SQL query as input and returns only the first result as a tuple. The run_save() method executes the given SQL query and commits the changes and  the close() method closes the database connection.
 
 
 ## ER Diagram
@@ -77,13 +77,9 @@ This class is used to control the database interaction. It has 4 methods and 2 p
 
 Fig.5[^9] Shows the ER Diagram for the database used in the social network. 
 
-The databse named:"Social_net.db" is organized with 4 tables: "Comments", "users", "likes" and "posts". This diagram also shows that one user can have multiple posts which can have multiple likes and comments.
+The databse named:"Social_net.db" is organized with 4 tables: "Comments", "users", "likes" and "posts". This diagram shows that one user can have multiple posts which can have multiple likes and comments.
 
-
-
-
-
-
+### Databases
 
 ![Screen Shot 2023-05-09 at 5 37 48](https://user-images.githubusercontent.com/111819437/236929668-3c6be295-f795-45cf-bbf0-3db331da148f.png)
 
@@ -96,7 +92,6 @@ The "comments" table has columns for the comment's id(primary key), the content,
 Fig. 7 Shows the "Likes" table
 
 The "likes" table has columns for the like's id(Primary key), the post_id of the post that the like belongs to, and the user_id of the user who created the like. Both the post_id and user_id columns are foreign keys that reference the id columns of the "posts" and "users" tables, respectively. 
-
 
 ![Screen Shot 2023-05-09 at 5 39 05](https://user-images.githubusercontent.com/111819437/236929887-c838ce2b-48fd-4187-8191-a898d5992be7.png)
 Fig.8 Shows the "posts" table
@@ -123,14 +118,8 @@ Fig 11.[^9] Show the flodiagram for home page function.
 This function is responsible for rendering the home page, fist it checks if the user is logged in, and if so, it initiates the database to  retrieve posts and comments for each post and passes them to the HTML template.If there is a "POST" request it checkes if all data is valid and save this new post in the database,  If the user is not logged in, it redirects them to the login page.
 
 
-
 ![flow diagram 2 (5)](https://user-images.githubusercontent.com/111819437/236969126-ef7c5508-7604-4a4f-8ff6-ebf9cc196699.png)
 Fig 12.[^9] Shows the flodiagram for the savein pdf function.
-
-
-
-
-
 
 
 ## Record of Tasks
@@ -240,7 +229,61 @@ Fig 12.[^9] Shows the flodiagram for the savein pdf function.
 | 10 | flasks routes           |
 
 ## Development C
-### Succes Criteria 1 - 
+### Database scheme
+To store and organize the data for the website I decided to use 4 different tables, like it was stated in the ER Diagram. To create the tables I made a function called create_database(). 
+```.py
+# Create databases
+def create_database():
+    db = database_worker("social_net.db") #Initiate database connection
+    query_user = """CREATE TABLE if not exists users(
+                    id INTEGER PRIMARY KEY,
+                    email text,
+                    password text not NULL,
+                    uname text,
+                    description text,
+                    clubs text,
+                    posts INTEGER DEFAULT 0
+                    )"""
+
+    query_post = f"""CREATE TABLE if not exists posts(
+            id INTEGER PRIMARY KEY,
+            title VARCHAR(150),
+            content text not NULL,
+            club text,
+            datetime text,
+            user_id INTEGER,
+            likes INTEGER DEFAULT 0,
+            comments INTEGER DEFAULT 0,
+            picture text,
+            FOREIGN KEY(user_id) REFERENCES users(id) on delete cascade
+            )"""
+
+    query_comment = f"""CREATE TABLE if not exists comments(
+            id INTEGER PRIMARY KEY,
+            content text not NULL,
+            user_id INTEGER,
+            post_id INTEGER,
+            FOREIGN KEY(user_id) REFERENCES users(id) on delete cascade,
+            FOREIGN KEY(post_id) REFERENCES posts(id) on delete cascade
+            )"""
+
+    query_likes = f"""CREATE TABLE if not exists likes(
+            id INTEGER PRIMARY KEY,
+            post_id INTEGER,
+            user_id INTEGER,    
+            FOREIGN KEY(user_id) REFERENCES users(id) on delete cascade,
+            FOREIGN KEY(post_id) REFERENCES posts(id) on delete cascade
+    )"""
+    db.run_save(query_likes)
+    db.run_save(query_user)
+    db.run_save(query_post)
+    db.run_save(query_comment)
+    db.close()
+    create_database()
+```
+The function first iniates the connection with the database with the function database_worker fri
+
+
 
 # Criteria D: Functionality
 ## A video demonstrating the proposed solution with narration
