@@ -244,8 +244,9 @@ Fig 12.[^9] Shows the flodiagram for the savein pdf function.
 | algorithm design       |
 
 ## Criteria C: Development
+
 ### Database scheme
-To store and organize the data for the website I decided to use 4 different tables, like it was stated in the ER Diagram. To create the tables I made a function called create_database(). 
+To store and organize the data for the website I made a function called create_database():
 ```.py
 # Create databases
 def create_database():
@@ -296,7 +297,12 @@ def create_database():
     db.close()
     create_database()
 ```
-The function first iniates the connection with the database with the function database_worker fri
+This function is used to create the tables in the database. To define how many tables and the contentes for each I would use for the website I applied pattern recognition to identify common data elements and group them together in appropriate tables. For example, I recognized that user information such as email, password, username,clubs and description should be stored in a single table called "users. In this way I deviced to create 4 tables like it is showed in the ER diagram.
+
+The function create_database first iniates the connection with the database using the function database_worker, then it defines four SQL queries, each of which creates a table in the database using the CREATE TABLE statement, only if a table with the same name does not exist. After defining each element on the data the function calls each query in turn using the run_save() method of the database_worker. After running all queries, it closes the database connection. In this way all 4 tables are properly created.
+
+### Success criteria 1: The website should have a user registration and login system with encryption of the password.                                
+
 
 
 
