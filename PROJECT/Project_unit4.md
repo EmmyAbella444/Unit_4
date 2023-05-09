@@ -60,14 +60,14 @@ The System Diagram represents the different parts of the websited and how they r
 ## Wireframe
 ![name](https://user-images.githubusercontent.com/111819437/236926641-5bb8fcf1-dc2a-4a7a-a55c-a8e0f7744ea0.png)
 
-fig.3 Shows the wirefram diagram for CasHub social network.
+fig.3[^1] Shows the wirefram diagram for CasHub social network.
 
 This wirefram shows all the screen in the social netwrok(login, register, main page, statistics, personal profile and users profile).The arrows extending from the buttons to the screens indicate to the user which screen will be opened when they click and release the button
 
 ## UML Diagram
 ![uml (3)](https://user-images.githubusercontent.com/111819437/236927524-8618af73-6f97-4098-b783-a046514fb2a4.png)
 
-Fig.4 This UML shows the classdatabase_worker.
+Fig.4[^9]This UML shows the classdatabase_worker.
 
 This class is used to control the database interaction. It has 4 methods and 2 private instance variables. The __init__() method initializes the connection and cursor variables using the sqlite3 module. The search() method takes a SQL query as input and returns a list of tuples as a result. The get() method also takes a SQL query as input and returns only the first result as a tuple. The run_save() method executes the given SQL query and commits the changes. Finally, the close() method closes the database connection.
 
@@ -75,7 +75,7 @@ This class is used to control the database interaction. It has 4 methods and 2 p
 ## ER Diagram
 ![ER diagram](https://user-images.githubusercontent.com/111819437/236806597-c08f7319-9175-477a-b616-22c6f70955d0.png)
 
-Fig.5 Shows the ER Diagram for the database used in the social network. 
+Fig.5[^9] Shows the ER Diagram for the database used in the social network. 
 
 The databse named:"Social_net.db" is organized with 4 tables: "Comments", "users", "likes" and "posts". This diagram also shows that one user can have multiple posts which can have multiple likes and comments.
 
@@ -112,20 +112,20 @@ The "users" table has columns for the user's id(primary key) , email, password ,
 ## Flow Diagrans
 
 ![flow diagram 2 (3)](https://user-images.githubusercontent.com/111819437/236940378-0d0856d0-5273-4278-a133-89bfd7c14630.png)
-Fig 10. Show the flodiagram for the add comments function.
+Fig 10.[^9] Show the flodiagram for the add comments function.
 
 This function first checks if the user is logged in by checking if their user ID exists in the request cookies. If the user is logged in, it retrieves the user ID and the comment content from the request form. Then, it connects to the database and inserts the comment into the comments table using an SQL query. It also updates the post's comment count in the posts table using another SQL query and closes the database. Finally, it redirects the user to the home page. If the user is not logged in, it redirects them to the login page.
 
 
 ![flow diagram 2 (4)](https://user-images.githubusercontent.com/111819437/236961811-3c942edd-6b85-48e3-8c38-479bcaa87f58.png)
-Fig 11. Show the flodiagram for home page function.
+Fig 11.[^9] Show the flodiagram for home page function.
 
 This function is responsible for rendering the home page, fist it checks if the user is logged in, and if so, it initiates the database to  retrieve posts and comments for each post and passes them to the HTML template.If there is a "POST" request it checkes if all data is valid and save this new post in the database,  If the user is not logged in, it redirects them to the login page.
 
 
 
 ![flow diagram 2 (5)](https://user-images.githubusercontent.com/111819437/236969126-ef7c5508-7604-4a4f-8ff6-ebf9cc196699.png)
-Fig 12. Shows the flodiagram for the savein pdf function.
+Fig 12.[^9] Shows the flodiagram for the savein pdf function.
 
 
 
@@ -258,3 +258,4 @@ Fig 12. Shows the flodiagram for the savein pdf function.
 [^6]:https://www.simplilearn.com/tutorials/sql-tutorial/what-is-sqlite#:~:text=SQLite%20is%20used%20to%20develop,some%20data%20within%20an%20application.
 [^7]:https://haveagreatdata.com/posts/why-you-dont-want-to-use-csv-files/
 [^8]:https://djangostars.com/blog/python-web-development/
+[^9]:https://www.lucidchart.com/
