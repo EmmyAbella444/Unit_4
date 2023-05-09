@@ -109,6 +109,25 @@ The "users" table has columns for the user's id(primary key) , email, password ,
 
 ## Flow Diagrans
 
+![flow diagram 2 (3)](https://user-images.githubusercontent.com/111819437/236940378-0d0856d0-5273-4278-a133-89bfd7c14630.png)
+Fig 10. Show the flodiagram for the add comments function.
+
+This function first checks if the user is logged in by checking if their user ID exists in the request cookies. If the user is logged in, it retrieves the user ID and the comment content from the request form. Then, it connects to the database and inserts the comment into the comments table using an SQL query. It also updates the post's comment count in the posts table using another SQL query and closes the database. Finally, it redirects the user to the home page. If the user is not logged in, it redirects them to the login page.
+
+
+![flow diagram 2 (4)](https://user-images.githubusercontent.com/111819437/236961811-3c942edd-6b85-48e3-8c38-479bcaa87f58.png)
+Fig 10. Show the flodiagram for home page function.
+
+This function is responsible for rendering the home page, fist it checks if the user is logged in, and if so, it initiates the database to  retrieve posts and comments for each post and passes them to the HTML template.If there is a "POST" request it checkes if all data is valid and save this new post in the database,  If the user is not logged in, it redirects them to the login page.
+
+
+
+
+
+
+
+
+
 
 
 
