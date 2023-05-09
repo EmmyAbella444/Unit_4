@@ -37,7 +37,7 @@ I will design and make a Website for a client who are students and teacher from 
 | Succsses criterias                                                                               |
 |--------------------------------------------------------------------------------------------------|
 | 1. The website should have a user registration and login system with encryption of the password. | 
-| 2. The website should allow students to post their activities and ensure that all posts with activities are properly documented.             |                
+| 2. The website should allow students to post their activities and ensure that all posts with activities are properly documented.             |     
 | 3. The website should allow students to download the portfolio.                                  |           
 | 4. The website should provide reminders for students to post about their activities.             |               
 | 5. The website should allow students to like and comment on other student's posts.               |                
@@ -238,6 +238,7 @@ Fig 12. Shows the flodiagram for the savein pdf function.
 | 10 | flasks routes           |
 
 ## Development C
+### Succes Criteria 1 - 
 
 # Criteria D: Functionality
 ## A video demonstrating the proposed solution with narration
