@@ -116,15 +116,14 @@ This function first checks if the user is logged in by checking if their user ID
 
 
 ![flow diagram 2 (4)](https://user-images.githubusercontent.com/111819437/236961811-3c942edd-6b85-48e3-8c38-479bcaa87f58.png)
-Fig 10. Show the flodiagram for home page function.
+Fig 11. Show the flodiagram for home page function.
 
 This function is responsible for rendering the home page, fist it checks if the user is logged in, and if so, it initiates the database to  retrieve posts and comments for each post and passes them to the HTML template.If there is a "POST" request it checkes if all data is valid and save this new post in the database,  If the user is not logged in, it redirects them to the login page.
 
 
 
-
-
-
+![flow diagram 2 (5)](https://user-images.githubusercontent.com/111819437/236969126-ef7c5508-7604-4a4f-8ff6-ebf9cc196699.png)
+Fig 12. Shows the flodiagram for the savein pdf function.
 
 
 
