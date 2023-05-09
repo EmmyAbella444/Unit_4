@@ -7,6 +7,13 @@
 Fig1.Logo for the website made in Canva[^1]
 
 
+# Table of contents
+## Criteria A: Planning
+## Criteria B: Design
+## Criteria C: Development
+## Criteria D: Functionality
+## Criteria E: Evaluation
+
 # Criteria A: Planning
 
 In the international baccalaureate program, students must create a CAS portfolio to show their participation in extracurricular activities. Unfortunately, the students from a local school are having difficulty with their portfolios. Many of them lack proper documentation and forget to update their portfolios every week, because the current portfolio makes it hard for teachers to keep track of their progress since they have to open multiple links to check each student, since the users are not logged in the same website, which is time-consuming for teachers. The CAS portfolio is also used to assess a student's development of skills like collaboration and communication. However, the current portfolio does not facilitate this since it does not allow students to view each other's profiles, collaborate or interact with them. Additionally, the current portfolio does not have the option to download the activities in pdf format, which is an IB requirement, making it difficult for students to demonstrate their involvement which can result in them potentially receiving a lower grade and this can negatively impact their IB score and future university applications.
@@ -228,7 +235,15 @@ Fig 12.[^9] Shows the flodiagram for the savein pdf function.
 | 9  | Dictionaries            |
 | 10 | flasks routes           |
 
-## Development C
+## Computational Thinking
+| Computational thinking |
+|------------------------|
+| decomposition          |
+| pattern recognition    |
+| abstraction            |
+| algorithm design       |
+
+## Criteria C: Development
 ### Database scheme
 To store and organize the data for the website I decided to use 4 different tables, like it was stated in the ER Diagram. To create the tables I made a function called create_database(). 
 ```.py
@@ -288,7 +303,7 @@ The function first iniates the connection with the database with the function da
 # Criteria D: Functionality
 ## A video demonstrating the proposed solution with narration
 
-# Criteria E
+# Criteria E: Evaluation
 
 
 
