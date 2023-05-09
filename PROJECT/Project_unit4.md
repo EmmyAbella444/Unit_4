@@ -9,31 +9,33 @@ Fig1.Logo for the website made in Canva[^1]
 
 # Criteria A: Planning
 
-## Problem definition
 In the international baccalaureate program, students must create a CAS portfolio to show their participation in extracurricular activities. Unfortunately, the students from a local school are having difficulty with their portfolios. Many of them lack proper documentation and forget to update their portfolios every week. Because the current portfolio makes it hard for teachers to keep track of their progress since they have to open multiple links for each student, which is time-consuming. The CAS portfolio is also used to assess a student's development of skills like collaboration and communication. However, the current portfolio does not facilitate this since it does not allow students to view each other's profiles, collaborate or interact with them. Additionally, the current portfolio does not have the option to download the activities in pdf format, which is an IB requirement, making it difficult for students to demonstrate their involvement which can result in them potentially receiving a lower grade and this can negatively impact their IB score and future university applications.
 
 ## Proposed Solution
-To address this problem, I first ran interviews[^2] with the client and based on that I decided to create a website, called CasHub. It will work like a social network because it allows students to post their activities and interact with each other. With the client's approval, I decided to use Python Flask, CSS, and HTML because it allows the creation of a dynamic and interactive website, which is essential for a social network-style platform. In CasHub students will be able to create profiles and log in, make posts about their activities, check a statistics page to track progress, and have a personal profile page with options to delete posts and download activities as PDFs. All this information will be stored in SQLite databases because they are supported by Python Flask. 
+To address this problem, I first ran interviews[^2] with the client and based on that I decided to create a website, called CasHub. It will work like a social network because it allows students to post their activities and interact with each other. With the client's approval[^2], I decided to use Python Flask, CSS, and HTML because it allows the creation of a dynamic and interactive website, which is essential for a social network-style platform. In CasHub students and teachers will be able to create profiles and log in, make posts about their activities, check a statistics page to track students' progress, visit each other's profiles, interact with other student's and teacher's posts, and have a personal profile page with options to delete posts, download activities as PDFs and have a message displayed if the user forgets to post regularly. All this information will be stored in SQLite databases because they are supported by Python Flask.
 
-
-### Rationale
-
+## Rationale
 The choice of Python Flask, HTML, CSS, and SQLite for building CasHub is based on their suitability for creating a dynamic and interactive social network-style website that meets the needs of the school's students and teachers.
 
-The network-style website[^3] was chosen because it can run on browsers that all users will be able to access from any computer, differently from the application for example. It also allows post and get requests that make the users able to log in, and posts their activities. 
+### Why a website?
+The network-style website[^3] was chosen because it can run on browsers that all users will be able to access from any computer, differently from the application for example. It also allows post and get requests that make the users able to log in, and posts their activities.
 
-Python Flask[^4] was chosen because its simplicity and flexibility make it ideal for building web applications that require frequent updates and modifications, such as a social network like CasHub. Additionally, Flask offers built-in support for SQLite, which is the database management that CasHub will use to store user data on CasHub and also it allows for easy integration with the front-end technologies that will be used:HTML and CSS.
+### Why Python?
+ Python[^8] has excellent support for handling data, making it an excellent choice for web applications that require data manipulation. This feature is particularly important in a social network-style platform like CasHub, where data handling is critical.
 
-HTML and CSS[^5] were chosen becase HTML is used for structuring the content of web pages, while CSS is used for styling the content, making it visually appealing and easy to navigate creating a user-friendly and intuitive interface that is essential for the success of any social network.
+### Why Python flask?
+Python Flask[^4]  is a Python web framework that provides tools to create website. Flask was chosen because its simplicity and flexibility make it ideal for building web applications that require frequent updates and modifications, such as a social network like CasHub. Additionally, Flask offers built-in support for SQLite, which is the database management that CasHub will use to store user data on CasHub and also it allows for easy integration with the front-end technologies that will be used: HTML and CSS.
 
-SQLite[^6] was chosen as the database management system for CasHub because it offers robust and safe data consistency, differently from CSV.files[^7] for example, ensuring that the information submitted by students is consistent, reliable, and easily accessible, which is essential for a perfect CasPortifolio.
+### Why HTML and CSS?
+HTML and CSS[^5] were chosen because HTML is used for structuring the content of web pages, while CSS is used for styling the content, making it visually appealing and easy to navigate creating a user-friendly and intuitive interface that is essential for the success of any social network.
 
+### Why SQLite?
+SQLite[^6] was chosen as the database management system for CasHub because it offers robust and safe data consistency, differently from CSV.files[^7] for example, ensuring that the information submitted by students is consistent, reliable, and easily accessible, which is essential for a perfect Cas Portifolio.
 
 ## Design Statement
+I will design and make a Website for a client who are students and teachers at a local school. The website will be a social network to post, monitor, interact, and download CAS activities and is constructed using the software CSS, HTML, and PYTHON. It will take 4 weeks to make and will be evaluated according to the following success criteria.
 
-I will design and make a Website for a client who are students and teacher from a local school. The website will be a social network to post, monitor, interact, and download CAS activities and is constructed using the software CSS, HTML, and PYTHON. It will take 4 weeks to make and will be evaluated according to the following success criteria.
-
-### Success Criteria
+## Success Criteria
 | Succsses criterias                                                                               |
 |--------------------------------------------------------------------------------------------------|
 | 1. The website should have a user registration and login system with encryption of the password. | 
@@ -255,3 +257,4 @@ Fig 12. Shows the flodiagram for the savein pdf function.
 [^5]: https://codeclan.com/blog/top-5-reasons-you-should-learn-html-css/#:~:text=CSS%20or%20Cascading%20Style%20Sheets,that%20structure%20come%20to%20life.
 [^6]:https://www.simplilearn.com/tutorials/sql-tutorial/what-is-sqlite#:~:text=SQLite%20is%20used%20to%20develop,some%20data%20within%20an%20application.
 [^7]:https://haveagreatdata.com/posts/why-you-dont-want-to-use-csv-files/
+[^8]:https://djangostars.com/blog/python-web-development/
