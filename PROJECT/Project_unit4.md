@@ -333,7 +333,7 @@ The search method takes a query string as an argument, executes it on the databa
 ## Success criteria 1: The website should have a user registration and login system with encryption of the password.                             
 
 ### Registration   
-To achieve the first success criteria I made a funtction to register in the website:
+To achieve the first success criteria I made a function to register in the website:
 ```.py
 # Password validation regex: at least 8 characters, 1 number, and 1 special character
 password_regex = r"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
@@ -433,7 +433,8 @@ def check_password(user_password, hashed):
 ### My library
 I used computational thinking abstraction to define high-level functions like encrypt_password, check_password and the class database_worker in a different file called My_library, because in this way I do not need to keep repeating thoses functions in the main code, I can use it by calling it name and the details of thoses functions are also hidden away from the rest of the code making it easier to understand and make changes to those functions if needed in the future. 
 
-![Screen Shot 2023-05-09 at 5 38 30](https://github.com/EmmyAbella444/Unit_4/assets/111819437/0982585d-0801-4d86-a13a-6d93c5377e8e)
+![Screen Shot 2023-05-09 at 5 39 05](https://github.com/EmmyAbella444/Unit_4/assets/111819437/e174744f-2f72-4539-8fa3-4ac4bc68985c)
+
 
 
 ### Log in
