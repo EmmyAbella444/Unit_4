@@ -778,6 +778,8 @@ Then the function checks if last_post_date is None or use this line:(datetime.da
 Finally, the function renders the profile.html template with the necessary data, including the user ID, user data, posts, comments, and whether to show the warning message. In this way a message will be displayed if the user forgets to update their portfolios.
 
 ## Success criteria 5: The website should allow users to like and comment on other users posts.
+To achieve this criteria I made two functions: one to like and one to comment posts.
+### Function to like posts
 ```.py
 # feature to like posts
 @app.route('/post/<int:post_id>/like', methods=['POST'])
@@ -817,6 +819,16 @@ def like_post(post_id):
         return redirect(url_for("login"))
 
 ```
+First I made a  Flask route for liking posts. The route is specified as "/post/int:post_id/like", where "int:post_id" is a URL parameter that specifies the ID of the post being liked. Then I made a function called Like_post that handles the POST request for liking/unliking a post. The "post_id" parameter is passed in from the URL parameter.
+
+Then the function checks if the user is logged in by checking if the 'user_id' cookie exists. If the cookie does not exists then the user is redirected to the log in page. If the cookie exists, the user ID is retrieved from the cookie and a connection to a SQLite database named 'social_net.db' is established using the class database_worker. I made sure to get the user ID from the user that liked the post because the first time that I coded this function, it was not working for multiples user, since one user could remove the like from anoter use, and with the user id I can check if that user has already liked that post.
+
+Next, the function retrieves the post with the specified 'post_id' from the database by executing a SQL query using the 'database_worker' object. After this I added a feature to make sure that one user can only like a post one time, first it checks if the user has already liked the post by executing another SQL query to search for a 'like' record in the 'likes' table that matches the current user ID and post ID. If a like record exists, the function deletes it, effectively removing the like. If a like record does not exist, the function adds a new 'like' record to the 'likes' table, indicating that the user has liked the post.
+
+After adding or removing the like, the function updates the 'likes' count for the post in the 'posts' table by executing another SQL query. It retrieves the current count of likes for the specified post and updates the 'likes' column in the 'posts' table accordingly. Finally, the function closes the database connection and redirects the user to the home page if they were logged in or to the login page if they were not.
+
+To make the like button look like a heart I asked chat gpt with the following prompt: "make the css code for a hear format button", and I got this code from it, which made the button to like it be user-friendly and visually appelian
+### Function to add 
 ```.py
 # feature to add comments on posts
 @app.route('/post/<int:post_id>/add_comment', methods=['POST'])
