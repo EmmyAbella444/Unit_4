@@ -819,7 +819,7 @@ def like_post(post_id):
         return redirect(url_for("login"))
 
 ```
-First I made a Flask route for liking posts. The route is specified as "/post/int:post_id/like", where "int:post_id" is a URL parameter that specifies the ID of the post being liked. Then I made a function called Like_post that handles the POST request for liking/unliking a post. The "post_id" parameter is passed in from the URL parameter.
+To make the users able to like a post, first I made a Flask route for liking posts. The route is specified as "/post/int:post_id/like", where "int:post_id" is a URL parameter that specifies the ID of the post being liked. Then I made a function called Like_post that handles the POST request for liking/unliking a post. The "post_id" parameter is passed in from the URL parameter.
 
 Then the function checks if the user is logged in by checking if the 'user_id' cookie exists. If the cookie does not exists then the user is redirected to the log in page. If the cookie exists, the user ID is retrieved from the cookie and a connection to the databaseis established using the class database_worker. I made sure to get the user ID from the user that liked the post because the first time that I coded this function, it was not working for multiples user, since one user could remove the like from anoter use, and with the user id I can check if that user has already liked that post.
 
@@ -827,7 +827,7 @@ Next, the function retrieves the post with the specified 'post_id' from the data
 
 After adding or removing the like, the function updates the 'likes' count for the post in the 'posts' table by executing another SQL query. It retrieves the current count of likes for the specified post and updates the 'likes' column in the 'posts' table accordingly. Finally, the function closes the database connection and redirects the user to the home page with the likes count updated.
 
-To make the like button look like a heart I asked chat gpt[^11] with the following prompt: "make the css code for a hear format button", and I got this code from it, which made the button to like it be user-friendly and visually appealing:
+To make the like button look like a heart, I asked chat gpt[^11] with the following prompt: "make the css code for a heart format button", and I got this code from it, which made the button to like a post be user-friendly and visually appealing:
 ```.css
 .like-button {
   border: none;
@@ -886,7 +886,7 @@ def add_comment(post_id):
     else:
         return redirect(url_for("login"))
 ```
-First I made a Flask route to add comments on posts. The route is specified as "/post/int:post_id/add_comment", where "int:post_id" is a URL parameter that specifies the ID of the post receiving the comment. Then I made a function called add_comment that handles the POST request for addinf a comment to a post. The "post_id" parameter is passed in from the URL parameter.
+To make the user ablt to add a comment in a post, first I made a Flask route to add comments on posts. The route is specified as "/post/int:post_id/add_comment", where "int:post_id" is a URL parameter that specifies the ID of the post receiving the comment. Then I made a function called add_comment that handles the POST request for addinf a comment to a post. The "post_id" parameter is passed in from the URL parameter.
 
 When a user submits a comment on a post, the function first checks if the user is logged in by checking for the 'user_id' cookie in the request. If the user is not logged in, the code redirects them to the login page. If the user is logged in, the code retrieves the user_id from the cookie and the comment from the form data submitted by the user.
 
@@ -936,8 +936,49 @@ def statistics():
     return render_template('statistics.html', most_posts_user=most_posts_user, student_stats=student_stats, most_posts_clubs=most_posts_clubs)
 
 ```
+To mak ethe statistics page first I defined a Flask route for the '/statistics' URL, then I made a function called statistics(), that first connect to the database using the database_worker class.
 
-## Success criteria 7:The website should allow users to visit each others profile.     
+After this I made a SQL query to select the 3 users with the highest number of posts for that week;
+```.py
+users =("""SELECT users.uname, COUNT(posts.id) AS post_count
+       FROM users
+       JOIN posts ON users.id = posts.user_id
+       WHERE posts.datetime > date('now', '-7 days')
+       GROUP BY users.id
+       ORDER BY post_count DESC
+       LIMIT 3""")
+most_posts_user = db.search(users)
+```
+The query joins the 'users' and 'posts' tables, filters for posts made in the past seven days, groups the results by user ID, and orders the results by the number of posts in descending order, with a limit of 3 users. The results are stored in the 'most_posts_user' variable. In this way students that have been posting frequently receives a recognition and it can be an encouragement for other students to post more.
+
+After this I made a similar SQL query to select the 3 clubs with the highest number of posts for that week:
+```.py
+clubs = ("""SELECT posts.club, COUNT(posts.id) AS post_count
+       FROM posts
+       WHERE posts.datetime > date('now', '-7 days')
+       GROUP BY posts.club
+       ORDER BY post_count DESC
+       LIMIT 3""")
+most_posts_clubs = db.search(clubs)
+```
+The query filters for posts made in the past seven days, groups the results by club name, and orders the results by the number of posts in descending order with a limit of 3 clubs. The results are stored in the 'most_posts_clubs' variable.In this way clubs that have been hosting session frequently receives a recognition and it can be an encouragement for clubs to do the same.
+
+After this I made another SQL query to retrieve statistics about all students who have posted on the social network:
+```.py
+students =("""SELECT users.uname, MAX(posts.datetime) as last_post_time, COUNT(posts.id) as total_posts,users.id
+                FROM users
+                JOIN posts ON users.id = posts.user_id
+                GROUP BY users.id
+                ORDER BY last_post_time ASC""")
+student_stats = db.search(students)
+```
+
+The query joins the 'users' and 'posts' tables, groups the results by user ID, and orders the results by the most recent post time in ascending order. The results include each user's username, the time of their most recent post, and the total number of posts they have made. The results are stored in the 'student_stats' variable. Which this query the teachers are able to check how many posts and when was the last time that a students post way faster then in the previous portifolio since all the information is show in only one page.
+
+After getting all the data the function closes the database connection and renders the statistics.html template, passing in the retrieved statistics as arguments to be displayed in the template.
+
+## Success criteria 7:The website should allow users to visit each others profile.
+To
 ```.py
 @app.route('/students_profile/<int:user_id>', methods=['GET'])
 def students_profile(user_id):
@@ -990,6 +1031,15 @@ def students_profile(user_id):
 | 7. The website should allow users to visit each others profile.                                                | Met         | No additional feedback |
 
 ## Other user
+| Criteria                                                                                                       | Met or Not? | Feedback                                                                |
+|----------------------------------------------------------------------------------------------------------------|-------------|-------------------------------------------------------------------------|
+| 1. The website should have a user registration and login system with encryption of the password.               | Met         | No additional feedback                                                  |
+| 2. The website should allow users to post their activities and ensure that all posts are properly documented.  | Met         | No additional feedback                                                  |
+| 3. The website should allow users to download the portfolio in pdf format.                                     | Met         | No additional feedback                                                  |
+| 4. The website should provide reminders for users to post about their activities.                              | Met         | No additional feedback                                                  |
+| 5. The website should allow users to like and comment on other users posts.                                    | Met         | Add a feature to delete comments                                        |
+| 6. The website should have a page with statistics of every student showing the last time that students posted. | Met         | No additional feedback                                                  |
+| 7. The website should allow users to visit each others profile.                                                | Met         | Add also the link to visit students profile in their names on the posts |
 
 ### Citations
 [^1]:  https://www.canva.com/
