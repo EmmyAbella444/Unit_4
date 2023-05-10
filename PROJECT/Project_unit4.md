@@ -431,8 +431,8 @@ def check_password(user_password, hashed):
 
 ### My library
 I used computational thinking abstraction to define high-level functions like encrypt_password, check_password and the class database_worker in a different file called My_library, because in this way I do not need to keep repeating thoses functions in the main code, I can use it by calling it name and the details of thoses functions are also hidden away from the rest of the code making it easier to understand and make changes to those functions if needed in the future. 
+![Screen Shot 2023-05-10 at 17 14 49](https://github.com/EmmyAbella444/Unit_4/assets/111819437/c7f46c41-154a-40fd-b7b1-2db21372e1ad)
 
-![Screen Shot 2023-05-09 at 5 39 05](https://github.com/EmmyAbella444/Unit_4/assets/111819437/e174744f-2f72-4539-8fa3-4ac4bc68985c)
 
 
 
