@@ -216,7 +216,7 @@ Fig 12.[^9] Shows the flodiagram for the savein pdf function.
 | Python                        	| SQL requests                  	| sqlite3           	|
 | SQlite                        	| If-else statements             	| passlib           	|
 | Html                            | Encryption                    	| database_worker    |
-| CSS              	| For loops   | Index              	            | Flask                    |
+| CSS              	   | Index              	            | Flask                    |
 | PyCharm professional 2022.3.2   | For loops                              	| re	                  |
 | Chrome (testing)                | Dictionaries                              	| werkzeug.utils                   	|
 |                                	|  OOP (classes)                              	|  fpdf                 	|
@@ -243,9 +243,9 @@ Fig 12.[^9] Shows the flodiagram for the savein pdf function.
 | abstraction            |
 | algorithm design       |
 
-## Criteria C: Development
+# Criteria C: Development
 
-### Database scheme
+## Database scheme
 To store and organize the data for the website I made a function called create_database():
 ```.py
 # Create databases
@@ -297,13 +297,40 @@ def create_database():
     db.close()
     create_database()
 ```
-This function is used to create the tables in the database. To define how many tables I would use for the website I applied pattern recognition to identify common data elements and group them together in appropriate tables. For example, I recognized that user information such as email, password, username,clubs and description should be stored in a single table called "users. In this way I decided to create 4 tables, like it was showed in the ER diagram.
+ To define how many tables I would use for the website I applied pattern recognition to identify common data elements and group them together in appropriate tables. For example, I recognized that user information such as email, password, username,clubs and description should be stored in a single table called "users. In this way I decided to create 4 tables, like it was showed in the ER diagram.
 
 The function create_database first iniates the connection with the database using the function database_worker, then it defines four SQL queries, each of which creates a table in the database using the CREATE TABLE statement and with an if statements it makes sure to create the table only if a table with the same name does not exist. After defining each element on the data the function calls each query in and save them using the run_save() method of the database_worker. After running all queries, it closes the database connection. In this way all 4 tables are properly created.
 
-To make it easir to work with the database I made a function on my_library that
+To make it easir to work with the database I made a class on my_library called database_worker that provides methods for interacting with a SQLite database.
+```.py
+class database_worker:
+    def __init__(self, name):
+        self.connection = sqlite3.connect(name)  # Connect to the database with the given name
+        self.cursor = self.connection.cursor()  # Create a cursor object to execute SQL commands
 
-### Success criteria 1: The website should have a user registration and login system with encryption of the password.                                
+    # Method to execute a SELECT statement and return all results
+    def search(self, query):
+        result = self.cursor.execute(query).fetchall()  # Execute the SELECT statement and fetch all results
+        return result  # Return the list of results
+
+    # Method to execute a SELECT statement and return the first result
+    def get(self, query):
+        result = self.cursor.execute(query).fetchone()  # Execute the SELECT statement and fetch the first result
+        return result  # Return the first result
+
+    # Method to execute a query and commit changes to the database
+    def run_save(self, query):
+        self.cursor.execute(query)  # Execute the query
+        self.connection.commit()  # Commit the changes to the database
+
+    # Method to close the database connection
+    def close(self):
+        self.connection.close()  # Close the connection to the database
+```
+The __init__ method is the constructor for the class, which takes the name of the database file as an argument and sets up a connection to it.
+The search method takes a query string as an argument, executes it on the database using the cursor object and returns all the resulting rows as a list.The get method also takes a query string as an argument, executes it on the database using the cursor object and returns only the first resulting row as a tuple.The run_save method takes a query string as an argument, executes it on the database using the cursor object and commits the changes to the database. Finally, the close method is used to close the connection to the database. With this method it is easier to execute queries in the code.
+
+## Success criteria 1: The website should have a user registration and login system with encryption of the password.                             ### Registration   
 To achieve the first success criteria I made two functions one to register and another one to log in in the website.
 ```.py
 # Password validation regex: at least 8 characters, 1 number, and 1 special character
@@ -349,7 +376,7 @@ def register():
 
     return render_template("register.html", message=message)  # displays registration page with error messages if any
 ```
-To make the register function I first defined a flask route for the registration page and definied the method "post" to get the information posted by the user.The function first check if the request method is POST(is the user submitted the for to register), then it retrieves the user's name, email, password, password confirmation, bio, and selected clubs from the form data that is displayed in the register.html. Then I used a validation method: regular expressions (regex)  to make sure that the uer enter a valid email and secure passowrd
+To make the register function I first defined a flask route for the registration page and definied the method "post" to get the information posted by the user.The function first check if the request method is POST(if the user submitted the form to register), then it retrieves the user's name, email, password, password confirmation, bio, and selected clubs from the form data that is displayed in the register.html. Then I used a validation method: regular expressions (regex)  to make sure that the uer enter a valid email and secure passowrd
 ```.py
 password_regex = r"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
 email_regex = r"[^@]+@[^@]+\.[^@]+"
@@ -365,11 +392,11 @@ The password_regex is a pattern that defines the requirements for a valid passwo
 After this the function checks if the password and password confirmation are the same, for that i used the computational thinking abstraction to 
 define high-level functions like encrypt_password and check_password that I stored on my_library.py in this way the details of password encryption and validation are hidden away from the rest of the code making it easier to understand and make changes to those functions if needed in the future.
 
-If the passwords are the same, the function connect to the database using the database_worker function and then uses a SQL query to check if a user with the provided email already exists, If a user with the provided email exists the function sets the message variable to indicate this to the user. If the email does not exist, the function 
+If the passwords are the same, the function connect to the database using the database_worker class and then uses a SQL query to check if a user with the provided email already exists, If a user with the provided email exists the function sets the message variable to indicate this to the user. If the email does not exist, the function Inserts the user's name, email, password, bio and clubs in the database, however the password is first hashed to ensure securiy nd it is used the encrypt_password from my_library to do so.
+### Log in
 
-
-
-
+```.
+```
 Check if the request method is POST
 Retrieve the email and password from the form data
 Check if the email and password are not empty
