@@ -495,8 +495,8 @@ The login() function first checks if the request.method is'POST' to know if the 
 
 If the user exists in the database, their id, email, and hashed password are obtained from the database. The check_password function is used to compare the given password with the hashed password in the database. If the passwords match, a response with a redirect to the home page is created using make_response(redirect('home')). Then a cookie with the user's id is also set using resp.set_cookie('user_id', f"{id}"), to make it able for the users to have separate profiles in the website. If the password does not match the hashed password in the database the function refresh the page returning the login page using render_template('login.html').
 
-# Success criteria 2:The website should allow users to post their activities and ensure that all posts are properly documented.
-
+## Success criteria 2:The website should allow users to post their activities and ensure that all posts are properly documented.
+To achieve this criteria I made a home page which contains an option to add new posts and display all posts made by the users.
 ```.py
 # main page
 @app.route('/home', methods=['GET', 'POST'])
@@ -516,8 +516,7 @@ def home():
             date_str = request.form['date']
             date_obj = datetime.datetime.strptime(date_str, '%Y-%m-%d')
             date = date_obj.strftime('%Y-%m-%d')
-            clubs = request.form.getlist('clubs[]')
-            clubs_str = ', '.join(clubs)
+            club = request.form['club']
             f = request.files['file']
             filename = secure_filename(f.filename)
             f.save(os.path.join("static/images/", filename))
@@ -561,15 +560,54 @@ def home():
 
 
 ```
-# Success criteria 3:The website should allow users to download the portfolio in pdf format.
+Firstly I defined a Flask route for the '/home' URL, which can accept GET and POST requests.
 
-# Success criteria 4:The website should allow users to download the portfolio in pdf format.
+Then  since it was a lot of taks to perform in only one function I used algorithm design to break down the problem into smaller, more manageable steps, and design a process to handle each step. So first the function "home",  check if the user is logged in by checking if the 'user_id' cookie exists. If the cookie does not exists then the user is redirected to the log in page. If the cookie exists, the user ID is retrieved from the cookie and a connection to a SQLite database named 'social_net.db' is established using the class database_worker.
 
-# Success criteria 5:The website should provide reminders for users to post about their activities. 
+Then the function checks if the request method is POST, which means that the user has submitted a form on the /home page to add a new post. The form data is then retrieved using request.form to get the title,datetime,club,content for the new post.
 
-# Success criteria 6:The website should allow users to like and comment on other users posts.    
+To add the datetime in the database, the first code that i did, the date was not being passed in the correct format, so I implemented the datetime library to convert the date string to a datetime object and then back to a formatted string to ensure that the date is in the correct format and is validated.
 
-# Success criteria 7:
+```.py
+            date_str = request.form['date']
+            date_obj = datetime.datetime.strptime(date_str, '%Y-%m-%d')
+            date = date_obj.strftime('%Y-%m-%d')
+```
+To add the picture for the new post into the database I first requested it using the request object's 'files' attribute, which returns a dictionary-like object containing the uploaded files. Then I used the 'secure_filename' method from the Werkzeug library to sanitize the filename and remove any potential security vulnerabilities, such as directory traversal attacks. Finally, the 'save' method is called on the retrieved file object to save the file to the desired location on the server. This helps ensure that uploaded files are stored safely and securely.
+
+```.py
+            f = request.files['file']
+            filename = secure_filename(f.filename)
+            f.save(os.path.join("static/images/", filename))
+```
+After retrivieng all elements, the new post is inserted into the database using an SQLquery with the details provided in the form. The function then updates the count of posts for all users in the database and redirects the user to the main page.
+
+If the request method is "GET", the function queries the database to get all posts and comments associated with each post, and passes them to the HTML template using the render_template() function.
+
+To get the comments I decided to use a dictionary, when the function retrievs comments from the database, a dictionary is created with the post id as the key and a list of comments as the value. This is because it allows for easy access to the comments for each post when rendering the HTML template. The dictionary also allows for efficient updating and accessing of comments when a new comment is added to a post. 
+```.py
+comments_dict = {}
+        for post in posts:
+            post_id = post[0]
+            comments_query = f"""SELECT comments.content, users.uname 
+                                 FROM comments 
+                                 INNER JOIN users ON comments.user_id=users.id 
+                                 WHERE comments.post_id={post_id}"""
+            comments = db.search(comments_query)
+            comments_dict[post_id] = comments
+```
+
+## Success criteria 3:The website should allow users to download the portfolio in pdf format.
+
+## Success criteria 4:The website should allow users to download the portfolio in pdf format.
+
+## Success criteria 5:The website should provide reminders for users to post about their activities. 
+
+## Success criteria 6:The website should allow users to like and comment on other users posts.    
+
+## Success criteria 7:The website should allow users to visit each others profile.     
+
+
 
 # Criteria D: Functionality
 ## A video demonstrating the proposed solution with narration
