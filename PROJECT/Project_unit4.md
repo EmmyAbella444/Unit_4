@@ -749,7 +749,7 @@ def profile_user(user_id: int):
     # Render the profile.html template with the necessary data
     return render_template("profile.html", user=user_id, posts=posts, comments_dict=comments_dict,user_data=user_data, show_warning=show_warning)
 ```
-I first created a flask route for the profile page and the made a function called profile_user() that first checks if the user is logged in by checking if the 'user_id' cookie exists. If the cookie does not exists then the user is redirected to the log in page. If the cookie exists, the user ID is retrieved from the cookie and a connection to a SQLite database named 'social_net.db' is established using the class database_worker.
+I first created a flask route for the profile page and the made a function called profile_user() that first checks if the user is logged in by checking if the 'user_id' cookie exists. If the cookie does not exists then the user is redirected to the log in page. If the cookie exists, the user ID is retrieved from the cookie and a connection to the database is established using the class database_worker.
 
 Then the function retrieves the user's information from the database(username, email, description, and clubs) and all posts made by the user with the given user ID. The posts are sorted in descending order by ID, so the latest post comes first. In this way users can see when was the last time that they posted. The function then queries the database again to retrieve the comments for each post.
 
@@ -819,16 +819,52 @@ def like_post(post_id):
         return redirect(url_for("login"))
 
 ```
-First I made a  Flask route for liking posts. The route is specified as "/post/int:post_id/like", where "int:post_id" is a URL parameter that specifies the ID of the post being liked. Then I made a function called Like_post that handles the POST request for liking/unliking a post. The "post_id" parameter is passed in from the URL parameter.
+First I made a Flask route for liking posts. The route is specified as "/post/int:post_id/like", where "int:post_id" is a URL parameter that specifies the ID of the post being liked. Then I made a function called Like_post that handles the POST request for liking/unliking a post. The "post_id" parameter is passed in from the URL parameter.
 
-Then the function checks if the user is logged in by checking if the 'user_id' cookie exists. If the cookie does not exists then the user is redirected to the log in page. If the cookie exists, the user ID is retrieved from the cookie and a connection to a SQLite database named 'social_net.db' is established using the class database_worker. I made sure to get the user ID from the user that liked the post because the first time that I coded this function, it was not working for multiples user, since one user could remove the like from anoter use, and with the user id I can check if that user has already liked that post.
+Then the function checks if the user is logged in by checking if the 'user_id' cookie exists. If the cookie does not exists then the user is redirected to the log in page. If the cookie exists, the user ID is retrieved from the cookie and a connection to the databaseis established using the class database_worker. I made sure to get the user ID from the user that liked the post because the first time that I coded this function, it was not working for multiples user, since one user could remove the like from anoter use, and with the user id I can check if that user has already liked that post.
 
 Next, the function retrieves the post with the specified 'post_id' from the database by executing a SQL query using the 'database_worker' object. After this I added a feature to make sure that one user can only like a post one time, first it checks if the user has already liked the post by executing another SQL query to search for a 'like' record in the 'likes' table that matches the current user ID and post ID. If a like record exists, the function deletes it, effectively removing the like. If a like record does not exist, the function adds a new 'like' record to the 'likes' table, indicating that the user has liked the post.
 
-After adding or removing the like, the function updates the 'likes' count for the post in the 'posts' table by executing another SQL query. It retrieves the current count of likes for the specified post and updates the 'likes' column in the 'posts' table accordingly. Finally, the function closes the database connection and redirects the user to the home page if they were logged in or to the login page if they were not.
+After adding or removing the like, the function updates the 'likes' count for the post in the 'posts' table by executing another SQL query. It retrieves the current count of likes for the specified post and updates the 'likes' column in the 'posts' table accordingly. Finally, the function closes the database connection and redirects the user to the home page with the likes count updated.
 
-To make the like button look like a heart I asked chat gpt with the following prompt: "make the css code for a hear format button", and I got this code from it, which made the button to like it be user-friendly and visually appelian
-### Function to add 
+To make the like button look like a heart I asked chat gpt[^11] with the following prompt: "make the css code for a hear format button", and I got this code from it, which made the button to like it be user-friendly and visually appealing:
+```.css
+.like-button {
+  border: none;
+  background-color: transparent;
+  color: #262626;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.like-button:hover {
+  color: #e0245e;
+}
+
+.like-button:focus {
+  outline: none;
+}
+
+
+.like-button i {
+  font-size: 27px;
+  margin-right: 5px;
+}
+
+.like-button span {
+  margin-left: 5px;
+}
+
+.fa-heart {
+  font-size: 40px;
+  color: #e0245e;
+}
+```
+### Function to add comments
 ```.py
 # feature to add comments on posts
 @app.route('/post/<int:post_id>/add_comment', methods=['POST'])
@@ -850,6 +886,12 @@ def add_comment(post_id):
     else:
         return redirect(url_for("login"))
 ```
+First I made a Flask route to add comments on posts. The route is specified as "/post/int:post_id/add_comment", where "int:post_id" is a URL parameter that specifies the ID of the post receiving the comment. Then I made a function called add_comment that handles the POST request for addinf a comment to a post. The "post_id" parameter is passed in from the URL parameter.
+
+When a user submits a comment on a post, the function first checks if the user is logged in by checking for the 'user_id' cookie in the request. If the user is not logged in, the code redirects them to the login page. If the user is logged in, the code retrieves the user_id from the cookie and the comment from the form data submitted by the user.
+
+Next, the function inserts the comment into the comments table, associating it with the user and the post. This is done by executing an INSERT SQL query. After the comment is inserted into the database, the function updates the comments count for the post by executing an UPDATE SQL query that counts the number of comments for the post and sets the comments field in the posts table to that count. This ensures that the comments count for the post stays up-to-date. After this the code closes the database connection, redirects the user to the home page. In this way the user is able to add a comment in the desired post.
+
 ## Success criteria 6:The website should have a page with statistics of every student showing the last time that students posted. 
 
 ```.py
@@ -959,3 +1001,4 @@ def students_profile(user_id):
 [^8]:https://djangostars.com/blog/python-web-development/
 [^9]:https://www.lucidchart.com/
 [^10]:https://pyfpdf.readthedocs.io/en/latest/
+[^11]:https://chat.openai.com/
