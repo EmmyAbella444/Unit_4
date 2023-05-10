@@ -978,7 +978,13 @@ The query joins the 'users' and 'posts' tables, groups the results by user ID, a
 After getting all the data the function closes the database connection and renders the statistics.html template, passing in the retrieved statistics as arguments to be displayed in the template.
 
 ## Success criteria 7:The website should allow users to visit each others profile.
-To
+To make the users able to visit each other profile I added a link in the statistics.html in the students username that leads to that students profile:
+```.html
+	<a href="{{ url_for('students_profile', user_id=user[3]) }}">{{ user[0] }}</a>
+```
+ This code is used to generate a hyperlink in the students username. The link directs the user to the profile page of a specific student.
+ The profile page is generated using the following code:
+ 
 ```.py
 @app.route('/students_profile/<int:user_id>', methods=['GET'])
 def students_profile(user_id):
