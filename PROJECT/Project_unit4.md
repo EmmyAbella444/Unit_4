@@ -690,15 +690,205 @@ def save_pdf():
         return response
 
 ```
+I first defined a Flask route called "save_pdf" that generates a PDF file containing all the posts made by a logged-in user. 
+Then I made a function called save_pdf() that first checks if the user is logged in by checking the user_id cookie. Then, it connects to the database and use an SQL query to retrieve the title,content,datetime,club,pictures for all posts made by the user with the given user ID. 
+Then it uses the FPDF library to create a new PDF object and add a new page to the PDF document. The I used a For loop for each post to set the font and adds the post title, club, datetime, image, and content to the PDF. The image is retrieved from the static/images directory using the filename stored in the database. The ln() method is used to add a new line after each element is added to the PDF.
 
-## Success criteria 4:The website should allow users to download the portfolio in pdf format.
+After all posts are added to the PDF document, it defines the output file path for the PDF and saves the PDF document to that path. It then creates a Flask response object to send the PDF file as a download. It sets the content disposition header to force the file to download with a specified filename. Finally, it returns the Flask response object to the user's browser.
 
-## Success criteria 5:The website should provide reminders for users to post about their activities. 
 
-## Success criteria 6:The website should allow users to like and comment on other users posts.    
+## Success criteria 4:The website should provide reminders for users to post about their activities. 
+```.py
+# Personal Profile
+@app.route('/profile/<user_id>', methods=['GET', 'POST'])
+def profile_user(user_id: int):
+    # Check if there is a user ID stored in a cookie, if so use it as the user ID
+    if request.cookies.get('user_id'):
+        print("The cookie was found")
+        user_id = request.cookies.get('user_id')
+
+    # Connect to the database
+    db = database_worker("social_net.db")
+
+    # Query the database to get the user information
+    user_query = f"""SELECT uname, email, description, clubs FROM users WHERE id = {user_id}"""
+    user_data = db.get(user_query)
+
+    # Query the database to get all posts made by the user with the given user ID
+    posts_query = f"""SELECT posts.id, posts.title, posts.content, posts.club, posts.likes, posts.comments, posts.datetime, users.uname, posts.picture 
+                            FROM posts 
+                            INNER JOIN users ON posts.user_id=users.id
+                            WHERE user_id = {user_id}
+                            ORDER BY posts.id DESC"""
+    posts = db.search(posts_query)
+
+    # Query the database to get the comments for each post
+    comments_dict = {}
+    for post in posts:
+        post_id = post[0]
+        comments_query = f"""SELECT comments.content, users.uname 
+                                    FROM comments 
+                                    INNER JOIN users ON comments.user_id=users.id 
+                                    WHERE comments.post_id={post_id}"""
+        comments = db.search(comments_query)
+        comments_dict[post_id] = comments
+
+    # Get the datetime of the last post (if there are any posts)
+    last_post_date = None
+    if len(posts) > 0:
+        last_post_date = datetime.datetime.fromisoformat(posts[0][6])
+
+    # Close the database connection
+    db.close()
+
+    # Check if the user has not posted in more than 7 days or has not posted at all
+    show_warning = False
+    if last_post_date is None or (datetime.datetime.now() - last_post_date).days > 7:
+        show_warning = True
+
+    # Render the profile.html template with the necessary data
+    return render_template("profile.html", user=user_id, posts=posts, comments_dict=comments_dict,user_data=user_data, show_warning=show_warning)
+```
+
+## Success criteria 5: The website should allow users to like and comment on other users posts.
+```.py
+# feature to like posts
+@app.route('/post/<int:post_id>/like', methods=['POST'])
+def like_post(post_id):
+    if request.cookies.get('user_id'):
+        user_id = int(request.cookies.get('user_id'))
+        db = database_worker("social_net.db")
+
+        # Get the post from the database
+        post_query = f"SELECT * FROM posts WHERE id={post_id}"
+        post = db.search(post_query)[0]
+
+        # Check if the user has already liked the post
+        likes_query = f"SELECT * FROM likes WHERE post_id={post_id} AND user_id={user_id}"
+        user_like = db.search(likes_query)
+
+        if user_like:
+            # If the user has already liked the post, remove their like
+            delete_like_query = f"DELETE FROM likes WHERE post_id={post_id} AND user_id={user_id}"
+            db.run_save(delete_like_query)
+
+        else:
+            # If the user hasn't liked the post yet, add their like
+            add_like_query = f"INSERT INTO likes(post_id, user_id) VALUES ({post_id}, {user_id})"
+            db.run_save(add_like_query)
+
+        # Update the likes count for the post in the database
+        likes_query = f"SELECT COUNT(*) FROM likes WHERE post_id={post_id}"
+        likes_count = db.search(likes_query)[0][0]
+        update_post_query = f"UPDATE posts SET likes={likes_count} WHERE id={post_id}"
+        db.run_save(update_post_query)
+
+        db.close()
+
+        return redirect(url_for("home"))
+    else:
+        return redirect(url_for("login"))
+
+```
+```.py
+# feature to add comments on posts
+@app.route('/post/<int:post_id>/add_comment', methods=['POST'])
+def add_comment(post_id):
+    if 'user_id' in request.cookies:
+        user_id = int(request.cookies['user_id'])
+        comment = request.form['comment']
+        db = database_worker("social_net.db")
+
+        # Insert the comment into the database
+        insert_comment = f"INSERT INTO comments (content, user_id, post_id) VALUES ('{comment}','{user_id}','{post_id}')"
+        db.run_save(insert_comment)
+
+        # Update the post count in the database for the specific post
+        update_count = f"UPDATE posts SET comments = (SELECT COUNT(*) FROM comments WHERE post_id = {post_id}) WHERE id = {post_id}"
+        db.run_save(update_count)
+
+        return redirect(url_for("home"))
+    else:
+        return redirect(url_for("login"))
+```
+## Success criteria 6:The website should have a page with statistics of every student showing the last time that students posted. 
+
+```.py
+@app.route('/statistics')
+def statistics():
+    # Connect to the database
+    db = database_worker("social_net.db")
+
+    # Retrieve the user with the most posts for the current week
+    users =("""SELECT users.uname, COUNT(posts.id) AS post_count
+           FROM users
+           JOIN posts ON users.id = posts.user_id
+           WHERE posts.datetime > date('now', '-7 days')
+           GROUP BY users.id
+           ORDER BY post_count DESC
+           LIMIT 3""")
+    most_posts_user = db.search(users)
+    print(most_posts_user)
+
+    # Retrieve the uname, last post time and total number of posts for all students, order by most recent to least
+    students =("""SELECT users.uname, MAX(posts.datetime) as last_post_time, COUNT(posts.id) as total_posts,users.id
+                    FROM users
+                    JOIN posts ON users.id = posts.user_id
+                    GROUP BY users.id
+                    ORDER BY last_post_time ASC""")
+    student_stats = db.search(students)
+
+
+    # Retrieve the club(s) with the most posts for the current week
+    clubs = ("""SELECT posts.club, COUNT(posts.id) AS post_count
+           FROM posts
+           WHERE posts.datetime > date('now', '-7 days')
+           GROUP BY posts.club
+           ORDER BY post_count DESC
+           LIMIT 3""")
+    most_posts_clubs = db.search(clubs)
+
+    # Close the database connection
+    db.close()
+
+    # Render the template with the retrieved data
+    return render_template('statistics.html', most_posts_user=most_posts_user, student_stats=student_stats, most_posts_clubs=most_posts_clubs)
+
+```
 
 ## Success criteria 7:The website should allow users to visit each others profile.     
+```.py
+@app.route('/students_profile/<int:user_id>', methods=['GET'])
+def students_profile(user_id):
+    db = database_worker("social_net.db")
 
+    # Query the user's data
+    user_query = f"""SELECT uname, email, description, clubs FROM users WHERE id = {user_id}"""
+    user_data = db.get(user_query)
+
+    # Query the user's posts
+    posts_query = f"""SELECT posts.id, posts.title, posts.content, posts.club, posts.likes, posts.comments, posts.datetime, users.uname, posts.picture 
+                      FROM posts 
+                      INNER JOIN users ON posts.user_id=users.id
+                      WHERE user_id = {user_id}
+                      ORDER BY posts.id DESC"""
+    posts = db.search(posts_query)
+
+    # Query the comments for each post
+    comments_dict = {}
+    for post in posts:
+        post_id = post[0]
+        comments_query = f"""SELECT comments.content, users.uname 
+                             FROM comments 
+                             INNER JOIN users ON comments.user_id=users.id 
+                             WHERE comments.post_id={post_id}"""
+        comments = db.search(comments_query)
+        comments_dict[post_id] = comments
+
+    db.close()
+
+    return render_template("students_profile.html", user_data=user_data, posts=posts, comments_dict=comments_dict)
+```
 
 
 # Criteria D: Functionality
