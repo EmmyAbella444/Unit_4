@@ -245,7 +245,7 @@ Fig 12.[^9] Shows the flodiagram for the savein pdf function.
 
 # Criteria C: Development
 
-# Database scheme
+### Database scheme
 To store and organize the data for the website I made a function called create_database():
 ```.py
 # Create databases
@@ -431,7 +431,9 @@ def check_password(user_password, hashed):
 ```
 
 ### My library
-I used computational thinking abstraction to define high-level functions like encrypt_password, check_password and the class database_worker in a different file called My_library, because in this way I do not need to keep repeating thoses functions in the main code, I can use it by calling it and the details of thoses functions are hidden away from the rest of the code making it easier to understand and make changes to those functions if needed in the future. 
+I used computational thinking abstraction to define high-level functions like encrypt_password, check_password and the class database_worker in a different file called My_library, because in this way I do not need to keep repeating thoses functions in the main code, I can use it by calling it name and the details of thoses functions are also hidden away from the rest of the code making it easier to understand and make changes to those functions if needed in the future. 
+
+![Screen Shot 2023-05-09 at 5 38 30](https://github.com/EmmyAbella444/Unit_4/assets/111819437/0982585d-0801-4d86-a13a-6d93c5377e8e)
 
 
 ## Log in
@@ -493,9 +495,85 @@ The login() function first checks if the request.method is'POST' to know if the 
 
 If the user exists in the database, their id, email, and hashed password are obtained from the database. The check_password function is used to compare the given password with the hashed password in the database. If the passwords match, a response with a redirect to the home page is created using make_response(redirect('home')). Then a cookie with the user's id is also set using resp.set_cookie('user_id', f"{id}"), to make it able for the users to have separate profiles in the website. If the password does not match the hashed password in the database the function refresh the page returning the login page using render_template('login.html').
 
+# Success criteria 2:The website should allow users to post their activities and ensure that all posts are properly documented.
+
+```.py
+# main page
+@app.route('/home', methods=['GET', 'POST'])
+def home():
+    # Check if user is logged in by checking if user_id cookie exists
+    if request.cookies.get('user_id'):
+        # Get the user_id from the cookie
+        user_id = request.cookies.get('user_id')
+        # Connect to the database
+        db = database_worker("social_net.db")
+
+        # If the form has been submitted
+        if request.method == 'POST':
+            # Get the values from the submitted form
+            title = request.form['post-title']
+            content = request.form['post-content']
+            date_str = request.form['date']
+            date_obj = datetime.datetime.strptime(date_str, '%Y-%m-%d')
+            date = date_obj.strftime('%Y-%m-%d')
+            clubs = request.form.getlist('clubs[]')
+            clubs_str = ', '.join(clubs)
+            f = request.files['file']
+            filename = secure_filename(f.filename)
+            f.save(os.path.join("static/images/", filename))
+
+            # Insert new post into database
+            new_post = f"""INSERT into posts(title, content, user_id, datetime,club, picture) values 
+                        ('{title}','{content}',{user_id},'{date}','{clubs_str}','{filename}')"""
+            db.run_save(new_post)
+
+            # Update the count of posts for all users
+            update_post_count = """UPDATE users SET posts = IFNULL((SELECT COUNT(*) FROM posts WHERE user_id = users.id), 0)"""
+            db.run_save(update_post_count)
+
+            # Redirect to the main page
+            return redirect(url_for("home"))
+
+        # Query the database to get the posts
+        posts_query = """SELECT posts.id, posts.title, posts.content, posts.club, posts.likes, posts.comments, posts.datetime, users.uname, posts.club, posts.picture 
+                         FROM posts 
+                         INNER JOIN users ON posts.user_id=users.id
+                         ORDER BY posts.id DESC"""
+        posts = db.search(posts_query)
+
+        # Query the database to get the comments for each post
+        comments_dict = {}
+        for post in posts:
+            post_id = post[0]
+            comments_query = f"""SELECT comments.content, users.uname 
+                                 FROM comments 
+                                 INNER JOIN users ON comments.user_id=users.id 
+                                 WHERE comments.post_id={post_id}"""
+            comments = db.search(comments_query)
+            comments_dict[post_id] = comments
+
+        # Pass the posts and comments dictionary to the HTML template
+        return render_template("home.html", posts=posts, user_id=user_id, comments_dict=comments_dict)
+
+    # If user is not logged in, redirect to the login page
+    else:
+        return redirect(url_for("login"))
+
+
+```
+# Success criteria 3:The website should allow users to download the portfolio in pdf format.
+
+# Success criteria 4:The website should allow users to download the portfolio in pdf format.
+
+# Success criteria 5:The website should provide reminders for users to post about their activities. 
+
+# Success criteria 6:The website should allow users to like and comment on other users posts.    
+
+# Success criteria 7:
 
 # Criteria D: Functionality
 ## A video demonstrating the proposed solution with narration
+
 
 # Criteria E: Evaluation
 
