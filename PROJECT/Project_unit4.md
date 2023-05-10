@@ -626,7 +626,7 @@ comments_dict = {}
 After retrivieng all data from posts and comments the function passes the data to the HTML template using the render_template() function. In this way the user is able to visualize all posts and add new entries.
 
 ## Success criteria 3:The website should allow users to download the portfolio in pdf format.
-To achieve this success criteria, I first made a research and defined the best library for it. I chose to work with F[^10]:PDF library since it is written entirely in Python, so it does not require any external dependencies and is able to add text and images to the pdf file.
+To achieve this success criteria, I first made a research and defined the best library for it. I chose to work with [^10]FPDF library since it is written entirely in Python, so it does not require any external dependencies and is able to add text and images to the pdf file.
 
 ```.py
 @app.route('/save_pdf', methods=['POST', 'GET'])
