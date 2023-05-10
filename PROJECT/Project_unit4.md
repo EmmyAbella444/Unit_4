@@ -897,8 +897,18 @@ def students_profile(user_id):
 
 # Criteria E: Evaluation
 
+## Client
+| Criteria                                                                                                       | Met or Not? | Feedback               |
+|----------------------------------------------------------------------------------------------------------------|-------------|------------------------|
+| 1. The website should have a user registration and login system with encryption of the password.               | Met         | No additional feedback |
+| 2. The website should allow users to post their activities and ensure that all posts are properly documented.  | Met         | No additional feedback |
+| 3. The website should allow users to download the portfolio in pdf format.                                     | Met         | No additional feedback |
+| 4. The website should provide reminders for users to post about their activities.                              | Met         | No additional feedback |
+| 5. The website should allow users to like and comment on other users posts.                                    | Met         | No additional feedback |
+| 6. The website should have a page with statistics of every student showing the last time that students posted. | Met         | No additional feedback |
+| 7. The website should allow users to visit each others profile.                                                | Met         | No additional feedback |
 
-
+## Other user
 
 ### Citations
 [^1]:  https://www.canva.com/
