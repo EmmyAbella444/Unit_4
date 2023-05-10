@@ -432,6 +432,7 @@ def check_password(user_password, hashed):
 ### My library
 I used computational thinking abstraction to define high-level functions like encrypt_password, check_password and the class database_worker in a different file called My_library, because in this way I do not need to keep repeating thoses functions in the main code, I can use it by calling it name and the details of thoses functions are also hidden away from the rest of the code making it easier to understand and make changes to those functions if needed in the future. 
 ![Screen Shot 2023-05-10 at 17 14 49](https://github.com/EmmyAbella444/Unit_4/assets/111819437/c7f46c41-154a-40fd-b7b1-2db21372e1ad)
+fig.13 Shows how I imported the functions from the My_library
 
 
 
@@ -1056,6 +1057,22 @@ Then, for each post, the function queries the database to retrieve all comments 
 | 5. The website should allow users to like and comment on other users posts.                                    | Met         | Add a feature to delete comments                                        |
 | 6. The website should have a page with statistics of every student showing the last time that students posted. | Met         | No additional feedback                                                  |
 | 7. The website should allow users to visit each others profile.                                                | Met         | Add also the link to visit students profile in their names on the posts |
+
+## Suggestion for furture development
+
+# Appendix
+## Appendix 1: Client interview - Purpose and requirement 
+![Screen Shot 2023-05-10 at 18 48 11](https://github.com/EmmyAbella444/Unit_4/assets/111819437/fe5bcd51-134b-407d-a815-64a3c53a0fdb)
+Fig14. Shows my notes from the first meeting with the client.
+
+## Appendix 2: Feedback 
+
+
+## Video script
+
+
+
+
 
 ### Citations
 [^1]:  https://www.canva.com/
