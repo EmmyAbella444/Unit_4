@@ -113,20 +113,18 @@ The "users" table has columns for the user's id(primary key) , email, password ,
 
 ## Flow Diagrans
 
-![flow diagram 2 (6)](https://github.com/EmmyAbella444/Unit_4/assets/111819437/61386875-8c4b-4709-9cd8-2cb895cc131d)
+![add_comment](https://github.com/EmmyAbella444/Unit_4/assets/111819437/eff45064-5334-44d5-87db-e368b09be0b0)
 Fig 10.[^9] Show the flodiagram for the add comments function.
 
 This function first checks if the user is logged in by checking if their user ID exists in the request cookies. If the user is logged in, it retrieves the user ID and the comment content from the request form. Then, it connects to the database and inserts the comment into the comments table using an SQL query. It also updates the post's comment count in the posts table using another SQL query and closes the database. Finally, it redirects the user to the home page. If the user is not logged in, it redirects them to the login page.
 
-
-![flow diagram 2 (8)](https://github.com/EmmyAbella444/Unit_4/assets/111819437/6367049a-4655-4dca-8552-29600c2d6b59)
+![home ](https://github.com/EmmyAbella444/Unit_4/assets/111819437/2828cf89-2b33-43cc-8abb-00812834b149)
 Fig 11.[^9] Show the flodiagram for home page function.
 
 This function is responsible for rendering the home page, fist it checks if the user is logged in, and if so, it initiates the database to  retrieve posts and comments for each post and passes them to the HTML template.If there is a "POST" request it checkes if all data is valid and save this new post in the database,  If the user is not logged in, it redirects them to the login page.
 
-
-![flow diagram 2 (7)](https://github.com/EmmyAbella444/Unit_4/assets/111819437/6074f400-0b7b-418f-bc0a-28179bc8cb16)
-Fig 12.[^9] Shows the flodiagram for the savein pdf function.
+![save_pdf](https://github.com/EmmyAbella444/Unit_4/assets/111819437/5221dc1e-6c39-4d8c-8d13-86b85974b726)
+Fig 12.[^9] Shows the flodiagram for the save_pdf function.
 
 This function creates a PDF file of all posts made by the user whose ID is stored in a cookie. It connects to the database, retrieves the user's posts, and with a for loop adds them to the PDF document and set the font size. The PDF document is saved and then sent to the user as a download using a Flask response object.
 
