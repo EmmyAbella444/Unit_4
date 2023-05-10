@@ -986,8 +986,10 @@ To make the users able to visit each other profile I added a link in the statist
  The profile page is generated using the following code:
  
 ```.py
+# Route for displaying a specific student's profile
 @app.route('/students_profile/<int:user_id>', methods=['GET'])
 def students_profile(user_id):
+    # Connect to the database
     db = database_worker("social_net.db")
 
     # Query the user's data
@@ -1002,7 +1004,7 @@ def students_profile(user_id):
                       ORDER BY posts.id DESC"""
     posts = db.search(posts_query)
 
-    # Query the comments for each post
+    # Query the comments for each post and store them in a dictionary
     comments_dict = {}
     for post in posts:
         post_id = post[0]
@@ -1013,10 +1015,18 @@ def students_profile(user_id):
         comments = db.search(comments_query)
         comments_dict[post_id] = comments
 
+    # Close the database connection
     db.close()
 
+    # Render the student's profile template with the retrieved data
     return render_template("students_profile.html", user_data=user_data, posts=posts, comments_dict=comments_dict)
+
 ```
+In this code first I created a flask route to displays a specific student's profile, defining the method "GET". Then when a GET request is made to the URL '/students_profile/int:user_id', where 'user_id' is an integer representing the id of the student whose profile is to be displayed, this function is called.
+
+THe fuction students_profile first establishes a connection to the database using the database_worker function. Then, it queries the database to retrieve the data of the specified student using their 'user_id'. Next, the function queries the database to retrieve all posts made by the specified student, these posts are stored in the variable 'posts'. The posts are ordered in descending order by post id, so the most recent posts will be displayed first.
+
+Then, for each post, the function queries the database to retrieve all comments made on the post, and once all the necessary data has been retrieved and stored, the function closes the database connection. Finally, the function renders the 'students_profile.html' template and passes the retrieved data to the template as arguments. In this way the the students and teacher can visit eachothers profiles.
 
 
 # Criteria D: Functionality
