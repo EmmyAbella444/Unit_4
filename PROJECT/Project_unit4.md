@@ -113,21 +113,22 @@ The "users" table has columns for the user's id(primary key) , email, password ,
 
 ## Flow Diagrans
 
-![flow diagram 2 (3)](https://user-images.githubusercontent.com/111819437/236940378-0d0856d0-5273-4278-a133-89bfd7c14630.png)
+![flow diagram 2 (6)](https://github.com/EmmyAbella444/Unit_4/assets/111819437/61386875-8c4b-4709-9cd8-2cb895cc131d)
 Fig 10.[^9] Show the flodiagram for the add comments function.
 
 This function first checks if the user is logged in by checking if their user ID exists in the request cookies. If the user is logged in, it retrieves the user ID and the comment content from the request form. Then, it connects to the database and inserts the comment into the comments table using an SQL query. It also updates the post's comment count in the posts table using another SQL query and closes the database. Finally, it redirects the user to the home page. If the user is not logged in, it redirects them to the login page.
 
 
-![flow diagram 2 (4)](https://user-images.githubusercontent.com/111819437/236961811-3c942edd-6b85-48e3-8c38-479bcaa87f58.png)
+![flow diagram 2 (8)](https://github.com/EmmyAbella444/Unit_4/assets/111819437/6367049a-4655-4dca-8552-29600c2d6b59)
 Fig 11.[^9] Show the flodiagram for home page function.
 
 This function is responsible for rendering the home page, fist it checks if the user is logged in, and if so, it initiates the database to  retrieve posts and comments for each post and passes them to the HTML template.If there is a "POST" request it checkes if all data is valid and save this new post in the database,  If the user is not logged in, it redirects them to the login page.
 
 
-![flow diagram 2 (5)](https://user-images.githubusercontent.com/111819437/236969126-ef7c5508-7604-4a4f-8ff6-ebf9cc196699.png)
+![flow diagram 2 (7)](https://github.com/EmmyAbella444/Unit_4/assets/111819437/6074f400-0b7b-418f-bc0a-28179bc8cb16)
 Fig 12.[^9] Shows the flodiagram for the savein pdf function.
 
+This function creates a PDF file of all posts made by the user whose ID is stored in a cookie. It connects to the database, retrieves the user's posts, and with a for loop adds them to the PDF document and set the font size. The PDF document is saved and then sent to the user as a download using a Flask response object.
 
 ## Record of Tasks
 | Task No 	| Planned Action          	| Planned Outcome                           	| Time estimate 	| Target completion date 	| Criterion 	|
@@ -700,7 +701,7 @@ After all posts are added to the PDF document, it defines the output file path f
 ## Success criteria 4:The website should provide reminders for users to post about their activities. 
 ```.py
 # Personal Profile
-@app.route('/profile/<user_id>', methods=['GET', 'POST'])
+@app.route('/profile/<user_id>')
 def profile_user(user_id: int):
     # Check if there is a user ID stored in a cookie, if so use it as the user ID
     if request.cookies.get('user_id'):
