@@ -297,12 +297,87 @@ def create_database():
     db.close()
     create_database()
 ```
-This function is used to create the tables in the database. To define how many tables and the contentes for each I would use for the website I applied pattern recognition to identify common data elements and group them together in appropriate tables. For example, I recognized that user information such as email, password, username,clubs and description should be stored in a single table called "users. In this way I deviced to create 4 tables like it is showed in the ER diagram.
+This function is used to create the tables in the database. To define how many tables I would use for the website I applied pattern recognition to identify common data elements and group them together in appropriate tables. For example, I recognized that user information such as email, password, username,clubs and description should be stored in a single table called "users. In this way I decided to create 4 tables, like it was showed in the ER diagram.
 
-The function create_database first iniates the connection with the database using the function database_worker, then it defines four SQL queries, each of which creates a table in the database using the CREATE TABLE statement, only if a table with the same name does not exist. After defining each element on the data the function calls each query in turn using the run_save() method of the database_worker. After running all queries, it closes the database connection. In this way all 4 tables are properly created.
+The function create_database first iniates the connection with the database using the function database_worker, then it defines four SQL queries, each of which creates a table in the database using the CREATE TABLE statement and with an if statements it makes sure to create the table only if a table with the same name does not exist. After defining each element on the data the function calls each query in and save them using the run_save() method of the database_worker. After running all queries, it closes the database connection. In this way all 4 tables are properly created.
+
+To make it easir to work with the database I made a function on my_library that
 
 ### Success criteria 1: The website should have a user registration and login system with encryption of the password.                                
+To achieve the first success criteria I made two functions one to register and another one to log in in the website.
+```.py
+# Password validation regex: at least 8 characters, 1 number, and 1 special character
+password_regex = r"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+# Email validation regex
+email_regex = r"[^@]+@[^@]+\.[^@]+"
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    message = ""  # initializes an empty string for error messages
+    if request.method == "POST":  # checks if form was submitted via POST request
+        uname = request.form['name']  # retrieves name from form
+        email = request.form['email']  # retrieves email from form
+        passwd = request.form['password']  # retrieves password from form
+        passwd_check = request.form['check_password']  # retrieves password confirmation from form
+        bio = request.form['description']  # retrieves description from form
+        clubs = request.form.getlist('clubs[]')  # retrieves list of clubs from form
+        clubs_str = ', '.join(clubs)  # joins list of clubs into a single string separated by commas
 
+        # Password validation
+        if not re.match(password_regex, passwd):  # checks if password matches the defined regex
+            message = "⚠️Password must be at least 8 characters long and contain at least one number and one special character."
+            return render_template("register.html", message=message)  # displays error message on registration page
+            
+       # Email validation
+        if not re.match(email_regex, email):  # checks if email matches the defined regex
+            message = "⚠️Please enter a valid email address."
+            return render_template("register.html", message=message)  # displays error message on registration page
+            
+        # Check if passwords match
+        if passwd != passwd_check:  # checks if password and confirmation match
+            message = "⚠️Passwords do not match."
+            return render_template("register.html", message=message)  # displays error message on registration page
+
+        db = database_worker('social_net.db')  # connects to database
+        existing_user = db.get(f"SELECT * from users where email = '{email}'")  # checks if email already exists in database
+        if existing_user:
+            message = "⚠️User with that email already registered."
+        else:
+            new_user = f"INSERT into users (email,password,uname, description,clubs) values ('{email}','{encrypt_password(passwd)}','{uname}','{bio}','{clubs_str}')"  # creates SQL query to insert new user into database
+            db.run_save(new_user)  # executes SQL query to insert new user into database
+            db.close()  # closes database connection
+            return redirect(url_for('login'))  # redirects user to login page after successful registration
+
+    return render_template("register.html", message=message)  # displays registration page with error messages if any
+```
+To make the register function I first defined a flask route for the registration page and definied the method "post" to get the information posted by the user.The function first check if the request method is POST(is the user submitted the for to register), then it retrieves the user's name, email, password, password confirmation, bio, and selected clubs from the form data that is displayed in the register.html. Then I used a validation method: regular expressions (regex)  to make sure that the uer enter a valid email and secure passowrd
+```.py
+password_regex = r"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+email_regex = r"[^@]+@[^@]+\.[^@]+"
+ if not re.match(password_regex, passwd):
+            message = "⚠️Password must be at least 8 characters long and contain at least one number and one special character."
+            return render_template("register.html", message=message)
+ if not re.match(email_regex, email):  # checks if email matches the defined regex
+            message = "⚠️Please enter a valid email address."
+            return render_template("register.html", message=message)  # displays error message on registration page
+```
+The password_regex is a pattern that defines the requirements for a valid password: it must have at least 8 characters, contain at least one number and one special character. and the email regex  makes sure that the email contains the "@" symbol followed by a domain name and a top-level domain, such as ".com" or ".org". The re.match() method is used to check if the input password/email matches the regex patterns. If the password/email does not match the pattern, the code sets the message variable to indicate the specific password validation/email validation requirement that was not met and renders the "register.html" template with the message displayed to the user.
+
+After this the function checks if the password and password confirmation are the same, for that i used the computational thinking abstraction to 
+define high-level functions like encrypt_password and check_password that I stored on my_library.py in this way the details of password encryption and validation are hidden away from the rest of the code making it easier to understand and make changes to those functions if needed in the future.
+
+If the passwords are the same, the function connect to the database using the database_worker function and then uses a SQL query to check if a user with the provided email already exists, If a user with the provided email exists the function sets the message variable to indicate this to the user. If the email does not exist, the function 
+
+
+
+
+Check if the request method is POST
+Retrieve the email and password from the form data
+Check if the email and password are not empty
+Connect to the database
+Search for a user with the email provided
+If a user is found, retrieve the user's id, email, and hashed password
+Verify that the provided password matches the hashed password
+If the password is correct, create a cookie with the user's id and redirect the user to the home page
 
 
 
