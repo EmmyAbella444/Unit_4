@@ -1062,11 +1062,13 @@ Then, for each post, the function queries the database to retrieve all comments 
 
 # Appendix
 ## Appendix 1: Client interview - Purpose and requirement 
+
 ![Screen Shot 2023-05-10 at 18 48 11](https://github.com/EmmyAbella444/Unit_4/assets/111819437/fe5bcd51-134b-407d-a815-64a3c53a0fdb)
 Fig14. Shows my notes from the first meeting with the client.
 
 ## Appendix 2: Feedback 
-
+![Screen Shot 2023-05-10 at 18 57 56](https://github.com/EmmyAbella444/Unit_4/assets/111819437/ed8462f1-7b2f-4018-afb1-60d9558e9a33)
+Fig15. Shows my notes from meeting to gatherfeedback from the client and user.
 
 ## Video script
 
