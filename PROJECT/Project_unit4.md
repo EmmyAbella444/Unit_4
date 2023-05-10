@@ -330,9 +330,9 @@ class database_worker:
 The __init__ method is the constructor for the class, which takes the name of the database file as an argument and sets up a connection to it.
 The search method takes a query string as an argument, executes it on the database using the cursor object and returns all the resulting rows as a list.The get method also takes a query string as an argument, executes it on the database using the cursor object and returns only the first resulting row as a tuple.The run_save method takes a query string as an argument, executes it on the database using the cursor object and commits the changes to the database. Finally, the close method is used to close the connection to the database. With this method it is easier to execute queries in the code.
 
-# Success criteria 1: The website should have a user registration and login system with encryption of the password.                             
+## Success criteria 1: The website should have a user registration and login system with encryption of the password.                             
 
-## Registration   
+### Registration   
 To achieve the first success criteria I made a funtction to register in the website:
 ```.py
 # Password validation regex: at least 8 characters, 1 number, and 1 special character
@@ -436,7 +436,7 @@ I used computational thinking abstraction to define high-level functions like en
 ![Screen Shot 2023-05-09 at 5 38 30](https://github.com/EmmyAbella444/Unit_4/assets/111819437/0982585d-0801-4d86-a13a-6d93c5377e8e)
 
 
-## Log in
+### Log in
 To Achieve the first success criteria I made also alogin function
 ```.py
 # Login page
