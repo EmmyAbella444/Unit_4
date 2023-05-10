@@ -1029,6 +1029,8 @@ THe fuction students_profile first establishes a connection to the database usin
 
 Then, for each post, the function queries the database to retrieve all comments made on the post, and once all the necessary data has been retrieved and stored, the function closes the database connection. Finally, the function renders the 'students_profile.html' template and passes the retrieved data to the template as arguments. In this way the the students and teacher can visit eachothers profiles.
 
+### Complete codes
+https://github.com/EmmyAbella444/Unit_4/tree/e5e895a2ec4cad9c8b79c9d4e8a6486503d27554/PROJECT/code%20project4
 
 # Criteria D: Functionality
 ## A video demonstrating the proposed solution with narration
