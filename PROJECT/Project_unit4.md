@@ -697,6 +697,7 @@ After all posts are added to the PDF document, it defines the output file path f
 
 
 ## Success criteria 4:The website should provide reminders for users to post about their activities. 
+To achieve this criteria I decided to create a personal page where the user will be able to see all of their posts and a message will be displayed if the user has not posted anything on the last 7 days.
 ```.py
 # Personal Profile
 @app.route('/profile/<user_id>')
@@ -748,6 +749,33 @@ def profile_user(user_id: int):
     # Render the profile.html template with the necessary data
     return render_template("profile.html", user=user_id, posts=posts, comments_dict=comments_dict,user_data=user_data, show_warning=show_warning)
 ```
+I first created a flask route for the profile page and the made a function called profile_user() that first checks if the user is logged in by checking if the 'user_id' cookie exists. If the cookie does not exists then the user is redirected to the log in page. If the cookie exists, the user ID is retrieved from the cookie and a connection to a SQLite database named 'social_net.db' is established using the class database_worker.
+
+Then the function retrieves the user's information from the database(username, email, description, and clubs) and all posts made by the user with the given user ID. The posts are sorted in descending order by ID, so the latest post comes first. In this way users can see when was the last time that they posted. The function then queries the database again to retrieve the comments for each post.
+
+To check when was the last time that the user posted, I first checked if the user had any post:
+```.py
+# Get the datetime of the last post (if there are any posts)
+last_post_date = None
+if len(posts) > 0:
+    last_post_date = datetime.datetime.fromisoformat(posts[0][6])
+```
+First it is initialized the last_post_date variable to None. This is done because if there are no posts for the user, there won't be a last post date to retrieve. Then This line:if len(posts) > 0  checks if there are any posts for the user by checking the length of the posts list. If the length is greater than 0, then there are posts, and the code will proceed to retrieve the date of the last post.
+
+If there are posts the line:last_post_date = datetime.datetime.fromisoformat(posts[0][6]) retrieves the date of the last post made by the user. It does this by accessing the first post in the posts list (which has the most recent date, since the posts are sorted in descending order by ID), and then retrieving the 7th item in the tuple returned by the database query. This 7th item contain the date and time of the post .The retrieved date is in ISO format (e.g. "2022-05-09") and is converted to a datetime object using the fromisoformat() method of the datetime.datetime class. The resulting datetime object is stored in the variable last_post_date. After this the database connection is closed.
+
+The next is step is to check if the last posts is older then 7 days:
+
+```.py
+# Check if the user has not posted in more than 7 days or has not posted at all
+show_warning = False
+if last_post_date is None or (datetime.datetime.now() - last_post_date).days > 7:
+    show_warning = True
+```
+ So first it is initializes the show_warning variable to False. The purpose of this variable is to indicate whether a warning message should be displayed to the user. If the user has not posted in more than 7 days or has not posted at all, the warning message will be displayed.
+Then the function checks if last_post_date is None or use this line:(datetime.datetime.now() - last_post_date).days > 7 to checks whether the user has not posted in more than 7 days or has not posted at all. If last_post_date is None, it means that the user has not posted anything yet. If the difference between the current date and last_post_date is greater than 7 days, it means that the user has not posted in more than 7 days. In either case, the show_warning variable is set to True.
+
+Finally, the function renders the profile.html template with the necessary data, including the user ID, user data, posts, comments, and whether to show the warning message. In this way a message will be displayed if the user forgets to update their portfolios.
 
 ## Success criteria 5: The website should allow users to like and comment on other users posts.
 ```.py
