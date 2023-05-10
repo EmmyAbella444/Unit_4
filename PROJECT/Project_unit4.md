@@ -8,11 +8,11 @@ Fig1.Logo for the website made in Canva[^1]
 
 
 # Table of contents
-Criteria A: Planning
-Criteria B: Design
-Criteria C: Development
-Criteria D: Functionality
-Criteria E: Evaluation
+#### Criteria A: Planning
+#### Criteria B: Design
+#### Criteria C: Development
+#### Criteria D: Functionality
+#### Criteria E: Evaluation
 
 # Criteria A: Planning
 
