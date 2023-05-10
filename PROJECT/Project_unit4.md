@@ -1032,6 +1032,7 @@ Then, for each post, the function queries the database to retrieve all comments 
 
 # Criteria D: Functionality
 ## A video demonstrating the proposed solution with narration
+https://drive.google.com/drive/folders/1NeqvGUMp3b1ExWLkbwxNBse_qW9VqM_f?usp=sharing
 For the video script check appendix 3.
 
 
@@ -1079,9 +1080,11 @@ Fig14. Shows my notes from the first meeting with the client.
 Fig15. Shows my notes from meeting to gather feedback from the client and user.
 
 ## appendix 3: Video Script
-![Screen Shot 2023-05-10 at 19 20 58](https://github.com/EmmyAbella444/Unit_4/assets/111819437/04aab74a-6aec-4ba0-9074-84adf1e1e0de)
+
+![Screen Shot 2023-05-10 at 20 53 09](https://github.com/EmmyAbella444/Unit_4/assets/111819437/097e4fe0-ab86-4644-b6dc-9806ed55072a)
 
 Fig16. Shows my video script 
+
 
 
 ### Citations
