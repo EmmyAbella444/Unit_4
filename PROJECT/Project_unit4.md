@@ -1032,6 +1032,8 @@ Then, for each post, the function queries the database to retrieve all comments 
 
 # Criteria D: Functionality
 ## A video demonstrating the proposed solution with narration
+For the video script check appendix 3.
+
 
 
 # Criteria E: Evaluation
@@ -1076,10 +1078,10 @@ Fig14. Shows my notes from the first meeting with the client.
 
 Fig15. Shows my notes from meeting to gather feedback from the client and user.
 
-## Video script
+## appendix 3: Video Script
+![Screen Shot 2023-05-10 at 19 20 58](https://github.com/EmmyAbella444/Unit_4/assets/111819437/04aab74a-6aec-4ba0-9074-84adf1e1e0de)
 
-
-
+Fig16. Shows my video script 
 
 
 ### Citations
