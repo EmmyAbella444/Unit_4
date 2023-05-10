@@ -31,7 +31,7 @@ The network-style website[^3] was chosen because it can run on browsers that all
  Python[^8] has excellent support for handling data, making it an excellent choice for web applications that require data manipulation. This feature is particularly important in a social network-style platform like CasHub, where data handling is critical.
 
 ### Why Python flask?
-Python Flask[^4]  is a Python web framework that provides tools to create website. Flask was chosen because its simplicity and flexibility make it ideal for building web applications that require frequent updates and modifications, such as a social network like CasHub. Additionally, Flask offers built-in support for SQLite, which is the database management that CasHub will use to store user data on CasHub and also it allows for easy integration with the front-end technologies that will be used: HTML and CSS.
+Python Flask[^4]  is a Python web framework that provides tools to create website. Flask was chosen because its simplicity and flexibility make it ideal for building web applications that require frequent updates and modifications, such as a social network like CasHub. Additionally, Flask offers built-in support for SQLite, which is the database management that CasHub will use to store user data, and also allows for easy integration with the front-end technologies that will be used: HTML and CSS.
 
 ### Why HTML and CSS?
 HTML and CSS[^5] were chosen because HTML is used for structuring the content of web pages, while CSS is used for styling the content, making it visually appealing and easy to navigate creating a user-friendly and intuitive interface that is essential for the success of any social network.
