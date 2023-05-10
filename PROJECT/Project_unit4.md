@@ -1045,7 +1045,7 @@ Then, for each post, the function queries the database to retrieve all comments 
 | 4. The website should provide reminders for users to post about their activities.                              | Met         | No additional feedback |
 | 5. The website should allow users to like and comment on other users posts.                                    | Met         | No additional feedback |
 | 6. The website should have a page with statistics of every student showing the last time that students posted. | Met         | No additional feedback |
-| 7. The website should allow users to visit each others profile.                                                | Met         | No additional feedback |
+| 7. The website should allow users to visit each others profile.                                                | Met         | Differentiate students from teacher profiles |
 
 ## Other user
 | Criteria                                                                                                       | Met or Not? | Feedback                                                                |
@@ -1054,11 +1054,16 @@ Then, for each post, the function queries the database to retrieve all comments 
 | 2. The website should allow users to post their activities and ensure that all posts are properly documented.  | Met         | No additional feedback                                                  |
 | 3. The website should allow users to download the portfolio in pdf format.                                     | Met         | No additional feedback                                                  |
 | 4. The website should provide reminders for users to post about their activities.                              | Met         | No additional feedback                                                  |
-| 5. The website should allow users to like and comment on other users posts.                                    | Met         | Add a feature to delete comments                                        |
+| 5. The website should allow users to like and comment on other users posts.                                    | Met         | No additional feedback                                                  |
 | 6. The website should have a page with statistics of every student showing the last time that students posted. | Met         | No additional feedback                                                  |
 | 7. The website should allow users to visit each others profile.                                                | Met         | Add also the link to visit students profile in their names on the posts |
 
 ## Suggestion for furture development
+
+For future development the first suggestion is to differentiate students and teachers profile, right now teachers and students have the same profile style. To differentiate between students and teacher profiles, it can be added a new attribute in the users table of the database to indicate whether the user is a student or a teacher. And based on that the profile page can be modified if the user is a teacher or student.
+
+The second suggestion is to also add the link to the a specific user profile in the usernames on posts, right now the links are only available in the statistics page, to add this, it can be used the same structure in the html file from the statistics to add a link to the students username in the home.html file that will redirect the user to the function students_profile to generate that user profile.
+
 
 # Appendix
 ## Appendix 1: Client interview - Purpose and requirement 
@@ -1069,7 +1074,7 @@ Fig14. Shows my notes from the first meeting with the client.
 ## Appendix 2: Feedback 
 ![Screen Shot 2023-05-10 at 18 57 56](https://github.com/EmmyAbella444/Unit_4/assets/111819437/ed8462f1-7b2f-4018-afb1-60d9558e9a33)
 
-Fig15. Shows my notes from meeting to gatherfeedback from the client and user.
+Fig15. Shows my notes from meeting to gather feedback from the client and user.
 
 ## Video script
 
