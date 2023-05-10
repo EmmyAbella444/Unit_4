@@ -245,7 +245,7 @@ Fig 12.[^9] Shows the flodiagram for the savein pdf function.
 
 # Criteria C: Development
 
-## Database scheme
+# Database scheme
 To store and organize the data for the website I made a function called create_database():
 ```.py
 # Create databases
@@ -299,7 +299,7 @@ def create_database():
 ```
  To define how many tables I would use for the website I applied pattern recognition to identify common data elements and group them together in appropriate tables. For example, I recognized that user information such as email, password, username,clubs and description should be stored in a single table called "users. In this way I decided to create 4 tables, like it was showed in the ER diagram.
 
-The function create_database first iniates the connection with the database using the function database_worker, then it defines four SQL queries, each of which creates a table in the database using the CREATE TABLE statement and with an if statements it makes sure to create the table only if a table with the same name does not exist. After defining each element on the data the function calls each query in and save them using the run_save() method of the database_worker. After running all queries, it closes the database connection. In this way all 4 tables are properly created.
+The function create_database first iniates the connection with the database using the class database_worker, then it defines four SQL queries, each of which creates a table in the database using the CREATE TABLE statement and with an if statement it makes sure to create the table only if a table with the same name does not exist. After defining each element on the data the function calls each query in and save them using the run_save() method of the database_worker. After running all queries, it closes the database connection. In this way all 4 tables are properly created.
 
 To make it easir to work with the database I made a class on my_library called database_worker that provides methods for interacting with a SQLite database.
 ```.py
@@ -330,8 +330,10 @@ class database_worker:
 The __init__ method is the constructor for the class, which takes the name of the database file as an argument and sets up a connection to it.
 The search method takes a query string as an argument, executes it on the database using the cursor object and returns all the resulting rows as a list.The get method also takes a query string as an argument, executes it on the database using the cursor object and returns only the first resulting row as a tuple.The run_save method takes a query string as an argument, executes it on the database using the cursor object and commits the changes to the database. Finally, the close method is used to close the connection to the database. With this method it is easier to execute queries in the code.
 
-## Success criteria 1: The website should have a user registration and login system with encryption of the password.                             ### Registration   
-To achieve the first success criteria I made two functions one to register and another one to log in in the website.
+# Success criteria 1: The website should have a user registration and login system with encryption of the password.                             
+
+## Registration   
+To achieve the first success criteria I made a funtction to register in the website:
 ```.py
 # Password validation regex: at least 8 characters, 1 number, and 1 special character
 password_regex = r"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
@@ -387,25 +389,109 @@ email_regex = r"[^@]+@[^@]+\.[^@]+"
             message = "⚠️Please enter a valid email address."
             return render_template("register.html", message=message)  # displays error message on registration page
 ```
-The password_regex is a pattern that defines the requirements for a valid password: it must have at least 8 characters, contain at least one number and one special character. and the email regex  makes sure that the email contains the "@" symbol followed by a domain name and a top-level domain, such as ".com" or ".org". The re.match() method is used to check if the input password/email matches the regex patterns. If the password/email does not match the pattern, the code sets the message variable to indicate the specific password validation/email validation requirement that was not met and renders the "register.html" template with the message displayed to the user.
+The password_regex is a pattern that defines the requirements for a valid password: it must have at least 8 characters, contain at least one number and one special character. and the email_regex  makes sure that the email contains the "@" symbol followed by a domain name and a top-level domain, such as ".com" or ".org". The re.match() method from the library "re" is used to check if the input password/email matches the regex patterns. If the password/email does not match the pattern, the code sets the message variable to indicate the specific password validation/email validation requirement that was not met and renders the "register.html" template with the message displayed to the user.
 
-After this the function checks if the password and password confirmation are the same, for that i used the computational thinking abstraction to 
-define high-level functions like encrypt_password and check_password that I stored on my_library.py in this way the details of password encryption and validation are hidden away from the rest of the code making it easier to understand and make changes to those functions if needed in the future.
+After this the function checks if the password and password confirmation are the same, for that I used the check_password function that I stored on my_library.py. If the passwords are the same, the function connect to the database using the database_worker class and then uses a SQL query to check if a user with the provided email already exists, If a user with the provided email exists the function sets the message variable to indicate this to the user. If the email does not exist, the function Inserts the user's name, email, password, bio and clubs in the database, however the password is first hashed to ensure securiy and it is used the encrypt_password from my_library to do so.
 
-If the passwords are the same, the function connect to the database using the database_worker class and then uses a SQL query to check if a user with the provided email already exists, If a user with the provided email exists the function sets the message variable to indicate this to the user. If the email does not exist, the function Inserts the user's name, email, password, bio and clubs in the database, however the password is first hashed to ensure securiy nd it is used the encrypt_password from my_library to do so.
-### Log in
+Encrypt_password and check_password functions:
+```.py
+from passlib.context import CryptContext
 
-```.
+# Create a password hashing configuration using the pbkdf2_sha256 algorithm
+pwd_config = CryptContext(
+    schemes=["pbkdf2_sha256"],
+    default="pbkdf2_sha256",
+    pbkdf2_sha256__default_rounds=30000
+)
+
+def encrypt_password(user_password):
+    """Encrypt the user's password using the hashing configuration.
+
+    Args:
+        user_password (str): The plain text password provided by the user.
+
+    Returns:
+        str: The hashed password.
+
+    """
+    return pwd_config.encrypt(user_password)
+
+def check_password(user_password, hashed):
+    """Verify if the user's provided password matches the hashed password.
+
+    Args:
+        user_password (str): The plain text password provided by the user.
+        hashed (str): The hashed password to compare against.
+
+    Returns:
+        bool: True if the provided password matches the hashed password, False otherwise.
+
+    """
+    return pwd_config.verify(user_password, hashed)
 ```
-Check if the request method is POST
-Retrieve the email and password from the form data
-Check if the email and password are not empty
-Connect to the database
-Search for a user with the email provided
-If a user is found, retrieve the user's id, email, and hashed password
-Verify that the provided password matches the hashed password
-If the password is correct, create a cookie with the user's id and redirect the user to the home page
 
+### My library
+I used computational thinking abstraction to define high-level functions like encrypt_password, check_password and the class database_worker in a different file called My_library, because in this way I do not need to keep repeating thoses functions in the main code, I can use it by calling it and the details of thoses functions are hidden away from the rest of the code making it easier to understand and make changes to those functions if needed in the future. 
+
+
+## Log in
+To Achieve the first success criteria I made also alogin function
+```.py
+# Login page
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    # Debugging statement to show that function has been called
+    print("here")
+    
+    # Check if the form has been submitted using POST method
+    if request.method == 'POST':
+        # Get email and password from the submitted form
+        email = request.form['email']
+        passwd = request.form['password']
+        
+        # Check if email and password are not empty
+        if len(email) > 0 and len(passwd) > 0:
+            # Connect to the database
+            db = database_worker('social_net.db')
+            
+            # Search for the user with the given email in the database
+            user = db.search(f"SELECT id,email,password from users where email='{email}'")
+            
+            # If the user exists
+            if user:
+                # Get the user's id, email, and hashed password from the database
+                user = user[0]  # search returns a list, so here I select one
+                id, email, hash = user
+                
+                # Check if the given password matches the hashed password in the database
+                if check_password(hashed=hash, user_password=passwd):
+                    # Create a response with a redirect to the home page
+                    resp = make_response(redirect('home'))
+                    
+                    # Set a cookie with the user's id
+                    resp.set_cookie('user_id', f"{id}")
+                    
+                    # Debugging statement to show that the password is correct
+                    print("password is correct")
+                    
+                    # Return the response
+                    return resp
+                
+                # If the given password does not match the hashed password in the database
+                else:
+                    # Debugging statement to show that the password is incorrect
+                    print("incorrect password")
+    
+    # If the request method is not POST or if the email and password are empty
+    # Render the login template
+    return render_template('login.html')
+
+```
+To make the login function I first defined a flask route for the login page and definied the method "post" to get the information posted by the user, and the method "GET" to handle a request to retrieve the login page. 
+
+The login() function first checks if the request.method is'POST' to know if the user submmited a form. If the method is POST then the email and password entered in the form are obtained using request.form['email'] and request.form['password']. Then the fuction check if the email and password are not empty with "if len(email) > 0 and len(passwd) > 0". If they are not empty, the function connects to the database using the database_worker class and searches for the user with the given email in the database using a SQL query.
+
+If the user exists in the database, their id, email, and hashed password are obtained from the database. The check_password function is used to compare the given password with the hashed password in the database. If the passwords match, a response with a redirect to the home page is created using make_response(redirect('home')). Then a cookie with the user's id is also set using resp.set_cookie('user_id', f"{id}"), to make it able for the users to have separate profiles in the website. If the password does not match the hashed password in the database the function refresh the page returning the login page using render_template('login.html').
 
 
 # Criteria D: Functionality
