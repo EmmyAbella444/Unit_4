@@ -391,7 +391,7 @@ email_regex = r"[^@]+@[^@]+\.[^@]+"
 ```
 The password_regex is a pattern that defines the requirements for a valid password: it must have at least 8 characters, contain at least one number and one special character. and the email_regex  makes sure that the email contains the "@" symbol followed by a domain name and a top-level domain, such as ".com" or ".org". The re.match() method from the library "re" is used to check if the input password/email matches the regex patterns. If the password/email does not match the pattern, the code sets the message variable to indicate the specific password validation/email validation requirement that was not met and renders the "register.html" template with the message displayed to the user.
 
-After this the function checks if the password and password confirmation are the same, for that I used the check_password function that I stored on my_library.py. If the passwords are the same, the function connect to the database using the database_worker class and then uses a SQL query to check if a user with the provided email already exists, If a user with the provided email exists the function sets the message variable to indicate this to the user. If the email does not exist, the function Inserts the user's name, email, password, bio and clubs in the database, however the password is first hashed to ensure securiy and it is used the encrypt_password from my_library to do so.
+After this the function checks if the password and password confirmation are the same, for that I used the check_password function that I stored on my_library.py. If the passwords are the same, the function connect to the database using the database_worker class and then uses a SQL query to check if a user with the provided email already exists, If a user with the provided email exists the function sets the message variable to indicate this to the user. If the email does not exist, the function Inserts the user's name, email, password, bio and clubs in the database,in this way maiking the user able to register in the website, however the password is first hashed to ensure securiy and it is used the encrypt_password from my_library to do so.
 
 Encrypt_password and check_password functions:
 ```.py
@@ -581,10 +581,36 @@ To add the picture for the new post into the database I first requested it using
             filename = secure_filename(f.filename)
             f.save(os.path.join("static/images/", filename))
 ```
+To make sure that the user fill all the required forms to submit a new post I added the feature "required" in the HTML form, and in this way the user is not able to submit posts withou filling all section.
+
+```.html
+<form name="post" action="/home" method="POST" enctype = "multipart/form-data">
+		<label class="label" for="post-title">Title</label>
+        <input type="text" id="post-title" name="post-title" required placeholder="Enter post title...">
+        <label class="label" for="post-content">Content</label>
+        <textarea id="post-content" name="post-content" rows="8" required placeholder="Enter the description and your reflection..."></textarea>
+		<label for="date">Date:</label><br>
+		<input type="date" id="date" name="date" required title="Please select a date"><br>
+        <label for="clubs">Club:</label><br>
+        <select id="clubs" name="clubs[]" multiple required size="1" title="Please select one club">
+            <optgroup label="Core clubs">
+              <option value="Rainbow Alliance">Rainbow Alliance</option>
+              <option value="Peace Forum">Peace Forum</option>
+              <option value="ICE">ICE</option>
+            </optgroup>
+            <optgroup label="Student-led clubs">
+              <option value="Politics club">Politics club</option>
+              <option value="Entrepreneurship">Entrepreneurship</option>
+            </optgroup>
+          </select>
+        <label for="photo">Upload your picture:</label><br>
+        <input type="file" name="file" accept="image/*" required title="Please select one image" >
+		<input type="submit" value="Submit">
+	</form>
+```
 After retrivieng all elements, the new post is inserted into the database using an SQLquery with the details provided in the form. The function then updates the count of posts for all users in the database and redirects the user to the main page.
 
-If the request method is "GET", the function queries the database to get all posts and comments associated with each post, and passes them to the HTML template using the render_template() function.
-
+If the request method is "GET", the function queries the database to get all posts and comments associated with each post.
 To get the comments I decided to use a dictionary, when the function retrievs comments from the database, a dictionary is created with the post id as the key and a list of comments as the value. This is because it allows for easy access to the comments for each post when rendering the HTML template. The dictionary also allows for efficient updating and accessing of comments when a new comment is added to a post. 
 ```.py
 comments_dict = {}
@@ -597,8 +623,73 @@ comments_dict = {}
             comments = db.search(comments_query)
             comments_dict[post_id] = comments
 ```
+After retrivieng all data from posts and comments the function passes the data to the HTML template using the render_template() function. In this way the user is able to visualize all posts and add new entries.
 
 ## Success criteria 3:The website should allow users to download the portfolio in pdf format.
+To achieve this success criteria, I first made a research and defined the best library for it. I chose to work with F[^10]:PDF library since it is written entirely in Python, so it does not require any external dependencies and is able to add text and images to the pdf file.
+
+```.py
+@app.route('/save_pdf', methods=['POST', 'GET'])
+def save_pdf():
+    if request.cookies.get('user_id'):
+        # print message to indicate that the cookie has been found
+        print("The cookie was found")
+
+        # get the user ID from the cookie
+        user_id = request.cookies.get('user_id')
+
+        # connect to the database
+        db = database_worker('social_net.db')
+
+        # search for all posts made by the user with the given user ID
+        posts = db.search(f"SELECT title,content,datetime,club,picture from posts where user_id = {user_id}")
+
+        # create a new PDF object
+        pdf = FPDF()
+
+        # add a new page to the PDF document
+        pdf.add_page()
+
+        # loop through each post and add it to the PDF document
+        for p in posts:
+            # set the font and add the post title to the PDF
+            pdf.set_font("Arial", size=14)
+            pdf.cell(0, 10, txt=p[0], ln=1)  # Title
+
+            # set the font and add the post club to the PDF
+            pdf.set_font("Arial", size=12)
+            pdf.cell(0, 10, txt=p[3], ln=1)  # club
+
+            # set the font and add the post datetime to the PDF
+            pdf.set_font("Arial", size=12)
+            pdf.cell(0, 10, txt=p[2], ln=1)  # Datetime
+
+            # get the image path and add the image to the PDF
+            image_path = os.path.join("static/images", p[4])
+            pdf.image(image_path, x=10, y=pdf.get_y(), w=0, h=50)
+            pdf.ln(50)
+
+            # set the font and add the post content to the PDF
+            pdf.multi_cell(0, 10, txt=p[1])  # Content
+            pdf.ln()
+            pdf.ln()
+
+        # define the output file path for the PDF
+        pdf_file_path = "posts.pdf"
+
+        # save the PDF document to the output file path
+        pdf.output(pdf_file_path)
+
+        # create a Flask response object to send the PDF file as a download
+        response = make_response(send_file(pdf_file_path, as_attachment=True))
+
+        # set the content disposition header to force the file to download
+        response.headers['Content-Disposition'] = f'attachment; filename=posts.pdf'
+
+        # return the Flask response object
+        return response
+
+```
 
 ## Success criteria 4:The website should allow users to download the portfolio in pdf format.
 
@@ -628,3 +719,4 @@ comments_dict = {}
 [^7]:https://haveagreatdata.com/posts/why-you-dont-want-to-use-csv-files/
 [^8]:https://djangostars.com/blog/python-web-development/
 [^9]:https://www.lucidchart.com/
+[^10]:https://pyfpdf.readthedocs.io/en/latest/
