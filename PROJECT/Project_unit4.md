@@ -1,7 +1,7 @@
 
 
 # Unit 4: The CasHub - Create, Interact and Showcase Your Clubs and Activities!
-![CasHub (2)](https://user-images.githubusercontent.com/111819437/230899973-d353750e-ac64-4d2c-80a1-a1263a509b46.png)
+![logo](https://github.com/EmmyAbella444/Unit_4/assets/111819437/a404b4a9-90c7-4483-9b6d-46435dc13288)
 
 
 Fig1.Logo for the website made in Canva[^1]
@@ -19,7 +19,7 @@ Fig1.Logo for the website made in Canva[^1]
 In the international baccalaureate program, students must create a CAS portfolio to show their participation in extracurricular activities. Unfortunately, the students from a local school are having difficulty with their portfolios. Many of them lack proper documentation and forget to update their portfolios every week, because the current portfolio makes it hard for teachers to keep track of their progress since they have to open multiple links to check each student, since the users are not logged in the same website, which is time-consuming for teachers. The CAS portfolio is also used to assess a student's development of skills like collaboration and communication. However, the current portfolio does not facilitate this since it does not allow students to view each other's profiles, collaborate or interact with them. Additionally, the current portfolio does not have the option to download the activities in pdf format, which is an IB requirement, making it difficult for students to demonstrate their involvement which can result in them potentially receiving a lower grade and this can negatively impact their IB score and future university applications.
 
 ## Proposed Solution
-To address this problem, I first ran interviews(check appendix 1) with the client and based on that I decided to create a website, called CasHub. It will work like a social network because it allows students to post their activities and interact with each other. With the client's approval(check appendix 1), I decided to use Python Flask, CSS, and HTML because it allows the creation of a dynamic and interactive website, which is essential for a social network-style platform. In CasHub students and teachers will be able to create profiles and log in, make posts about their activities, check a statistics page to track students' progress, visit each other's profiles, interact with other student's and teacher's posts, and have a personal profile page with options to delete posts, download activities as PDFs and have a message displayed if the user forgets to post regularly. All this information will be stored in SQLite databases because they are supported by Python Flask.
+To address this problem, I first ran interviews(check appendix 1) with the client and based on that I decided to create a website, called CasHub. It will work like a social network because it allows students to post their activities and interact with each other. With the client's approval(check appendix), I decided to use Python Flask, CSS, and HTML because it allows the creation of a dynamic and interactive website, which is essential for a social network-style platform. In CasHub students and teachers will be able to create profiles and log in, make posts about their activities, check a statistics page to track students' progress, visit each other's profiles, interact with other student's and teacher's posts, and have a personal profile page with options to delete posts, download activities as PDFs and have a message displayed if the user forgets to post regularly. All this information will be stored in SQLite databases because they are supported by Python Flask.
 
 ## Rationale
 The choice of Python Flask, HTML, CSS, and SQLite for building CasHub is based on their suitability for creating a dynamic and interactive social network-style website that meets the needs of the school's students and teachers.
@@ -31,7 +31,7 @@ The network-style website[^3] was chosen because it can run on browsers that all
  Python[^8] has excellent support for handling data, making it an excellent choice for web applications that require data manipulation. This feature is particularly important in a social network-style platform like CasHub, where data handling is critical.
 
 ### Why Python flask?
-Python Flask[^4]  is a Python web framework that provides tools to create website. Flask was chosen because its simplicity and flexibility make it ideal for building web applications that require frequent updates and modifications, such as a social network like CasHub. Additionally, Flask offers built-in support for SQLite, which is the database management that CasHub will use to store user data, and also allows for easy integration with the front-end technologies that will be used: HTML and CSS.
+Python Flask[^4]  is a Python web framework that provides tools to create website. Flask was chosen because its simplicity and flexibility make it ideal for building web applications that require frequent updates and modifications, such as a social network like CasHub. Additionally, Flask offers built-in support for SQLite, which is the database management that CasHub will use to store user data on CasHub and also it allows for easy integration with the front-end technologies that will be used: HTML and CSS.
 
 ### Why HTML and CSS?
 HTML and CSS[^5] were chosen because HTML is used for structuring the content of web pages, while CSS is used for styling the content, making it visually appealing and easy to navigate creating a user-friendly and intuitive interface that is essential for the success of any social network.
@@ -101,11 +101,13 @@ Fig. 7 Shows the "Likes" table
 The "likes" table has columns for the like's id(Primary key), the post_id of the post that the like belongs to, and the user_id of the user who created the like. Both the post_id and user_id columns are foreign keys that reference the id columns of the "posts" and "users" tables, respectively. 
 
 ![Screen Shot 2023-05-09 at 5 39 05](https://user-images.githubusercontent.com/111819437/236929887-c838ce2b-48fd-4187-8191-a898d5992be7.png)
+
 Fig.8 Shows the "posts" table
 
 The "posts" table has columns for the post's id(primary key), title, content, the club that the post belongs to, the datetime the post was created, the user_id of the user who created the post, the number of likes the post has, the number of comments the post has and the picture attached to the post. The user_id column in this table is a foreign key that references the id column of the "users" table.
 
 ![Screen Shot 2023-05-09 at 5 40 08](https://user-images.githubusercontent.com/111819437/236930128-2ad0a0f5-a38c-42b6-9278-30bf8f16fa01.png)
+
 fig.9 Shows the database for the "users" table
 
 The "users" table has columns for the user's id(primary key) , email, password , username, description, clubs , and the number of posts made by the user. The "posts" table has columns for the post's id (primary key), title , content , the club that the post belongs to, the datetime, the user_id of the user who created the post, the number of likes , the number of comments and the picture attached to the post. The user_id column in this table is a foreign key that references the id column of the "users" table.
@@ -114,16 +116,19 @@ The "users" table has columns for the user's id(primary key) , email, password ,
 ## Flow Diagrans
 
 ![add_comment](https://github.com/EmmyAbella444/Unit_4/assets/111819437/eff45064-5334-44d5-87db-e368b09be0b0)
+
 Fig 10.[^9] Show the flodiagram for the add comments function.
 
 This function first checks if the user is logged in by checking if their user ID exists in the request cookies. If the user is logged in, it retrieves the user ID and the comment content from the request form. Then, it connects to the database and inserts the comment into the comments table using an SQL query. It also updates the post's comment count in the posts table using another SQL query and closes the database. Finally, it redirects the user to the home page. If the user is not logged in, it redirects them to the login page.
 
 ![home ](https://github.com/EmmyAbella444/Unit_4/assets/111819437/2828cf89-2b33-43cc-8abb-00812834b149)
+
 Fig 11.[^9] Show the flodiagram for home page function.
 
 This function is responsible for rendering the home page, fist it checks if the user is logged in, and if so, it initiates the database to  retrieve posts and comments for each post and passes them to the HTML template.If there is a "POST" request it checkes if all data is valid and save this new post in the database,  If the user is not logged in, it redirects them to the login page.
 
 ![save_pdf](https://github.com/EmmyAbella444/Unit_4/assets/111819437/5221dc1e-6c39-4d8c-8d13-86b85974b726)
+
 Fig 12.[^9] Shows the flodiagram for the save_pdf function.
 
 This function creates a PDF file of all posts made by the user whose ID is stored in a cookie. It connects to the database, retrieves the user's posts, and with a for loop adds them to the PDF document and set the font size. The PDF document is saved and then sent to the user as a download using a Flask response object.
@@ -300,7 +305,7 @@ def create_database():
 
 The function create_database first iniates the connection with the database using the class database_worker, then it defines four SQL queries, each of which creates a table in the database using the CREATE TABLE statement and with an if statement it makes sure to create the table only if a table with the same name does not exist. After defining each element on the data the function calls each query in and save them using the run_save() method of the database_worker. After running all queries, it closes the database connection. In this way all 4 tables are properly created.
 
-To make it easir to work with the database I made a class on my_library called database_worker that provides methods for interacting with a SQLite database.
+To make it easier to work with the database I made a class on my_library called database_worker that provides methods for interacting with a SQLite database.
 ```.py
 class database_worker:
     def __init__(self, name):
@@ -377,7 +382,7 @@ def register():
 
     return render_template("register.html", message=message)  # displays registration page with error messages if any
 ```
-To make the register function I first defined a flask route for the registration page and definied the method "post" to get the information posted by the user.The function first check if the request method is POST(if the user submitted the form to register), then it retrieves the user's name, email, password, password confirmation, bio, and selected clubs from the form data that is displayed in the register.html. Then I used a validation method: regular expressions (regex)  to make sure that the uer enter a valid email and secure passowrd
+To make the register function I first defined a flask route for the registration page and definied the method "post" to get the information posted by the user.The function first check if the request method is POST(if the user submitted the form to register), then it retrieves the user's name, email, password, password confirmation, bio, and selected clubs from the form data that is displayed in the register.html. Then I used a validation method: regular expressions (regex)  to make sure that the user enter a valid email and secure passowrd
 ```.py
 password_regex = r"^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
 email_regex = r"[^@]+@[^@]+\.[^@]+"
@@ -390,7 +395,7 @@ email_regex = r"[^@]+@[^@]+\.[^@]+"
 ```
 The password_regex is a pattern that defines the requirements for a valid password: it must have at least 8 characters, contain at least one number and one special character. and the email_regex  makes sure that the email contains the "@" symbol followed by a domain name and a top-level domain, such as ".com" or ".org". The re.match() method from the library "re" is used to check if the input password/email matches the regex patterns. If the password/email does not match the pattern, the code sets the message variable to indicate the specific password validation/email validation requirement that was not met and renders the "register.html" template with the message displayed to the user.
 
-After this the function checks if the password and password confirmation are the same, for that I used the check_password function that I stored on my_library.py. If the passwords are the same, the function connect to the database using the database_worker class and then uses a SQL query to check if a user with the provided email already exists, If a user with the provided email exists the function sets the message variable to indicate this to the user. If the email does not exist, the function Inserts the user's name, email, password, bio and clubs in the database,in this way maiking the user able to register in the website, however the password is first hashed to ensure securiy and it is used the encrypt_password from my_library to do so.
+After this the function checks if the password and password confirmation are the same, for that I used the check_password function that I stored on my_library.py. If the passwords are the same, the function connect to the database using the database_worker class and then uses a SQL query to check if a user with the provided email already exists, If a user with the provided email exists the function sets the message variable to indicate this to the user. If the email does not exist, the function Inserts the user's name, email, password, bio and clubs in the database,in this way making the user able to register in the website, however the password is first hashed to ensure securiy and it is used the encrypt_password from my_library to do so.
 
 Encrypt_password and check_password functions:
 ```.py
@@ -432,13 +437,14 @@ def check_password(user_password, hashed):
 ### My library
 I used computational thinking abstraction to define high-level functions like encrypt_password, check_password and the class database_worker in a different file called My_library, because in this way I do not need to keep repeating thoses functions in the main code, I can use it by calling it name and the details of thoses functions are also hidden away from the rest of the code making it easier to understand and make changes to those functions if needed in the future. 
 ![Screen Shot 2023-05-10 at 17 14 49](https://github.com/EmmyAbella444/Unit_4/assets/111819437/c7f46c41-154a-40fd-b7b1-2db21372e1ad)
+
 fig.13 Shows how I imported the functions from the My_library
 
 
 
 
 ### Log in
-To Achieve the first success criteria I made also alogin function
+To Achieve the first success criteria I also made a log in function.
 ```.py
 # Login page
 @app.route('/login', methods=['GET', 'POST'])
@@ -495,6 +501,8 @@ To make the login function I first defined a flask route for the login page and 
 The login() function first checks if the request.method is'POST' to know if the user submmited a form. If the method is POST then the email and password entered in the form are obtained using request.form['email'] and request.form['password']. Then the fuction check if the email and password are not empty with "if len(email) > 0 and len(passwd) > 0". If they are not empty, the function connects to the database using the database_worker class and searches for the user with the given email in the database using a SQL query.
 
 If the user exists in the database, their id, email, and hashed password are obtained from the database. The check_password function is used to compare the given password with the hashed password in the database. If the passwords match, a response with a redirect to the home page is created using make_response(redirect('home')). Then a cookie with the user's id is also set using resp.set_cookie('user_id', f"{id}"), to make it able for the users to have separate profiles in the website. If the password does not match the hashed password in the database the function refresh the page returning the login page using render_template('login.html').
+
+With those 2 functions the user is able to register and login safely in the website.
 
 ## Success criteria 2:The website should allow users to post their activities and ensure that all posts are properly documented.
 To achieve this criteria I made a home page which contains an option to add new posts and display all posts made by the users.
@@ -563,25 +571,25 @@ def home():
 ```
 Firstly I defined a Flask route for the '/home' URL, which can accept GET and POST requests.
 
-Then  since it was a lot of taks to perform in only one function I used algorithm design to break down the problem into smaller, more manageable steps, and design a process to handle each step. So first the function "home",  check if the user is logged in by checking if the 'user_id' cookie exists. If the cookie does not exists then the user is redirected to the log in page. If the cookie exists, the user ID is retrieved from the cookie and a connection to a SQLite database named 'social_net.db' is established using the class database_worker.
+Then  since it was a lot of taks to perform in only one function I used algorithm design to break down the problem into smaller, more manageable steps, and design a process to handle each step. So first the function "home",  check if the user is logged in by checking if the 'user_id' cookie exists. If the cookie does not exists then the user is redirected to the log in page. If the cookie exists, the user ID is retrieved from the cookie and a connection to the SQLite database is established using the class database_worker.
 
 Then the function checks if the request method is POST, which means that the user has submitted a form on the /home page to add a new post. The form data is then retrieved using request.form to get the title,datetime,club,content for the new post.
 
-To add the datetime in the database, the first code that i did, the date was not being passed in the correct format, so I implemented the datetime library to convert the date string to a datetime object and then back to a formatted string to ensure that the date is in the correct format and is validated.
+To add the datetime in the database, the first code that i did, the date was not being passed in the correct format, so I implemented the datetime library to convert the date string to a datetime object and then back to a formatted string to ensure that the date is in the correct format and is validated:
 
 ```.py
             date_str = request.form['date']
             date_obj = datetime.datetime.strptime(date_str, '%Y-%m-%d')
             date = date_obj.strftime('%Y-%m-%d')
 ```
-To add the picture for the new post into the database I first requested it using the request object's 'files' attribute, which returns a dictionary-like object containing the uploaded files. Then I used the 'secure_filename' method from the Werkzeug library to sanitize the filename and remove any potential security vulnerabilities, such as directory traversal attacks. Finally, the 'save' method is called on the retrieved file object to save the file to the desired location on the server. This helps ensure that uploaded files are stored safely and securely.
+To add the picture for the new post into the database I first requested it using the request object's 'files' attribute, which returns a dictionary-like object containing the uploaded files. Then I used the 'secure_filename' method from the Werkzeug library to sanitize the filename and remove any potential security vulnerabilities, such as directory traversal attacks. Then I used the os.path.join() function from the library "os" to create a full path for saving the file. Finally, the 'save' method is called on the retrieved file object to save the file to the desired location on the server. This helps ensure that uploaded files are stored safely and securely:
 
 ```.py
             f = request.files['file']
             filename = secure_filename(f.filename)
             f.save(os.path.join("static/images/", filename))
 ```
-To make sure that the user fill all the required forms to submit a new post I added the feature "required" in the HTML form, and in this way the user is not able to submit posts withou filling all section.
+To make sure that the user fill all the required forms to submit a new post, making all activities properly documented, I added the feature "required" in the HTML form, and in this way the user is not able to submit posts without filling all section.
 
 ```.html
 <form name="post" action="/home" method="POST" enctype = "multipart/form-data">
@@ -611,7 +619,8 @@ To make sure that the user fill all the required forms to submit a new post I ad
 After retrivieng all elements, the new post is inserted into the database using an SQLquery with the details provided in the form. The function then updates the count of posts for all users in the database and redirects the user to the main page.
 
 If the request method is "GET", the function queries the database to get all posts and comments associated with each post.
-To get the comments I decided to use a dictionary, when the function retrievs comments from the database, a dictionary is created with the post id as the key and a list of comments as the value. This is because it allows for easy access to the comments for each post when rendering the HTML template. The dictionary also allows for efficient updating and accessing of comments when a new comment is added to a post. 
+
+To get the comments I decided to use a dictionary, when the function retrievs comments from the database, a dictionary is created with the post id as the key and a list of comments as the value. This is because it allows for easy access to the comments for each post when rendering the HTML template. The dictionary also allows for efficient updating and accessing of comments when a new comment is added to a post:
 ```.py
 comments_dict = {}
         for post in posts:
@@ -623,7 +632,7 @@ comments_dict = {}
             comments = db.search(comments_query)
             comments_dict[post_id] = comments
 ```
-After retrivieng all data from posts and comments the function passes the data to the HTML template using the render_template() function. In this way the user is able to visualize all posts and add new entries.
+After retrivieng all data from posts and comments the function passes the data to the HTML template using the render_template() function. In this way the user is able to visualize all posts and add new entries, and the validations make sure that the activities are properly documented.
 
 ## Success criteria 3:The website should allow users to download the portfolio in pdf format.
 To achieve this success criteria, I first made a research and defined the best library for it. I chose to work with [^10]FPDF library since it is written entirely in Python, so it does not require any external dependencies and is able to add text and images to the pdf file.
@@ -692,13 +701,15 @@ def save_pdf():
 ```
 I first defined a Flask route called "save_pdf" that generates a PDF file containing all the posts made by a logged-in user. 
 Then I made a function called save_pdf() that first checks if the user is logged in by checking the user_id cookie. Then, it connects to the database and use an SQL query to retrieve the title,content,datetime,club,pictures for all posts made by the user with the given user ID. 
-Then it uses the FPDF library to create a new PDF object and add a new page to the PDF document. The I used a For loop for each post to set the font and adds the post title, club, datetime, image, and content to the PDF. The image is retrieved from the static/images directory using the filename stored in the database. The ln() method is used to add a new line after each element is added to the PDF.
+Then it uses the FPDF library to create a new PDF object and add a new page to the PDF document. 
 
-After all posts are added to the PDF document, it defines the output file path for the PDF and saves the PDF document to that path. It then creates a Flask response object to send the PDF file as a download. It sets the content disposition header to force the file to download with a specified filename. Finally, it returns the Flask response object to the user's browser.
+Then I used a For loop for each post to set the font and adds the post title, club, datetime, image, and content to the PDF. The image is retrieved from the static/images directory using the filename stored in the database. The ln() method is used to add a new line after each element is added to the PDF.
+
+After all posts are added to the PDF document, it defines the output file path for the PDF and saves the PDF document to that path. It then creates a Flask response object to send the PDF file as a download. It sets the content disposition header to force the file to download with a specified filename. Finally, it returns the Flask response object to the user's browser. In this way the users are able to download all their activities in pdf format.
 
 
 ## Success criteria 4:The website should provide reminders for users to post about their activities. 
-To achieve this criteria I decided to create a personal page where the user will be able to see all of their posts and a message will be displayed if the user has not posted anything on the last 7 days.
+To achieve this criteria I decided to create a personal page where the user will be able to see all of their posts and a message will be displayed if the user has not posted anything on the last 7 days:
 ```.py
 # Personal Profile
 @app.route('/profile/<user_id>')
@@ -750,7 +761,7 @@ def profile_user(user_id: int):
     # Render the profile.html template with the necessary data
     return render_template("profile.html", user=user_id, posts=posts, comments_dict=comments_dict,user_data=user_data, show_warning=show_warning)
 ```
-I first created a flask route for the profile page and the made a function called profile_user() that first checks if the user is logged in by checking if the 'user_id' cookie exists. If the cookie does not exists then the user is redirected to the log in page. If the cookie exists, the user ID is retrieved from the cookie and a connection to the database is established using the class database_worker.
+I first created a flask route for the profile page and then made a function called profile_user() that first checks if the user is logged in by checking if the 'user_id' cookie exists. If the cookie does not exists then the user is redirected to the log in page. If the cookie exists, the user ID is retrieved from the cookie and a connection to the database is established using the class database_worker.
 
 Then the function retrieves the user's information from the database(username, email, description, and clubs) and all posts made by the user with the given user ID. The posts are sorted in descending order by ID, so the latest post comes first. In this way users can see when was the last time that they posted. The function then queries the database again to retrieve the comments for each post.
 
@@ -763,7 +774,7 @@ if len(posts) > 0:
 ```
 First it is initialized the last_post_date variable to None. This is done because if there are no posts for the user, there won't be a last post date to retrieve. Then This line:if len(posts) > 0  checks if there are any posts for the user by checking the length of the posts list. If the length is greater than 0, then there are posts, and the code will proceed to retrieve the date of the last post.
 
-If there are posts the line:last_post_date = datetime.datetime.fromisoformat(posts[0][6]) retrieves the date of the last post made by the user. It does this by accessing the first post in the posts list (which has the most recent date, since the posts are sorted in descending order by ID), and then retrieving the 7th item in the tuple returned by the database query. This 7th item contain the date and time of the post .The retrieved date is in ISO format (e.g. "2022-05-09") and is converted to a datetime object using the fromisoformat() method of the datetime.datetime class. The resulting datetime object is stored in the variable last_post_date. After this the database connection is closed.
+If there are posts the line:last_post_date = datetime.datetime.fromisoformat(posts[0][6]) retrieves the date of the last post made by the user. It does this by accessing the first post in the posts list (which has the most recent date, since the posts are sorted in descending order by ID), and then retrieving the 7th item in the tuple returned by the database query. This 7th item contain the date of the post .The retrieved date is in ISO format (e.g. "2022-05-09") and is converted to a datetime object using the fromisoformat() method of the datetime.datetime class. The resulting datetime object is stored in the variable last_post_date. After this the database connection is closed.
 
 The next is step is to check if the last posts is older then 7 days:
 
@@ -774,9 +785,11 @@ if last_post_date is None or (datetime.datetime.now() - last_post_date).days > 7
     show_warning = True
 ```
  So first it is initializes the show_warning variable to False. The purpose of this variable is to indicate whether a warning message should be displayed to the user. If the user has not posted in more than 7 days or has not posted at all, the warning message will be displayed.
-Then the function checks if last_post_date is None or use this line:(datetime.datetime.now() - last_post_date).days > 7 to checks whether the user has not posted in more than 7 days or has not posted at all. If last_post_date is None, it means that the user has not posted anything yet. If the difference between the current date and last_post_date is greater than 7 days, it means that the user has not posted in more than 7 days. In either case, the show_warning variable is set to True.
+For this the function checks if last_post_date is None or use this line:(datetime.datetime.now() - last_post_date).days > 7 to checks whether the user has not posted in more than 7 days. If last_post_date is None, it means that the user has not posted anything yet. If the difference between the current date and last_post_date is greater than 7 days, it means that the user has not posted in more than 7 days. In either case, the show_warning variable is set to True.
 
-Finally, the function renders the profile.html template with the necessary data, including the user ID, user data, posts, comments, and whether to show the warning message. In this way a message will be displayed if the user forgets to update their portfolios.
+Finally, the function renders the profile.html template with the necessary data, including the user ID, user data, posts, comments, and whether to show the warning message. 
+
+In this way a message will be displayed if the user forgets to update their portfolios.
 
 ## Success criteria 5: The website should allow users to like and comment on other users posts.
 To achieve this criteria I made two functions: one to like and one to comment posts.
@@ -824,11 +837,11 @@ To make the users able to like a post, first I made a Flask route for liking pos
 
 Then the function checks if the user is logged in by checking if the 'user_id' cookie exists. If the cookie does not exists then the user is redirected to the log in page. If the cookie exists, the user ID is retrieved from the cookie and a connection to the databaseis established using the class database_worker. I made sure to get the user ID from the user that liked the post because the first time that I coded this function, it was not working for multiples user, since one user could remove the like from anoter use, and with the user id I can check if that user has already liked that post.
 
-Next, the function retrieves the post with the specified 'post_id' from the database by executing a SQL query using the 'database_worker' object. After this I added a feature to make sure that one user can only like a post one time, first it checks if the user has already liked the post by executing another SQL query to search for a 'like' record in the 'likes' table that matches the current user ID and post ID. If a like record exists, the function deletes it, effectively removing the like. If a like record does not exist, the function adds a new 'like' record to the 'likes' table, indicating that the user has liked the post.
+Next, the function retrieves the post with the specified 'post_id' from the database by executing a SQL query using the 'database_worker' object. After this I added a feature to make sure that one user can only like a post one time, first it checks if the user retrived has already liked the post by executing another SQL query to search for a 'like' record in the 'likes' table that matches the current user ID and post ID. If a like record exists, the function deletes it, effectively removing the like. If a like record does not exist, the function adds a new 'like' record to the 'likes' table, indicating that the user has liked the post.
 
 After adding or removing the like, the function updates the 'likes' count for the post in the 'posts' table by executing another SQL query. It retrieves the current count of likes for the specified post and updates the 'likes' column in the 'posts' table accordingly. Finally, the function closes the database connection and redirects the user to the home page with the likes count updated.
 
-To make the like button look like a heart, I asked chat gpt[^11] with the following prompt: "make the css code for a heart format button", and I got this code from it, which made the button to like a post be user-friendly and visually appealing:
+To make the like button look like a heart, I asked chat gpt[^11] with the following prompt: "make the css code for a heart format button", and I got this code from it, which made the button be user-friendly and visually appealing:
 ```.css
 .like-button {
   border: none;
@@ -887,14 +900,16 @@ def add_comment(post_id):
     else:
         return redirect(url_for("login"))
 ```
-To make the user ablt to add a comment in a post, first I made a Flask route to add comments on posts. The route is specified as "/post/int:post_id/add_comment", where "int:post_id" is a URL parameter that specifies the ID of the post receiving the comment. Then I made a function called add_comment that handles the POST request for addinf a comment to a post. The "post_id" parameter is passed in from the URL parameter.
+To make the user ablt to add a comment in a post, first I made a Flask route to add comments on posts. The route is specified as "/post/int:post_id/add_comment", where "int:post_id" is a URL parameter that specifies the ID of the post receiving the comment. Then I made a function called add_comment that handles the POST request for adding a comment to a post. The "post_id" parameter is passed in from the URL parameter.
 
 When a user submits a comment on a post, the function first checks if the user is logged in by checking for the 'user_id' cookie in the request. If the user is not logged in, the code redirects them to the login page. If the user is logged in, the code retrieves the user_id from the cookie and the comment from the form data submitted by the user.
 
-Next, the function inserts the comment into the comments table, associating it with the user and the post. This is done by executing an INSERT SQL query. After the comment is inserted into the database, the function updates the comments count for the post by executing an UPDATE SQL query that counts the number of comments for the post and sets the comments field in the posts table to that count. This ensures that the comments count for the post stays up-to-date. After this the code closes the database connection, redirects the user to the home page. In this way the user is able to add a comment in the desired post.
+Next, the function inserts the comment into the comments table, associating it with the user and the post. This is done by executing an INSERT SQL query. After the comment is inserted into the database, the function updates the comments count for the post by executing an UPDATE SQL query that counts the number of comments for the post and sets the comments field in the posts table to that count. This ensures that the comments count for the post stays up-to-date. After this the code closes the database connection, redirects the user to the home page. 
+
+With those 2 functions the user is able to interact with other users posts by liking and commenting on it.
 
 ## Success criteria 6:The website should have a page with statistics of every student showing the last time that students posted. 
-
+To achieve this success criteria I made a statistics page:
 ```.py
 @app.route('/statistics')
 def statistics():
@@ -937,7 +952,7 @@ def statistics():
     return render_template('statistics.html', most_posts_user=most_posts_user, student_stats=student_stats, most_posts_clubs=most_posts_clubs)
 
 ```
-To mak ethe statistics page first I defined a Flask route for the '/statistics' URL, then I made a function called statistics(), that first connect to the database using the database_worker class.
+To make the statistics page, first I defined a Flask route for the '/statistics' URL, then I made a function called statistics(), that first connect to the database using the database_worker class.
 
 After this I made a SQL query to select the 3 users with the highest number of posts for that week;
 ```.py
@@ -950,7 +965,7 @@ users =("""SELECT users.uname, COUNT(posts.id) AS post_count
        LIMIT 3""")
 most_posts_user = db.search(users)
 ```
-The query joins the 'users' and 'posts' tables, filters for posts made in the past seven days, groups the results by user ID, and orders the results by the number of posts in descending order, with a limit of 3 users. The results are stored in the 'most_posts_user' variable. In this way students that have been posting frequently receives a recognition and it can be an encouragement for other students to post more.
+The first line declares a variable users that contains the SQL query as a string. The query is selecting two columns from the users table: uname, which represents the username of the user, and a count of the number of posts made by that user in the last 7 days, which is aliased as post_count.The JOIN statement is used to combine data from two tables, users and posts. It specifies that the id column in the users table should match the user_id column in the posts table.The WHERE statement is used to filter the results and only include posts made in the last 7 days. This is achieved by using the datetime column in the posts table and the date function, which subtracts 7 days from the current date and returns it as a string.The GROUP BY statement is used to group the results by users.id, which is the user's unique identifier, so that the COUNT() function can be applied to each group.The ORDER BY statement is used to sort the results by post_count in descending order, so that the users with the most posts appear first. Finally, the LIMIT statement is used to limit the results to only the top 3 users who have made the most posts in the last 7 days. After this I used the search() function from the database_workes to get the list of those students and add it to the variable In this way students that have been posting frequently receives a recognition and it can be an encouragement for other students to post more.
 
 After this I made a similar SQL query to select the 3 clubs with the highest number of posts for that week:
 ```.py
