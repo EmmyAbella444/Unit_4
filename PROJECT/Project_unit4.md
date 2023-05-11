@@ -1078,7 +1078,7 @@ For the video script check appendix 3.
 | 6. The website should have a page with statistics of every student showing the last time that students posted. | Met         | No additional feedback                                                  |
 | 7. The website should allow users to visit each others profile.                                                | Met         | Add also the link to visit students profile in their names on the posts |
 
-## Suggestion for furture development
+## Suggestion for furture development(check appendix 2)
 
 For future development the first suggestion is to differentiate students and teachers profile, right now teachers and students have the same profile style. To differentiate between students and teacher profiles, it can be added a new attribute in the users table of the database to indicate whether the user is a student or a teacher. And based on that the profile page can be modified if the user is a teacher or student.
 
