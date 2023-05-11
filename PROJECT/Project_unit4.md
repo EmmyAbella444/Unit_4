@@ -1115,4 +1115,5 @@ Fig16. Shows my video script
 [^9]:https://www.lucidchart.com/
 [^10]:https://pyfpdf.readthedocs.io/en/latest/
 [^11]:https://chat.openai.com/
+
 link for html and css designs that i used as inspiration: https://codepen.io/collection/dbrJEp
